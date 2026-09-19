@@ -139,3 +139,19 @@
 .g3.official-object{left:68%;top:38%;width:118px;height:157px;transform:translate(-50%,-50%) scale(.62)}
 .target.official-object{left:50%;top:19%;width:118px;height:118px;transform:translate(-50%,-50%) rotateX(18deg)}
 .pad.official-object{left:50%;bottom:-31px;width:194px;height:194px;transform:translateX(-50%) rotateX(61deg)}
+
+/* v1.2.0 · DIGITAL STADIUM layers */
+.build-version{position:absolute;right:18px;color:#63dfff;font-style:normal;font-size:9px;letter-spacing:.12em}
+.sun{display:none!important}
+.stadium-world{position:absolute;z-index:1;left:50%;top:5%;width:330px;height:170px;transform:translateX(-50%);border-radius:50% 50% 10% 10%;background:radial-gradient(ellipse at 50% 65%,rgba(17,132,255,.48),rgba(4,43,90,.25) 55%,transparent 72%);border-top:2px solid rgba(48,169,255,.38);box-shadow:0 -4px 45px rgba(0,124,255,.28);display:flex;flex-direction:column;align-items:center;justify-content:center;text-shadow:0 0 12px #29a8ff}
+.stadium-world:before,.stadium-world:after{content:"";position:absolute;border:1px solid rgba(62,172,255,.2);border-radius:50%}
+.stadium-world:before{inset:20px 35px}.stadium-world:after{inset:45px 8px}
+.stadium-world b{font-size:22px;font-style:italic}.stadium-world span{font-size:9px;letter-spacing:.15em;color:#bde9ff;margin-top:5px}
+.stadium-lights{position:absolute;z-index:1;left:8%;right:8%;top:2%;height:38px;background:repeating-linear-gradient(90deg,transparent 0 6%,#dff8ff 6.2% 6.45%,transparent 6.7% 12%);filter:drop-shadow(0 0 7px #36aaff);opacity:.9}
+.stands{position:absolute;z-index:1;top:20%;width:31%;height:28%;opacity:.8;background:repeating-linear-gradient(0deg,#061224 0 8px,#0b2c50 9px 11px),repeating-linear-gradient(90deg,transparent 0 8px,rgba(70,173,255,.35) 9px 10px);border-top:2px solid #177ec0;box-shadow:0 0 28px rgba(0,128,255,.18)}
+.left-stands{left:0;clip-path:polygon(0 0,100% 25%,100% 100%,0 100%)}.right-stands{right:0;clip-path:polygon(0 25%,100% 0,100% 100%,0 100%)}
+.arena-banner{position:absolute;z-index:2;top:17%;width:115px;padding:10px 7px;background:linear-gradient(#0b2b51,#061326);border:1px solid #1d73ac;color:#bde9ff;font-size:8px;font-weight:900;line-height:1.5;letter-spacing:.05em;box-shadow:0 0 14px rgba(0,148,255,.25)}
+.banner-left{left:17%}.banner-right{right:17%}
+.runway{position:absolute;z-index:2;left:50%;top:37%;bottom:-5%;width:62%;transform:translateX(-50%);clip-path:polygon(43% 0,57% 0,100% 100%,0 100%);background:linear-gradient(90deg,#1ecbff 0 2px,transparent 2px calc(100% - 2px),#1ecbff calc(100% - 2px)),repeating-linear-gradient(180deg,rgba(255,201,62,.36) 0 3px,transparent 3px 50px),linear-gradient(180deg,rgba(24,60,86,.76),rgba(7,15,24,.88));filter:drop-shadow(0 0 9px rgba(0,190,255,.6));pointer-events:none}
+.runway:after{content:"";position:absolute;left:49.7%;top:4%;bottom:0;width:3px;background:linear-gradient(#ffd85d,rgba(255,203,64,.12));box-shadow:0 0 9px #f6c64b}
+@media(max-width:1000px){.stadium-world{width:250px;height:145px}.arena-banner{display:none}.build-version{right:8px;font-size:7px}}
