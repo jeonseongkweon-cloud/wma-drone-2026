@@ -35,9 +35,15 @@
 /* v1.9.0 · MISSION NAVIGATION SYSTEM */
 .target-nav{position:absolute;z-index:25;display:none;min-width:118px;padding:7px 12px;border:1px solid #23cfff;border-radius:7px;background:rgba(0,13,29,.88);color:#fff;text-align:center;font-size:10px;font-weight:900;letter-spacing:.08em;box-shadow:0 0 16px rgba(0,198,255,.32);pointer-events:none;transform:translate(-50%,-115%)}.target-nav.show{display:block}.target-nav b{display:block;color:#ffd24a;font-size:11px;margin-bottom:2px}.target-nav span{color:#7fe8ff}.nav-arrow{font-size:15px!important;color:#ffd24a!important;line-height:1}
 .flash.show{z-index:40}
+</style><style>
+/* v2.0.0 · OFFICIAL MATCH UX — visual layer only */
+.match-status{position:absolute;left:50%;top:104px;z-index:26;transform:translateX(-50%);display:flex;gap:6px;pointer-events:none}.match-chip{padding:5px 10px;border:1px solid #175a85;border-radius:999px;background:rgba(0,12,27,.84);color:#8ecdf1;font-size:8px;font-weight:900;letter-spacing:.08em}.match-chip.live{border-color:#ffd24a;color:#ffd24a;box-shadow:0 0 12px #ffc40055}.match-chip.practice{border-color:#22d5ff;color:#8cecff}
+.mission-progress{position:absolute;left:50%;bottom:5px;z-index:24;transform:translateX(-50%);width:min(440px,48%);height:5px;border-radius:9px;background:#07192b;border:1px solid #194b6d;overflow:hidden;pointer-events:none}.mission-progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,#19cfff,#ffd24a);box-shadow:0 0 10px #22cfff;transition:width .3s ease}
+.result-breakdown{margin:14px auto 18px;width:min(330px,90%);display:grid;grid-template-columns:1fr auto;gap:7px 16px;text-align:left;font-size:12px;color:#a9c8dc}.result-breakdown b{color:#ffd24a;text-align:right}
+@media(max-width:760px){.match-status,.mission-progress{display:none}}
 </style></head>
 <body><main class="shell">
-<section id="home" class="screen active"><div class="home-build-version">DIGITAL ARENA · v1.9.0</div>
+<section id="home" class="screen active"><div class="home-build-version">DIGITAL ARENA · v2.0.0</div>
   <div class="eyebrow">WORLD MARTIAL ARTS CHAMPIONSHIP 2026</div>
   <h1>WMA <span>JUNIOR DRONE MISSION</span></h1>
   <p class="sub">DIGITAL MARTIAL ARTS CHALLENGE · ELEMENTARY DIVISION</p>
@@ -54,11 +60,11 @@
 <section id="record" class="screen"><button class="back" data-go="home">← HOME</button><h2>MY RECORD</h2><div class="panel"><b>PHASE 1-A</b><p>비행엔진 이식 완료. 공식 참가번호와 서버 기록은 다음 단계에서 연결됩니다.</p></div></section>
 <section id="arena" class="screen arena">
   <button class="back arena-exit" data-go="home">← EXIT</button>
-  <div class="arena-brand"><b>WMA 2026</b><span id="modeLabel">CHAMPIONSHIP ARENA</span><em class="build-version">DIGITAL ARENA · v1.9.0</em></div>
+  <div class="arena-brand"><b>WMA 2026</b><span id="modeLabel">CHAMPIONSHIP ARENA</span><em class="build-version">DIGITAL ARENA · v2.0.0</em></div>
   <div class="hud"><b>ALT <span id="alt">0.0</span>m</b><b>SPD <span id="spd">0.0</span></b><b>SCORE <span id="score">0000</span></b><b>TIME <span id="time">03:00</span></b><b>MISSION <span id="stage">READY</span></b></div>
   <div class="arena-layout"><aside class="mission-board"><div class="panel-title">MISSION CHECKLIST</div><ol id="missionList"><li>TAKE OFF</li><li>CLIMB 5m</li><li>GATE 01</li><li>GATE 02</li><li>ENERGY RING</li><li>GATE 03</li><li>MISSION ZONE</li><li>RETURN HOME</li><li>PRECISION LANDING</li></ol></aside><div id="flightArea" class="sky">
     <div class="master-stadium-bg" aria-hidden="true"></div>
-    <div class="stadium-decor" aria-hidden="true">
+    <div class="match-status" id="matchStatus"><span class="match-chip" id="modeChip">CHAMPIONSHIP</span><span class="match-chip">WMA 2026 OFFICIAL COURSE</span></div><div class="mission-progress"><i id="missionProgress"></i></div><div class="stadium-decor" aria-hidden="true">
       <div class="decor-tower dt-l1">DRONE SPORTS<br>FOR A<br>BETTER WORLD<strong>WMA</strong><small>2026</small></div>
       <div class="decor-tower dt-l2">SKILLS<br>SAFETY<br>FRIENDSHIP<strong>W</strong></div>
       <div class="decor-tower dt-r2">AI × DRONE<br>EDUCATION<br>FUTURE<strong>W</strong></div>
@@ -82,5 +88,5 @@
   <div class="mission"><strong id="mission">MISSION 01 · TAKE OFF</strong><span id="guide">SPACE 이륙 · W/S 전후 · A/D 좌우 · ←/→ 회전 · ↑/↓ 고도 · R 재시작</span></div>
   <div class="control-deck"><div class="control-hint">FLIGHT CONTROL</div><div class="controls"><button data-code="KeyA">A</button><button data-code="KeyW">W</button><button data-code="KeyD">D</button><button data-code="ArrowLeft">↶</button><button data-code="KeyS">S</button><button data-code="ArrowDown">↓</button><button data-code="ArrowRight">↷</button><button data-code="ArrowUp">↑</button><button class="space" data-code="Space">SPACE</button><button data-code="KeyR">RESET</button></div></div>
 </section>
-<div id="result" class="modal"><div><p>WMA JUNIOR DRONE MISSION 2026</p><h2>MISSION COMPLETE</h2><strong id="finalScore">000 / 1000</strong><p id="finalMeta"></p><button id="retry" class="gold">RETRY</button><button data-go="home">RETURN HOME</button></div></div>
+<div id="result" class="modal"><div><p>WMA JUNIOR DRONE MISSION 2026</p><h2>MISSION COMPLETE</h2><strong id="finalScore">000 / 1000</strong><p id="finalMeta"></p><div class="result-breakdown"><span>MISSION SCORE</span><b id="missionScore">000</b><span>LANDING</span><b id="landingScore">000</b><span>TIME BONUS</span><b id="timeBonus">000</b></div><button id="retry" class="gold">RETRY</button><button data-go="home">RETURN HOME</button></div></div>
 </main><script src="assets/js/app.js"></script></body></html>
