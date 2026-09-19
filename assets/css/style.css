@@ -25,3 +25,15 @@
 .control-deck{height:100px;background:#020711;display:flex;align-items:center;justify-content:center;gap:18px;border-top:1px solid #153755}.control-hint{font-size:9px;color:#50718e;letter-spacing:.14em;font-weight:900}.control-deck .controls{height:auto;background:none;padding:0;grid-template-columns:repeat(5,54px);gap:4px}.control-deck .controls button{height:34px;padding:4px;font-size:10px;border-radius:5px}.control-deck .controls .space{grid-column:span 2}.mission{height:62px;border-top:1px solid #244b6b}
 @media(max-width:1000px){.arena-layout{grid-template-columns:135px minmax(0,1fr) 135px}.mini-course{height:220px}#missionList li{font-size:8px;padding-left:22px}.panel-title{font-size:8px}}
 @media(max-width:760px){.arena-layout{display:block;height:calc(100vh - 250px)}.mission-board,.course-board{display:none}.arena-layout .sky{height:100%}.control-hint{display:none}.control-deck{height:100px}.control-deck .controls{grid-template-columns:repeat(5,48px)}}
+
+/* PHASE 1-E · official asset field tuning */
+.sky{background:linear-gradient(#5f99bd 0 42%,#557b3d 43% 100%);perspective:900px}
+.gate.official-object,.ring.official-object,.target.official-object,.pad.official-object{z-index:4}
+.g1.official-object{left:24%;top:57%;width:154px;height:205px;transform:translate(-50%,-50%) scale(.92)}
+.g2.official-object{left:51%;top:42%;width:136px;height:181px;transform:translate(-50%,-50%) scale(.72)}
+.r1.official-object{left:70%;top:27%;width:118px;height:118px;transform:translate(-50%,-50%) scale(.64)}
+.g3.official-object{left:80%;top:18%;width:118px;height:157px;transform:translate(-50%,-50%) scale(.52)}
+.target.official-object{left:83%;top:60%;width:138px;height:138px;transform:translate(-50%,-50%) rotateX(56deg)}
+.pad.official-object{left:50%;bottom:-34px;width:188px;height:188px;transform:translateX(-50%) rotateX(62deg)}
+.drone{z-index:8}.official-object>img{display:block}.target.official-object>img,.pad.official-object>img{border-radius:50%}
+@media(max-width:1000px){.g1.official-object{width:132px;height:176px}.g2.official-object{width:116px;height:155px}.r1.official-object{width:102px;height:102px}.g3.official-object{width:100px;height:133px}.target.official-object{width:116px;height:116px}.pad.official-object{width:160px;height:160px}}
