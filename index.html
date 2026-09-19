@@ -1,6 +1,40 @@
-<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>WMA Junior Drone Mission 2026</title><link rel="stylesheet" href="assets/css/style.css"></head><body><main class="shell">
-<section id="home" class="screen active"><div class="eyebrow">WORLD MARTIAL ARTS CHAMPIONSHIP 2026</div><h1>WMA <span>JUNIOR DRONE MISSION</span></h1><p class="sub">DIGITAL MARTIAL ARTS CHALLENGE · ELEMENTARY DIVISION</p><div class="date">WORLD FINAL · 2026.12.12 SAT</div><div class="actions"><button data-go="practice">PRACTICE<small>자유연습</small></button><button class="gold" data-go="arena">CHAMPIONSHIP<small>경기 체험</small></button><button data-go="record">MY RECORD<small>나의 기록</small></button></div><p class="motto">FOCUS · CONTROL · JUDGMENT · SAFETY · CHALLENGE</p><footer>ONE WORLD · MANY ARENAS · ONE CHAMPIONSHIP</footer></section>
-<section id="practice" class="screen"><button class="back" data-go="home">← HOME</button><h2>PRACTICE ARENA</h2><p>WMA 공식 코스를 자유롭게 연습합니다.</p><button class="gold wide" data-go="arena">START PRACTICE</button></section>
-<section id="record" class="screen"><button class="back" data-go="home">← HOME</button><h2>MY RECORD</h2><div class="panel"><b>PHASE 1</b><p>공식 참가번호와 서버 기록은 다음 단계에서 연결됩니다.</p></div></section>
-<section id="arena" class="screen arena"><button class="back" data-go="home">← EXIT</button><div class="hud"><b>ALT <span id="alt">0.0</span>m</b><b>SCORE <span id="score">0000</span></b><b>TIME <span id="time">03:00</span></b><b>MISSION <span id="stage">READY</span></b></div><div class="sky"><div class="sun"></div><div class="mountains"></div><div class="gate g1">1</div><div class="gate g2">2</div><div class="gate g3">3</div><div class="target">TARGET</div><div class="pad">WMA<br>2026</div><div id="drone" class="drone">✦</div></div><div class="mission"><strong id="mission">MISSION READY</strong><span>SPACE 이륙 · W/S 전후 · A/D 좌우 · ↑/↓ 고도</span></div><div class="controls"><button data-key="a">A</button><button data-key="w">W</button><button data-key="d">D</button><button data-key="ArrowUp">↑</button><button data-key="s">S</button><button data-key="ArrowDown">↓</button><button class="space" data-key=" ">SPACE</button></div></section>
-<div id="result" class="modal"><div><p>WMA JUNIOR DRONE MISSION 2026</p><h2>MISSION COMPLETE</h2><strong id="finalScore">000 / 1000</strong><p id="finalMeta"></p><button class="gold" data-go="home">RETURN HOME</button></div></div></main><script src="assets/js/app.js"></script></body></html>
+<!doctype html>
+<html lang="ko">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>WMA Junior Drone Mission 2026</title><link rel="stylesheet" href="assets/css/style.css"></head>
+<body><main class="shell">
+<section id="home" class="screen active">
+  <div class="eyebrow">WORLD MARTIAL ARTS CHAMPIONSHIP 2026</div>
+  <h1>WMA <span>JUNIOR DRONE MISSION</span></h1>
+  <p class="sub">DIGITAL MARTIAL ARTS CHALLENGE · ELEMENTARY DIVISION</p>
+  <div class="date">WORLD FINAL · 2026.12.12 SAT</div>
+  <div class="actions">
+    <button data-go="practice">PRACTICE<small>자유연습</small></button>
+    <button class="gold" data-go="arena" data-mode="championship">CHAMPIONSHIP<small>경기 체험</small></button>
+    <button data-go="record">MY RECORD<small>나의 기록</small></button>
+  </div>
+  <p class="motto">FOCUS · CONTROL · JUDGMENT · SAFETY · CHALLENGE</p>
+  <footer>ONE WORLD · MANY ARENAS · ONE CHAMPIONSHIP</footer>
+</section>
+<section id="practice" class="screen"><button class="back" data-go="home">← HOME</button><h2>PRACTICE ARENA</h2><p>WMA 공식 코스를 자유롭게 연습합니다. 연습모드에는 비행 보조가 적용됩니다.</p><button class="gold wide" data-go="arena" data-mode="practice">START PRACTICE</button></section>
+<section id="record" class="screen"><button class="back" data-go="home">← HOME</button><h2>MY RECORD</h2><div class="panel"><b>PHASE 1-A</b><p>비행엔진 이식 완료. 공식 참가번호와 서버 기록은 다음 단계에서 연결됩니다.</p></div></section>
+<section id="arena" class="screen arena">
+  <button class="back arena-exit" data-go="home">← EXIT</button>
+  <div class="arena-brand"><b>WMA 2026</b><span id="modeLabel">CHAMPIONSHIP ARENA</span></div>
+  <div class="hud"><b>ALT <span id="alt">0.0</span>m</b><b>SPD <span id="spd">0.0</span></b><b>SCORE <span id="score">0000</span></b><b>TIME <span id="time">03:00</span></b><b>MISSION <span id="stage">READY</span></b></div>
+  <div id="flightArea" class="sky">
+    <div class="sun"></div><div class="mountains"></div><div class="course-line"></div>
+    <div id="gate1" class="gate g1"><span>01</span></div>
+    <div id="gate2" class="gate g2"><span>02</span></div>
+    <div id="ring1" class="ring r1"><span>RING</span></div>
+    <div id="gate3" class="gate g3"><span>03</span></div>
+    <div id="target" class="target"><span>MISSION</span></div>
+    <div id="homePad" class="pad"><b>WMA</b><small>2026</small></div>
+    <div id="groundShadow" class="ground-shadow"></div>
+    <div id="drone" class="drone" aria-label="drone"><i class="arm a1"></i><i class="arm a2"></i><i class="rotor p1"></i><i class="rotor p2"></i><i class="rotor p3"></i><i class="rotor p4"></i><b></b></div>
+    <div id="flash" class="flash"></div><div id="warning" class="warning"></div>
+  </div>
+  <div class="mission"><strong id="mission">MISSION 01 · TAKE OFF</strong><span id="guide">SPACE 이륙 · W/S 전후 · A/D 좌우 · ←/→ 회전 · ↑/↓ 고도 · R 재시작</span></div>
+  <div class="controls"><button data-code="KeyA">A</button><button data-code="KeyW">W</button><button data-code="KeyD">D</button><button data-code="ArrowUp">↑</button><button data-code="KeyS">S</button><button data-code="ArrowDown">↓</button><button class="space" data-code="Space">SPACE</button></div>
+</section>
+<div id="result" class="modal"><div><p>WMA JUNIOR DRONE MISSION 2026</p><h2>MISSION COMPLETE</h2><strong id="finalScore">000 / 1000</strong><p id="finalMeta"></p><button id="retry" class="gold">RETRY</button><button data-go="home">RETURN HOME</button></div></div>
+</main><script src="assets/js/app.js"></script></body></html>
