@@ -94,3 +94,48 @@
 .hud{background:linear-gradient(90deg,#020b17,#041c35,#020b17);box-shadow:0 3px 20px rgba(0,137,255,.18)}
 .mission-board,.course-board{background:linear-gradient(180deg,#031428,#020b16)}
 @media(max-width:760px){.sky:after{font-size:7px;letter-spacing:.8px}.course-ground:after{font-size:18px;letter-spacing:3px}}
+
+/* PHASE 1-G · DIGITAL STADIUM MASTER TARGET */
+.mountain,.mountains,.mountain-layer,.hills,.hill{display:none!important}
+.sky{
+ background:
+  radial-gradient(ellipse at 50% 14%,rgba(10,118,255,.48) 0 8%,rgba(3,45,91,.28) 23%,transparent 42%),
+  linear-gradient(180deg,#020b18 0%,#061a35 36%,#061322 37%,#030a12 100%)!important;
+}
+.sky:before{
+ background:
+  radial-gradient(ellipse at 50% 20%,transparent 0 20%,rgba(0,106,255,.18) 20.5% 21%,transparent 21.5%),
+  linear-gradient(112deg,rgba(0,0,0,.82) 0 15%,transparent 15.2% 84.8%,rgba(0,0,0,.82) 85%),
+  repeating-linear-gradient(90deg,transparent 0 7.5%,rgba(18,130,230,.12) 7.7%,transparent 7.9%);
+ box-shadow:inset 0 0 120px #000, inset 0 45px 60px rgba(0,0,0,.6);
+}
+.sky:after{
+ content:"WORLD MARTIAL ARTS CHAMPIONSHIP 2026     •     WMA JUNIOR DRONE MISSION     •     ONE WORLD · MANY ARENAS · ONE CHAMPIONSHIP";
+ top:35%;height:32px;font-size:9px;letter-spacing:1.6px;
+ background:linear-gradient(90deg,#031125,#07366a,#031125);
+ box-shadow:0 0 16px rgba(0,164,255,.35);
+}
+.course-ground{
+ background:
+  linear-gradient(115deg,rgba(0,0,0,.48) 0 16%,transparent 16.2% 83.8%,rgba(0,0,0,.48) 84%),
+  repeating-linear-gradient(90deg,rgba(47,126,174,.10) 0 1px,transparent 1px 72px),
+  repeating-linear-gradient(0deg,rgba(47,126,174,.10) 0 1px,transparent 1px 54px),
+  linear-gradient(180deg,#122c40 0%,#09131d 100%)!important;
+ border-top:2px solid #1fb8ff;
+ box-shadow:inset 0 18px 45px rgba(0,176,255,.10),0 -10px 35px rgba(0,145,255,.22);
+}
+.course-ground:before{
+ width:72%;clip-path:polygon(43% 0,57% 0,100% 100%,0 100%);
+ background:
+  linear-gradient(90deg,rgba(0,200,255,.95) 0 3px,transparent 3px calc(100% - 3px),rgba(0,200,255,.95) calc(100% - 3px)),
+  linear-gradient(90deg,transparent 48%,rgba(235,184,48,.55) 49.5% 50.5%,transparent 52%),
+  repeating-linear-gradient(180deg,transparent 0 46px,rgba(0,170,255,.16) 47px 49px);
+ filter:drop-shadow(0 0 10px rgba(0,188,255,.65));
+}
+.course-ground:after{content:"";display:none}
+.g1.official-object{left:50%;top:57%;width:160px;height:213px;transform:translate(-50%,-50%) scale(.92)}
+.g2.official-object{left:33%;top:42%;width:126px;height:168px;transform:translate(-50%,-50%) scale(.72)}
+.r1.official-object{left:50%;top:29%;width:112px;height:112px;transform:translate(-50%,-50%) scale(.68)}
+.g3.official-object{left:68%;top:38%;width:118px;height:157px;transform:translate(-50%,-50%) scale(.62)}
+.target.official-object{left:50%;top:19%;width:118px;height:118px;transform:translate(-50%,-50%) rotateX(18deg)}
+.pad.official-object{left:50%;bottom:-31px;width:194px;height:194px;transform:translateX(-50%) rotateX(61deg)}
