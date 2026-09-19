@@ -185,3 +185,14 @@
 .stadium-crowd{background:radial-gradient(circle,#b8eaff 0 1px,transparent 1.6px) 0 0/10px 8px,radial-gradient(circle,#2f8ac9 0 1px,transparent 1.7px) 5px 4px/13px 10px,linear-gradient(180deg,#0d355f,#041326)}
 .stadium-lights:after{content:"";position:absolute;left:5%;right:5%;top:18px;height:150px;background:repeating-linear-gradient(90deg,transparent 0 9%,rgba(77,184,255,.09) 9.3% 9.8%,transparent 10.1% 18%);clip-path:polygon(0 0,100% 0,84% 100%,16% 100%);filter:blur(4px)}
 .track-barrier{bottom:11%;padding:12px 14px;border-bottom:2px solid rgba(236,182,45,.7)}
+
+
+/* v1.5.0 · MASTER STADIUM BACKGROUND */
+.master-stadium-bg{position:absolute;inset:0;z-index:0;background:url("../img/arena/wma-master-stadium-clean.png") center center/cover no-repeat;pointer-events:none}
+/* The approved master stadium now owns the environment. Keep only gameplay objects above it. */
+.stadium-crowd,.vertical-banner,.stadium-world,.stadium-lights,.stands,.arena-banner,.track-barrier,.floor-glow,.runway-side,.runway,.sun,.mountains,.course-line,.course-ground{display:none!important}
+.sky{background:#020b18!important;perspective:900px}
+.sky:before,.sky:after{content:none!important;display:none!important}
+.gate.official-object,.ring.official-object,.target.official-object,.pad.official-object{z-index:4}
+.ground-shadow{z-index:3}.drone{z-index:8}.flash,.warning{z-index:12}
+@media(max-width:760px){.master-stadium-bg{background-position:center center}}
