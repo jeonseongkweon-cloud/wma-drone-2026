@@ -223,3 +223,15 @@
 .official-object.mission-focus>img{filter:drop-shadow(0 7px 7px rgba(0,0,0,.58)) drop-shadow(0 0 9px rgba(0,220,255,.9)) drop-shadow(0 0 15px rgba(245,196,81,.62))}
 .gate.official-object.mission-focus,.ring.official-object.mission-focus,.target.official-object.mission-focus{z-index:6}
 .pad.official-object.mission-focus>img{filter:drop-shadow(0 7px 7px rgba(0,0,0,.5)) drop-shadow(0 0 12px rgba(0,220,255,.9)) drop-shadow(0 0 16px rgba(245,196,81,.58))}
+
+/* v2.2.0 · DRONE HEADING / 180 TURN */
+.drone{transform-origin:50% 50%}
+.drone .nav-light{position:absolute;width:7px;height:7px;border-radius:50%;z-index:12;pointer-events:none}
+.drone .front-left{left:18%;top:10%;background:#65f5ff;box-shadow:0 0 7px #00eaff,0 0 13px #00bfff}
+.drone .front-right{right:18%;top:10%;background:#65f5ff;box-shadow:0 0 7px #00eaff,0 0 13px #00bfff}
+.drone .rear-left{left:18%;bottom:10%;background:#ff8a3d;box-shadow:0 0 7px #ff4d00,0 0 13px #ff9b27}
+.drone .rear-right{right:18%;bottom:10%;background:#ff8a3d;box-shadow:0 0 7px #ff4d00,0 0 13px #ff9b27}
+.drone .heading-arrow{position:absolute;left:50%;top:-16px;transform:translateX(-50%);z-index:13;color:#75f5ff;font-size:12px;text-shadow:0 0 7px #00d9ff;pointer-events:none}
+.drone.turn-ready .heading-arrow{color:#ffd24a;text-shadow:0 0 9px #ffb900}
+.drone.turn-complete .front-left,.drone.turn-complete .front-right{box-shadow:0 0 10px #00efff,0 0 20px #00c8ff}
+.mini-course svg .return-route{fill:none;stroke:#24d9ff;stroke-width:1.5;stroke-dasharray:4 4;opacity:.45}
