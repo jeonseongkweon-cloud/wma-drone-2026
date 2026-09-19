@@ -1,8 +1,20 @@
 <!doctype html>
 <html lang="ko">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>WMA Junior Drone Mission 2026</title><link rel="stylesheet" href="assets/css/style.css"></head>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>WMA Junior Drone Mission 2026</title><link rel="stylesheet" href="assets/css/style.css"><style>
+/* v1.7.0 · STADIUM DECOR LAYER — master stadium and gameplay coordinates locked */
+.stadium-decor{position:absolute;inset:0;z-index:2;pointer-events:none;overflow:hidden}
+.decor-tower{position:absolute;top:15%;width:68px;height:178px;background:linear-gradient(180deg,rgba(8,32,61,.96),rgba(2,10,22,.98));border:1px solid #1d78b7;border-top:3px solid #efbd43;box-shadow:0 0 18px rgba(0,170,255,.24),inset 0 0 22px rgba(0,100,190,.16);color:#dff5ff;text-align:center;font-size:8px;font-weight:900;letter-spacing:.07em;line-height:1.55;padding:15px 7px}
+.decor-tower strong{display:block;color:#f3c453;font-size:16px;margin:10px 0 5px}.decor-tower small{display:block;color:#71d9ff;font-size:7px}
+.dt-l1{left:8%}.dt-l2{left:16%;top:19%;height:150px}.dt-r1{right:8%}.dt-r2{right:16%;top:19%;height:150px}
+.decor-rail{position:absolute;bottom:9%;width:29%;height:52px;background:linear-gradient(180deg,rgba(8,34,62,.94),rgba(2,11,22,.98));border:1px solid #167fbd;border-bottom:2px solid #d8a934;box-shadow:0 0 16px rgba(0,181,255,.22);color:#cdeeff;font-size:8px;font-weight:900;letter-spacing:.09em;display:flex;align-items:center;justify-content:center}
+.dr-left{left:2%;transform:perspective(500px) rotateY(12deg) skewY(-3deg);border-left:5px solid #20d4ff}.dr-right{right:2%;transform:perspective(500px) rotateY(-12deg) skewY(3deg);border-right:5px solid #20d4ff}
+.decor-marker{position:absolute;bottom:20%;width:22px;height:38px;clip-path:polygon(50% 0,100% 100%,0 100%);background:linear-gradient(90deg,#d69728,#ffe08a,#a86f16);filter:drop-shadow(0 4px 4px #0008)}
+.dm1{left:27%}.dm2{left:31%;bottom:23%}.dm3{right:27%}.dm4{right:31%;bottom:23%}
+@media(max-width:1100px){.dt-l2,.dt-r2,.dm2,.dm4{display:none}.decor-tower{width:58px;height:150px;font-size:7px}.decor-rail{width:25%;font-size:6px}}
+@media(max-width:760px){.stadium-decor{display:none}}
+</style></head>
 <body><main class="shell">
-<section id="home" class="screen active"><div class="home-build-version">DIGITAL ARENA · v1.6.0</div>
+<section id="home" class="screen active"><div class="home-build-version">DIGITAL ARENA · v1.7.0</div>
   <div class="eyebrow">WORLD MARTIAL ARTS CHAMPIONSHIP 2026</div>
   <h1>WMA <span>JUNIOR DRONE MISSION</span></h1>
   <p class="sub">DIGITAL MARTIAL ARTS CHALLENGE · ELEMENTARY DIVISION</p>
@@ -19,10 +31,19 @@
 <section id="record" class="screen"><button class="back" data-go="home">← HOME</button><h2>MY RECORD</h2><div class="panel"><b>PHASE 1-A</b><p>비행엔진 이식 완료. 공식 참가번호와 서버 기록은 다음 단계에서 연결됩니다.</p></div></section>
 <section id="arena" class="screen arena">
   <button class="back arena-exit" data-go="home">← EXIT</button>
-  <div class="arena-brand"><b>WMA 2026</b><span id="modeLabel">CHAMPIONSHIP ARENA</span><em class="build-version">DIGITAL ARENA · v1.6.0</em></div>
+  <div class="arena-brand"><b>WMA 2026</b><span id="modeLabel">CHAMPIONSHIP ARENA</span><em class="build-version">DIGITAL ARENA · v1.7.0</em></div>
   <div class="hud"><b>ALT <span id="alt">0.0</span>m</b><b>SPD <span id="spd">0.0</span></b><b>SCORE <span id="score">0000</span></b><b>TIME <span id="time">03:00</span></b><b>MISSION <span id="stage">READY</span></b></div>
   <div class="arena-layout"><aside class="mission-board"><div class="panel-title">MISSION CHECKLIST</div><ol id="missionList"><li>TAKE OFF</li><li>CLIMB 5m</li><li>GATE 01</li><li>GATE 02</li><li>ENERGY RING</li><li>GATE 03</li><li>MISSION ZONE</li><li>RETURN HOME</li><li>PRECISION LANDING</li></ol></aside><div id="flightArea" class="sky">
     <div class="master-stadium-bg" aria-hidden="true"></div>
+    <div class="stadium-decor" aria-hidden="true">
+      <div class="decor-tower dt-l1">DRONE SPORTS<br>FOR A<br>BETTER WORLD<strong>WMA</strong><small>2026</small></div>
+      <div class="decor-tower dt-l2">SKILLS<br>SAFETY<br>FRIENDSHIP<strong>W</strong></div>
+      <div class="decor-tower dt-r2">AI × DRONE<br>EDUCATION<br>FUTURE<strong>W</strong></div>
+      <div class="decor-tower dt-r1">ONE WORLD<br>MANY ARENAS<br>ONE CHAMPIONSHIP<strong>WMA</strong><small>2026</small></div>
+      <div class="decor-rail dr-left">RESPECT · SAFETY · CHALLENGE</div>
+      <div class="decor-rail dr-right">DRONE SPORTS · PEACE · A BETTER TOMORROW</div>
+      <i class="decor-marker dm1"></i><i class="decor-marker dm2"></i><i class="decor-marker dm3"></i><i class="decor-marker dm4"></i>
+    </div>
     <div class="stadium-crowd crowd-left"></div><div class="stadium-crowd crowd-right"></div><div class="vertical-banner vb-left">DRONE SPORTS<br>FOR A<br>BETTER WORLD<br><strong>WMA</strong></div><div class="vertical-banner vb-right">ONE WORLD<br>MANY ARENAS<br>ONE CHAMPIONSHIP<br><strong>WMA</strong></div><div class="stadium-world"><b>WMA</b><span>JUNIOR DRONE MISSION</span></div><div class="stadium-lights"></div><div class="stands left-stands"></div><div class="stands right-stands"></div><div class="arena-banner banner-left">SKILLS · SAFETY · FRIENDSHIP</div><div class="arena-banner banner-right">AI × DRONE · EDUCATION · FUTURE</div><div class="track-barrier barrier-left">RESPECT · SAFETY · CHALLENGE</div><div class="track-barrier barrier-right">DRONE SPORTS · PEACE · A BETTER TOMORROW</div><div class="floor-glow"></div><div class="runway-side runway-side-left"></div><div class="runway-side runway-side-right"></div><div class="runway"></div>
     <div class="sun"></div><div class="mountains"></div><div class="course-line"></div>
     <div id="gate1" class="gate g1 official-object"><img src="assets/img/arena/wma-gate-master.png" alt="" onerror="this.hidden=true"><span>01</span></div>
