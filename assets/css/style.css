@@ -169,3 +169,7 @@
 .runway{width:76%;background:linear-gradient(90deg,#1ed6ff 0 3px,transparent 3px calc(100% - 3px),#1ed6ff calc(100% - 3px)),repeating-linear-gradient(180deg,transparent 0 47px,rgba(255,198,52,.32) 48px 50px),linear-gradient(180deg,rgba(33,75,104,.9),rgba(8,17,26,.96));}
 .g1.official-object{width:172px;height:229px}.g2.official-object{left:34%;width:134px;height:179px}.g3.official-object{left:66%;width:126px;height:168px}.r1.official-object{width:122px;height:122px}.target.official-object{width:128px;height:128px}
 @media(max-width:1000px){.vertical-banner{display:none}.track-barrier{font-size:6px}.stadium-crowd{width:31%}.stadium-world{width:300px}}
+
+/* v1.3.1 · persistent entrance build marker */
+.home-build-version{position:absolute;top:18px;right:22px;color:#54d9ff;font-size:10px;font-weight:800;letter-spacing:.14em;opacity:.9}
+@media(max-width:760px){.home-build-version{top:12px;right:12px;font-size:8px}}
