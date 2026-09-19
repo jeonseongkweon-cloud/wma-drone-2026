@@ -37,3 +37,60 @@
 .pad.official-object{left:50%;bottom:-34px;width:188px;height:188px;transform:translateX(-50%) rotateX(62deg)}
 .drone{z-index:8}.official-object>img{display:block}.target.official-object>img,.pad.official-object>img{border-radius:50%}
 @media(max-width:1000px){.g1.official-object{width:132px;height:176px}.g2.official-object{width:116px;height:155px}.r1.official-object{width:102px;height:102px}.g3.official-object{width:100px;height:133px}.target.official-object{width:116px;height:116px}.pad.official-object{width:160px;height:160px}}
+
+/* PHASE 1-F · WMA DIGITAL ARENA shell — visual only, gameplay coordinates untouched */
+.sky{
+  overflow:hidden;
+  background:
+    radial-gradient(ellipse at 50% 17%,rgba(20,122,255,.34) 0 10%,transparent 34%),
+    linear-gradient(180deg,#03152c 0%,#06254a 35%,#07182d 36%,#07101d 100%);
+  perspective:900px;
+}
+.sky:before{
+  content:"";
+  position:absolute;inset:0;pointer-events:none;z-index:0;
+  background:
+    radial-gradient(circle at 8% 10%,#fff 0 1px,rgba(50,180,255,.8) 2px,transparent 5px),
+    radial-gradient(circle at 92% 10%,#fff 0 1px,rgba(50,180,255,.8) 2px,transparent 5px),
+    repeating-linear-gradient(90deg,transparent 0 8.5%,rgba(25,149,255,.10) 8.7%,transparent 9%);
+  box-shadow:inset 0 0 90px #000;
+}
+.sky:after{
+  content:"WMA 2026   •   JUNIOR DRONE MISSION   •   ONE WORLD · MANY ARENAS · ONE CHAMPIONSHIP";
+  position:absolute;left:0;right:0;top:39%;height:28px;z-index:1;
+  display:flex;align-items:center;justify-content:center;
+  color:#eebd42;font-size:10px;font-weight:900;letter-spacing:2px;
+  background:linear-gradient(90deg,rgba(1,9,22,.94),rgba(5,40,76,.94),rgba(1,9,22,.94));
+  border-top:1px solid #1478bc;border-bottom:1px solid #1478bc;
+  text-shadow:0 0 10px rgba(255,190,40,.55);
+}
+.course-ground{
+  background:
+    linear-gradient(90deg,transparent 0 15%,rgba(0,174,255,.65) 15.15%,transparent 15.35% 84.65%,rgba(0,174,255,.65) 84.85%,transparent 85%),
+    repeating-linear-gradient(90deg,rgba(10,54,82,.13) 0 1px,transparent 1px 70px),
+    repeating-linear-gradient(0deg,rgba(10,54,82,.16) 0 1px,transparent 1px 52px),
+    linear-gradient(180deg,#0a2237,#07121f)!important;
+  border-top:2px solid #1a9fe9;
+  box-shadow:inset 0 25px 55px rgba(0,145,255,.08),0 -8px 30px rgba(0,140,255,.16);
+}
+.course-ground:before{
+  content:"";
+  position:absolute;left:50%;top:0;bottom:0;width:46%;transform:translateX(-50%);
+  clip-path:polygon(35% 0,65% 0,100% 100%,0 100%);
+  background:
+    linear-gradient(90deg,rgba(0,188,255,.85) 0 2px,transparent 2px calc(100% - 2px),rgba(0,188,255,.85) calc(100% - 2px)),
+    repeating-linear-gradient(180deg,transparent 0 42px,rgba(234,183,53,.17) 43px 45px);
+  filter:drop-shadow(0 0 8px rgba(0,180,255,.55));pointer-events:none;
+}
+.course-ground:after{
+  content:"WMA DIGITAL ARENA";
+  position:absolute;left:50%;bottom:12px;transform:translateX(-50%);
+  color:rgba(233,187,66,.22);font-weight:900;font-size:clamp(20px,3vw,46px);letter-spacing:8px;
+  white-space:nowrap;pointer-events:none;
+}
+.official-object>img{filter:drop-shadow(0 0 7px rgba(0,191,255,.5)) drop-shadow(0 5px 7px rgba(0,0,0,.55))}
+.gate.official-object>img{filter:drop-shadow(0 0 8px rgba(0,191,255,.45)) drop-shadow(0 8px 8px rgba(0,0,0,.7))}
+.arena-brand{letter-spacing:1.5px}
+.hud{background:linear-gradient(90deg,#020b17,#041c35,#020b17);box-shadow:0 3px 20px rgba(0,137,255,.18)}
+.mission-board,.course-board{background:linear-gradient(180deg,#031428,#020b16)}
+@media(max-width:760px){.sky:after{font-size:7px;letter-spacing:.8px}.course-ground:after{font-size:18px;letter-spacing:3px}}
