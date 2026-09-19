@@ -12,9 +12,23 @@
 .dm1{left:27%}.dm2{left:31%;bottom:23%}.dm3{right:27%}.dm4{right:31%;bottom:23%}
 @media(max-width:1100px){.dt-l2,.dt-r2,.dm2,.dm4{display:none}.decor-tower{width:58px;height:150px;font-size:7px}.decor-rail{width:25%;font-size:6px}}
 @media(max-width:760px){.stadium-decor{display:none}}
+</style><style>
+/* v1.7.1 · STADIUM INTEGRATION — decor recedes into venue; gameplay geometry untouched */
+@media(min-width:1101px){
+  .decor-tower{top:17%;width:56px;height:150px;padding:12px 5px;font-size:7px;opacity:.92;box-shadow:0 0 12px rgba(0,170,255,.18),inset 0 0 18px rgba(0,100,190,.12)}
+  .decor-tower strong{font-size:13px;margin:8px 0 4px}.decor-tower small{font-size:6px}
+  .dt-l1{left:7.2%}.dt-r1{right:7.2%}
+  .dt-l2{left:15.4%;top:21%;width:46px;height:122px;transform:scale(.88);transform-origin:top center;opacity:.78}
+  .dt-r2{right:15.4%;top:21%;width:46px;height:122px;transform:scale(.88);transform-origin:top center;opacity:.78}
+  .decor-rail{bottom:8.2%;width:25%;height:42px;font-size:7px;opacity:.88}
+  .dr-left{left:1.6%;transform-origin:left bottom;transform:perspective(700px) rotateY(18deg) rotateZ(-2.2deg) skewY(-2deg)}
+  .dr-right{right:1.6%;transform-origin:right bottom;transform:perspective(700px) rotateY(-18deg) rotateZ(2.2deg) skewY(2deg)}
+  .decor-marker{width:16px;height:28px;opacity:.82;filter:drop-shadow(0 3px 3px #0007)}
+  .dm1{left:29%;bottom:20.5%}.dm2{left:32.5%;bottom:23.5%}.dm3{right:29%;bottom:20.5%}.dm4{right:32.5%;bottom:23.5%}
+}
 </style></head>
 <body><main class="shell">
-<section id="home" class="screen active"><div class="home-build-version">DIGITAL ARENA · v1.7.0</div>
+<section id="home" class="screen active"><div class="home-build-version">DIGITAL ARENA · v1.7.1</div>
   <div class="eyebrow">WORLD MARTIAL ARTS CHAMPIONSHIP 2026</div>
   <h1>WMA <span>JUNIOR DRONE MISSION</span></h1>
   <p class="sub">DIGITAL MARTIAL ARTS CHALLENGE · ELEMENTARY DIVISION</p>
@@ -31,7 +45,7 @@
 <section id="record" class="screen"><button class="back" data-go="home">← HOME</button><h2>MY RECORD</h2><div class="panel"><b>PHASE 1-A</b><p>비행엔진 이식 완료. 공식 참가번호와 서버 기록은 다음 단계에서 연결됩니다.</p></div></section>
 <section id="arena" class="screen arena">
   <button class="back arena-exit" data-go="home">← EXIT</button>
-  <div class="arena-brand"><b>WMA 2026</b><span id="modeLabel">CHAMPIONSHIP ARENA</span><em class="build-version">DIGITAL ARENA · v1.7.0</em></div>
+  <div class="arena-brand"><b>WMA 2026</b><span id="modeLabel">CHAMPIONSHIP ARENA</span><em class="build-version">DIGITAL ARENA · v1.7.1</em></div>
   <div class="hud"><b>ALT <span id="alt">0.0</span>m</b><b>SPD <span id="spd">0.0</span></b><b>SCORE <span id="score">0000</span></b><b>TIME <span id="time">03:00</span></b><b>MISSION <span id="stage">READY</span></b></div>
   <div class="arena-layout"><aside class="mission-board"><div class="panel-title">MISSION CHECKLIST</div><ol id="missionList"><li>TAKE OFF</li><li>CLIMB 5m</li><li>GATE 01</li><li>GATE 02</li><li>ENERGY RING</li><li>GATE 03</li><li>MISSION ZONE</li><li>RETURN HOME</li><li>PRECISION LANDING</li></ol></aside><div id="flightArea" class="sky">
     <div class="master-stadium-bg" aria-hidden="true"></div>
