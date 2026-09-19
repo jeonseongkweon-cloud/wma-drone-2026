@@ -7,7 +7,7 @@ const ALT_SCREEN_RATE=.32,debugMode=new URLSearchParams(location.search).get('de
 let debugEl=null;
 function elementCenter(el){const f=flight.getBoundingClientRect(),r=el.getBoundingClientRect();return{x:(r.left+r.width/2-f.left)/f.width*100,y:(r.top+r.height/2-f.top)/f.height*100}}
 function syncCourseGeometry(){COURSE.forEach(c=>Object.assign(c,elementCenter(c.el)));Object.assign(HOME,elementCenter(pad))}
-function screenPosition(){return{x,y:clamp(y-alt*ALT_SCREEN_RATE,5,90)}}
+function screenPosition(){const ceiling=5,altRatio=clamp(alt/50,0,1);return{x,y:clamp(y-(y-ceiling)*altRatio,ceiling,90)}}
 function distanceTo(c){const p=screenPosition();return Math.hypot((p.x-c.x)*1.1,p.y-c.y)}
 function activeTarget(){if(stage>=2&&stage<=6)return COURSE[{2:0,3:1,4:2,5:3,6:4}[stage]];if(stage===8||stage===9)return HOME;return null}
 function updateDebug(){if(!debugMode)return;if(!debugEl){debugEl=document.createElement('pre');debugEl.id='flightDebug';Object.assign(debugEl.style,{position:'absolute',right:'8px',top:'8px',zIndex:'60',margin:'0',padding:'9px 11px',background:'rgba(0,5,14,.88)',border:'1px solid #24d9ff',color:'#9ff6ff',font:'11px/1.45 monospace',textAlign:'left',pointerEvents:'none'});flight.appendChild(debugEl)}const t=activeTarget();debugEl.textContent='X '+x.toFixed(2)+'\nY '+screenPosition().y.toFixed(2)+'\nALT '+alt.toFixed(1)+'\nHEADING '+(((rot%360)+360)%360).toFixed(1)+'°\nTARGET X '+(t?t.x.toFixed(2):'--')+'\nTARGET Y '+(t?t.y.toFixed(2):'--')+'\nDIST '+currentTargetDistance().toFixed(2)+'\nSTAGE '+stage+' '+missions[stage]}
