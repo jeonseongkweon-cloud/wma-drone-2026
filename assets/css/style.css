@@ -155,3 +155,17 @@
 .runway{position:absolute;z-index:2;left:50%;top:37%;bottom:-5%;width:62%;transform:translateX(-50%);clip-path:polygon(43% 0,57% 0,100% 100%,0 100%);background:linear-gradient(90deg,#1ecbff 0 2px,transparent 2px calc(100% - 2px),#1ecbff calc(100% - 2px)),repeating-linear-gradient(180deg,rgba(255,201,62,.36) 0 3px,transparent 3px 50px),linear-gradient(180deg,rgba(24,60,86,.76),rgba(7,15,24,.88));filter:drop-shadow(0 0 9px rgba(0,190,255,.6));pointer-events:none}
 .runway:after{content:"";position:absolute;left:49.7%;top:4%;bottom:0;width:3px;background:linear-gradient(#ffd85d,rgba(255,203,64,.12));box-shadow:0 0 9px #f6c64b}
 @media(max-width:1000px){.stadium-world{width:250px;height:145px}.arena-banner{display:none}.build-version{right:8px;font-size:7px}}
+
+/* v1.3.0 · STADIUM IMMERSION */
+.stadium-world{width:390px;height:190px;top:2%;background:radial-gradient(ellipse at 50% 58%,rgba(13,139,255,.62),rgba(4,44,92,.35) 52%,transparent 73%);box-shadow:0 0 65px rgba(0,124,255,.38)}
+.stadium-world b{font-size:26px;color:#eefaff}.stadium-world span{font-size:10px}
+.stadium-crowd{position:absolute;z-index:1;top:18%;width:34%;height:27%;opacity:.88;border-top:2px solid #2ca8ff;border-bottom:2px solid #12639d;background:radial-gradient(circle,#9bdfff 0 1px,transparent 1.5px) 0 0/11px 9px,linear-gradient(180deg,#0c3159,#041326);box-shadow:inset 0 0 35px #020812,0 0 25px rgba(0,143,255,.2)}
+.crowd-left{left:0;clip-path:polygon(0 0,100% 24%,100% 100%,0 88%)}.crowd-right{right:0;clip-path:polygon(0 24%,100% 0,100% 88%,0 100%)}
+.vertical-banner{position:absolute;z-index:3;top:14%;width:82px;min-height:155px;padding:14px 8px;text-align:center;background:linear-gradient(180deg,rgba(8,39,76,.96),rgba(2,13,28,.98));border:1px solid #2779b7;border-top:3px solid #d8a62d;color:#d9efff;font-size:9px;font-weight:800;line-height:1.55;letter-spacing:.04em;box-shadow:0 0 20px rgba(0,128,255,.25)}
+.vertical-banner strong{display:block;margin-top:12px;color:#f4c13c;font-size:17px}.vb-left{left:13%}.vb-right{right:13%}
+.track-barrier{position:absolute;z-index:3;bottom:14%;width:31%;padding:10px 12px;background:linear-gradient(180deg,#0b2848,#030d1a);border:1px solid #1c77b7;border-left:4px solid #17c8ff;color:#ccecff;font-size:8px;font-weight:900;letter-spacing:.09em;box-shadow:0 0 18px rgba(0,170,255,.24);pointer-events:none}
+.barrier-left{left:2%;transform:skewY(-5deg)}.barrier-right{right:2%;transform:skewY(5deg)}
+.stadium-lights{left:4%;right:4%;height:48px;background:repeating-linear-gradient(90deg,transparent 0 4.5%,#fff 4.7% 4.9%,#82dfff 5% 5.2%,transparent 5.5% 10%);filter:drop-shadow(0 0 10px #45bfff)}
+.runway{width:76%;background:linear-gradient(90deg,#1ed6ff 0 3px,transparent 3px calc(100% - 3px),#1ed6ff calc(100% - 3px)),repeating-linear-gradient(180deg,transparent 0 47px,rgba(255,198,52,.32) 48px 50px),linear-gradient(180deg,rgba(33,75,104,.9),rgba(8,17,26,.96));}
+.g1.official-object{width:172px;height:229px}.g2.official-object{left:34%;width:134px;height:179px}.g3.official-object{left:66%;width:126px;height:168px}.r1.official-object{width:122px;height:122px}.target.official-object{width:128px;height:128px}
+@media(max-width:1000px){.vertical-banner{display:none}.track-barrier{font-size:6px}.stadium-crowd{width:31%}.stadium-world{width:300px}}
