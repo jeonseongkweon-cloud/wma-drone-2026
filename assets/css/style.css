@@ -209,3 +209,17 @@
 .gate.official-object>img,.ring.official-object>img,.target.official-object>img{filter:drop-shadow(0 5px 6px rgba(0,0,0,.58)) drop-shadow(0 0 6px rgba(0,191,255,.42))}
 .pad.official-object>img{filter:drop-shadow(0 7px 6px rgba(0,0,0,.48)) drop-shadow(0 0 8px rgba(0,191,255,.42))}
 @media(max-width:1000px){.g1.official-object{width:142px;height:189px}.g2.official-object{width:116px;height:155px}.g3.official-object{width:110px;height:147px}.r1.official-object{width:100px;height:100px}.target.official-object{width:104px;height:104px}.pad.official-object{width:164px;height:164px}}
+
+
+/* v1.6.0 · COURSE DEPTH SYSTEM — master stadium locked */
+/* Visual course uses the same percentage anchors as gameplay COURSE coordinates. */
+.g1.official-object{left:50%;top:59%;width:156px;height:208px;transform:translate(-50%,-50%) scale(.88)}
+.g2.official-object{left:31%;top:42%;width:126px;height:168px;transform:translate(-50%,-50%) scale(.70)}
+.r1.official-object{left:50%;top:34%;width:108px;height:108px;transform:translate(-50%,-50%) scale(.64)}
+.g3.official-object{left:67%;top:24%;width:112px;height:149px;transform:translate(-50%,-50%) scale(.56)}
+.target.official-object{left:50%;top:16%;width:106px;height:106px;transform:translate(-50%,-50%) scale(.60)}
+.pad.official-object{left:50%;bottom:-14px;width:178px;height:178px;transform:translateX(-50%) rotateX(61deg) scale(.94)}
+.official-object{transition:opacity .25s,filter .25s,transform .25s}
+.official-object.mission-focus>img{filter:drop-shadow(0 7px 7px rgba(0,0,0,.58)) drop-shadow(0 0 9px rgba(0,220,255,.9)) drop-shadow(0 0 15px rgba(245,196,81,.62))}
+.gate.official-object.mission-focus,.ring.official-object.mission-focus,.target.official-object.mission-focus{z-index:6}
+.pad.official-object.mission-focus>img{filter:drop-shadow(0 7px 7px rgba(0,0,0,.5)) drop-shadow(0 0 12px rgba(0,220,255,.9)) drop-shadow(0 0 16px rgba(245,196,81,.58))}
