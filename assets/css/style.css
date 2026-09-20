@@ -313,3 +313,111 @@
 .master-drone-test .thrust-left{left:29px;transform:rotate(7deg)}.master-drone-test .thrust-right{right:29px;transform:rotate(-7deg)}
 @keyframes masterThrustPulse{from{height:46px;opacity:.48}to{height:64px;opacity:.82}}
 @media(max-width:650px){.master-drone-test .drone-master-visual{width:96px}.master-drone-test .master-rotor{width:27px}}
+
+
+/* v2.8.0 TEST · AIR ARENA PHASE 1 — visual system only; app.js / flight engine locked */
+.master-stadium-bg{inset:-8% -4% -24%;background-position:center 12%;background-size:112% auto;transform:translateY(13%);transform-origin:50% 50%;filter:brightness(.78) saturate(.92) contrast(1.05)}
+.sky{background:linear-gradient(180deg,#03162c 0%,#061b32 58%,#020914 100%)!important;overflow:hidden}
+
+/* Floating gates preserve the existing logical wrappers/centres. */
+.gate.official-object>img{opacity:0!important}
+.gate.official-object:before{content:"";position:absolute;left:50%;top:50%;width:82%;aspect-ratio:1/1;transform:translate(-50%,-50%);border:7px solid rgba(83,221,255,.94);border-radius:50%;box-shadow:0 0 9px #42e8ff,0 0 24px rgba(37,182,255,.72),inset 0 0 14px rgba(255,205,74,.62);background:radial-gradient(circle,transparent 55%,rgba(26,161,255,.10) 67%,rgba(255,198,62,.10) 74%,transparent 76%)}
+.gate.official-object:after{content:"";position:absolute;left:50%;top:50%;width:93%;aspect-ratio:1/1;transform:translate(-50%,-50%);border:2px solid rgba(255,203,74,.82);border-radius:50%;filter:drop-shadow(0 0 7px rgba(255,195,48,.65));background:none}
+.gate.official-object.active:before{box-shadow:0 0 12px #fff,0 0 30px #36dcff,0 0 42px rgba(255,199,54,.55),inset 0 0 16px rgba(255,219,95,.72)}
+.gate.official-object.passed{opacity:.78}.gate.official-object.passed:before{opacity:.72;filter:saturate(.72)}
+
+/* Smaller chase-view drone, stronger propulsion and a short visual trail. */
+.master-drone-test .drone-master-visual{width:88px;top:40%;transform:translate(-50%,-50%) rotateY(calc(-1 * var(--heading, 0deg))) perspective(220px) rotateX(33deg) scaleY(.80)}
+.master-drone-test .master-thrust{top:39px;width:8px;height:78px;filter:blur(2.5px)}
+.master-drone-test.flying .master-thrust{opacity:.9;animation:airArenaThrust .16s ease-in-out infinite alternate}
+.master-drone-test .thrust-left{left:31px}.master-drone-test .thrust-right{right:31px}
+.master-drone-test.flying:after{content:"";position:absolute;left:50%;top:44px;width:44px;height:92px;transform:translateX(-50%);background:linear-gradient(180deg,rgba(55,218,255,.22),rgba(41,125,255,.12) 45%,transparent 92%);clip-path:polygon(28% 0,42% 0,50% 100%,58% 0,72% 0,64% 100%,36% 100%);filter:blur(4px);opacity:.58;pointer-events:none;z-index:1}
+@keyframes airArenaThrust{from{height:62px;opacity:.62}to{height:86px;opacity:.96}}
+@media(max-width:650px){.master-drone-test .drone-master-visual{width:80px}}
+
+
+/* v2.8.0 TEST · AIR ARENA PHASE 2 — floating HOME + mission platform; logic coordinates untouched */
+/* HOME becomes a suspended launch/landing station instead of a floor object. */
+.pad.official-object{
+  left:50%;bottom:7%;width:148px;height:148px;
+  transform:translateX(-50%) rotateX(58deg) scale(.86);
+  z-index:5;
+}
+.pad.official-object:before{
+  content:"";position:absolute;inset:9%;border-radius:50%;
+  border:3px solid rgba(83,226,255,.9);
+  box-shadow:0 0 14px rgba(57,221,255,.9),0 0 34px rgba(31,151,255,.52),inset 0 0 18px rgba(255,202,62,.28);
+  pointer-events:none;
+}
+.pad.official-object:after{
+  content:"";position:absolute;left:18%;right:18%;bottom:-23px;height:25px;border-radius:50%;
+  background:radial-gradient(ellipse,rgba(53,218,255,.66),rgba(32,126,255,.25) 42%,transparent 72%);
+  filter:blur(5px);z-index:-1;pointer-events:none;
+}
+.pad.official-object>img{filter:drop-shadow(0 0 10px rgba(60,224,255,.78)) drop-shadow(0 8px 8px rgba(0,0,0,.32))}
+
+/* Mission Zone becomes a suspended checkpoint with its own lift glow. */
+.target.official-object{
+  left:50%;top:18%;width:104px;height:104px;
+  transform:translate(-50%,-50%) rotateX(18deg) scale(.66);
+  z-index:5;
+}
+.target.official-object:before{
+  content:"";position:absolute;inset:7%;border-radius:50%;
+  border:2px solid rgba(255,207,72,.82);
+  box-shadow:0 0 12px rgba(255,205,67,.66),0 0 26px rgba(40,208,255,.48);
+  pointer-events:none;
+}
+.target.official-object:after{
+  content:"";position:absolute;left:24%;right:24%;bottom:-20px;height:28px;border-radius:50%;
+  background:radial-gradient(ellipse,rgba(57,218,255,.58),rgba(34,119,255,.20) 45%,transparent 74%);
+  filter:blur(5px);z-index:-1;pointer-events:none;
+}
+.target.official-object>img{filter:drop-shadow(0 0 9px rgba(45,218,255,.72))}
+
+/* Give every floating checkpoint a small under-glow to detach it from the stadium floor. */
+.gate.official-object{filter:drop-shadow(0 14px 10px rgba(29,187,255,.20))}
+.ring.official-object{filter:drop-shadow(0 13px 9px rgba(31,205,255,.22))}
+@media(max-width:650px){
+  .pad.official-object{width:126px;height:126px;bottom:8%}
+  .target.official-object{width:92px;height:92px}
+}
+
+
+/* v2.8.0 TEST · DUAL ARENA ISOLATION
+   PART 1 restores the frozen v2.7.5 visual baseline.
+   PART 2 keeps AIR ARENA Phase 1/2. Flight/Mission geometry is untouched. */
+.arena-selector{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:min(720px,92%);margin:16px auto 10px}
+.arena-selector .arena-choice{min-height:70px;border:1px solid rgba(93,205,255,.38);background:rgba(3,20,39,.78);color:#dff7ff;border-radius:12px;padding:11px 14px;box-shadow:inset 0 0 18px rgba(0,153,255,.08)}
+.arena-selector .arena-choice b{display:block;font-size:12px;letter-spacing:.08em}.arena-selector .arena-choice small{display:block;margin-top:6px;font-size:9px;opacity:.72}
+.arena-selector .arena-choice.selected{border-color:#f2c14f;box-shadow:0 0 16px rgba(242,193,79,.24),inset 0 0 18px rgba(0,190,255,.10)}
+.arena-selection-status{margin:4px auto 10px;color:#6ee7ff;font-size:9px;font-weight:900;letter-spacing:.10em}
+@media(max-width:650px){.arena-selector{grid-template-columns:1fr;gap:7px;margin:10px auto}.arena-selector .arena-choice{min-height:54px;padding:8px 10px}}
+
+/* CLASSIC: exact v2.7.5-style visual values override AIR additions. */
+.classic-arena-mode .master-stadium-bg{inset:0;background-position:center center;background-size:cover;transform:none;filter:none}
+.classic-arena-mode .sky{background:#020b18!important}
+.classic-arena-mode .gate.official-object>img{opacity:1!important}
+.classic-arena-mode .gate.official-object:before,.classic-arena-mode .gate.official-object:after{content:none!important;display:none!important}
+.classic-arena-mode .gate.official-object{filter:none}
+.classic-arena-mode .g1.official-object{left:50%;top:59%;width:156px;height:208px;transform:translate(-50%,-50%) scale(.88)}
+.classic-arena-mode .g2.official-object{left:31%;top:42%;width:126px;height:168px;transform:translate(-50%,-50%) scale(.70)}
+.classic-arena-mode .g3.official-object{left:67%;top:24%;width:112px;height:149px;transform:translate(-50%,-50%) scale(.56)}
+.classic-arena-mode .r1.official-object{left:50%;top:34%;width:108px;height:108px;transform:translate(-50%,-50%) scale(.64);filter:none}
+.classic-arena-mode .target.official-object{left:50%;top:16%;width:106px;height:106px;transform:translate(-50%,-50%) scale(.60)}
+.classic-arena-mode .target.official-object:before,.classic-arena-mode .target.official-object:after{content:none!important;display:none!important}
+.classic-arena-mode .target.official-object>img{filter:drop-shadow(0 5px 6px rgba(0,0,0,.58)) drop-shadow(0 0 6px rgba(0,191,255,.42))}
+.classic-arena-mode .pad.official-object{left:50%;top:auto;bottom:-14px;width:178px;height:178px;transform:translateX(-50%) rotateX(61deg) scale(.94)}
+.classic-arena-mode .pad.official-object:before,.classic-arena-mode .pad.official-object:after{content:none!important;display:none!important}
+.classic-arena-mode .pad.official-object>img{filter:drop-shadow(0 7px 6px rgba(0,0,0,.48)) drop-shadow(0 0 8px rgba(0,191,255,.42))}
+.classic-arena-mode .master-drone-test .drone-master-visual{width:106px;top:43%;transform:translate(-50%,-50%) rotateY(calc(-1 * var(--heading,0deg))) perspective(230px) rotateX(31deg) scaleY(.82)}
+.classic-arena-mode .master-drone-test .master-thrust{top:44px;width:9px;height:58px;filter:blur(3px)}
+.classic-arena-mode .master-drone-test.flying:after{content:none!important;display:none!important}
+@media(max-width:650px){
+ .classic-arena-mode .master-drone-test .drone-master-visual{width:96px}
+ .classic-arena-mode .pad.official-object{width:164px;height:164px;bottom:-14px}
+}
+
+/* AIR: explicit marker for future PART 2-only tuning. */
+.air-arena-mode #arena{--arena-part:2}
+.classic-arena-mode #arena{--arena-part:1}
