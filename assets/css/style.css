@@ -313,3 +313,24 @@
 .master-drone-test .thrust-left{left:29px;transform:rotate(7deg)}.master-drone-test .thrust-right{right:29px;transform:rotate(-7deg)}
 @keyframes masterThrustPulse{from{height:46px;opacity:.48}to{height:64px;opacity:.82}}
 @media(max-width:650px){.master-drone-test .drone-master-visual{width:96px}.master-drone-test .master-rotor{width:27px}}
+
+
+/* v2.8.0 TEST · AIR ARENA PHASE 1 — visual system only; app.js / flight engine locked */
+.master-stadium-bg{inset:-8% -4% -24%;background-position:center 12%;background-size:112% auto;transform:translateY(13%);transform-origin:50% 50%;filter:brightness(.78) saturate(.92) contrast(1.05)}
+.sky{background:linear-gradient(180deg,#03162c 0%,#061b32 58%,#020914 100%)!important;overflow:hidden}
+
+/* Floating gates preserve the existing logical wrappers/centres. */
+.gate.official-object>img{opacity:0!important}
+.gate.official-object:before{content:"";position:absolute;left:50%;top:50%;width:82%;aspect-ratio:1/1;transform:translate(-50%,-50%);border:7px solid rgba(83,221,255,.94);border-radius:50%;box-shadow:0 0 9px #42e8ff,0 0 24px rgba(37,182,255,.72),inset 0 0 14px rgba(255,205,74,.62);background:radial-gradient(circle,transparent 55%,rgba(26,161,255,.10) 67%,rgba(255,198,62,.10) 74%,transparent 76%)}
+.gate.official-object:after{content:"";position:absolute;left:50%;top:50%;width:93%;aspect-ratio:1/1;transform:translate(-50%,-50%);border:2px solid rgba(255,203,74,.82);border-radius:50%;filter:drop-shadow(0 0 7px rgba(255,195,48,.65));background:none}
+.gate.official-object.active:before{box-shadow:0 0 12px #fff,0 0 30px #36dcff,0 0 42px rgba(255,199,54,.55),inset 0 0 16px rgba(255,219,95,.72)}
+.gate.official-object.passed{opacity:.78}.gate.official-object.passed:before{opacity:.72;filter:saturate(.72)}
+
+/* Smaller chase-view drone, stronger propulsion and a short visual trail. */
+.master-drone-test .drone-master-visual{width:88px;top:40%;transform:translate(-50%,-50%) rotateY(calc(-1 * var(--heading, 0deg))) perspective(220px) rotateX(33deg) scaleY(.80)}
+.master-drone-test .master-thrust{top:39px;width:8px;height:78px;filter:blur(2.5px)}
+.master-drone-test.flying .master-thrust{opacity:.9;animation:airArenaThrust .16s ease-in-out infinite alternate}
+.master-drone-test .thrust-left{left:31px}.master-drone-test .thrust-right{right:31px}
+.master-drone-test.flying:after{content:"";position:absolute;left:50%;top:44px;width:44px;height:92px;transform:translateX(-50%);background:linear-gradient(180deg,rgba(55,218,255,.22),rgba(41,125,255,.12) 45%,transparent 92%);clip-path:polygon(28% 0,42% 0,50% 100%,58% 0,72% 0,64% 100%,36% 100%);filter:blur(4px);opacity:.58;pointer-events:none;z-index:1}
+@keyframes airArenaThrust{from{height:62px;opacity:.62}to{height:86px;opacity:.96}}
+@media(max-width:650px){.master-drone-test .drone-master-visual{width:80px}}
