@@ -382,3 +382,42 @@
   .pad.official-object{width:126px;height:126px;bottom:8%}
   .target.official-object{width:92px;height:92px}
 }
+
+
+/* v2.8.0 TEST · DUAL ARENA ISOLATION
+   PART 1 restores the frozen v2.7.5 visual baseline.
+   PART 2 keeps AIR ARENA Phase 1/2. Flight/Mission geometry is untouched. */
+.arena-selector{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:min(720px,92%);margin:16px auto 10px}
+.arena-selector .arena-choice{min-height:70px;border:1px solid rgba(93,205,255,.38);background:rgba(3,20,39,.78);color:#dff7ff;border-radius:12px;padding:11px 14px;box-shadow:inset 0 0 18px rgba(0,153,255,.08)}
+.arena-selector .arena-choice b{display:block;font-size:12px;letter-spacing:.08em}.arena-selector .arena-choice small{display:block;margin-top:6px;font-size:9px;opacity:.72}
+.arena-selector .arena-choice.selected{border-color:#f2c14f;box-shadow:0 0 16px rgba(242,193,79,.24),inset 0 0 18px rgba(0,190,255,.10)}
+.arena-selection-status{margin:4px auto 10px;color:#6ee7ff;font-size:9px;font-weight:900;letter-spacing:.10em}
+@media(max-width:650px){.arena-selector{grid-template-columns:1fr;gap:7px;margin:10px auto}.arena-selector .arena-choice{min-height:54px;padding:8px 10px}}
+
+/* CLASSIC: exact v2.7.5-style visual values override AIR additions. */
+.classic-arena-mode .master-stadium-bg{inset:0;background-position:center center;background-size:cover;transform:none;filter:none}
+.classic-arena-mode .sky{background:#020b18!important}
+.classic-arena-mode .gate.official-object>img{opacity:1!important}
+.classic-arena-mode .gate.official-object:before,.classic-arena-mode .gate.official-object:after{content:none!important;display:none!important}
+.classic-arena-mode .gate.official-object{filter:none}
+.classic-arena-mode .g1.official-object{left:50%;top:59%;width:156px;height:208px;transform:translate(-50%,-50%) scale(.88)}
+.classic-arena-mode .g2.official-object{left:31%;top:42%;width:126px;height:168px;transform:translate(-50%,-50%) scale(.70)}
+.classic-arena-mode .g3.official-object{left:67%;top:24%;width:112px;height:149px;transform:translate(-50%,-50%) scale(.56)}
+.classic-arena-mode .r1.official-object{left:50%;top:34%;width:108px;height:108px;transform:translate(-50%,-50%) scale(.64);filter:none}
+.classic-arena-mode .target.official-object{left:50%;top:16%;width:106px;height:106px;transform:translate(-50%,-50%) scale(.60)}
+.classic-arena-mode .target.official-object:before,.classic-arena-mode .target.official-object:after{content:none!important;display:none!important}
+.classic-arena-mode .target.official-object>img{filter:drop-shadow(0 5px 6px rgba(0,0,0,.58)) drop-shadow(0 0 6px rgba(0,191,255,.42))}
+.classic-arena-mode .pad.official-object{left:50%;top:auto;bottom:-14px;width:178px;height:178px;transform:translateX(-50%) rotateX(61deg) scale(.94)}
+.classic-arena-mode .pad.official-object:before,.classic-arena-mode .pad.official-object:after{content:none!important;display:none!important}
+.classic-arena-mode .pad.official-object>img{filter:drop-shadow(0 7px 6px rgba(0,0,0,.48)) drop-shadow(0 0 8px rgba(0,191,255,.42))}
+.classic-arena-mode .master-drone-test .drone-master-visual{width:106px;top:43%;transform:translate(-50%,-50%) rotateY(calc(-1 * var(--heading,0deg))) perspective(230px) rotateX(31deg) scaleY(.82)}
+.classic-arena-mode .master-drone-test .master-thrust{top:44px;width:9px;height:58px;filter:blur(3px)}
+.classic-arena-mode .master-drone-test.flying:after{content:none!important;display:none!important}
+@media(max-width:650px){
+ .classic-arena-mode .master-drone-test .drone-master-visual{width:96px}
+ .classic-arena-mode .pad.official-object{width:164px;height:164px;bottom:-14px}
+}
+
+/* AIR: explicit marker for future PART 2-only tuning. */
+.air-arena-mode #arena{--arena-part:2}
+.classic-arena-mode #arena{--arena-part:1}
