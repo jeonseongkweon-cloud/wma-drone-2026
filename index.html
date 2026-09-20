@@ -41,9 +41,16 @@
 .mission-progress{position:absolute;left:50%;bottom:5px;z-index:24;transform:translateX(-50%);width:min(440px,48%);height:5px;border-radius:9px;background:#07192b;border:1px solid #194b6d;overflow:hidden;pointer-events:none}.mission-progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,#19cfff,#ffd24a);box-shadow:0 0 10px #22cfff;transition:width .3s ease}
 .result-breakdown{margin:14px auto 18px;width:min(330px,90%);display:grid;grid-template-columns:1fr auto;gap:7px 16px;text-align:left;font-size:12px;color:#a9c8dc}.result-breakdown b{color:#ffd24a;text-align:right}
 @media(max-width:760px){.match-status,.mission-progress{display:none}}
+</style><style>
+/* v2.5.0 · WMA FLIGHT PATH GUIDANCE — visual layer only */
+.flight-guidance-layer{position:absolute;inset:0;z-index:6;overflow:hidden;pointer-events:none;opacity:0;transition:opacity .18s ease}.flight-guidance-layer.show{opacity:1}
+.flight-guidance-marker{position:absolute;width:22px;height:22px;display:grid;place-items:center;color:#48e9ff;font:900 25px/1 Arial,sans-serif;text-shadow:0 0 5px #18d9ff,0 0 12px #007cff;filter:drop-shadow(0 0 5px rgba(25,218,255,.7));will-change:transform,opacity}
+.flight-guidance-layer.near .flight-guidance-marker{color:#8eefff;text-shadow:0 0 5px #20dfff,0 0 11px #e5b93d}.flight-guidance-layer.close .flight-guidance-marker{color:#ffd45a;text-shadow:0 0 6px #ffd45a,0 0 14px #ffae00;filter:drop-shadow(0 0 7px rgba(255,197,54,.8))}
+@media(max-width:760px){.flight-guidance-marker{font-size:19px;width:18px;height:18px}}
+@media(prefers-reduced-motion:reduce){.flight-guidance-marker{transition:none}}
 </style></head>
 <body><main class="shell">
-<section id="home" class="screen active"><div class="home-build-version">DIGITAL ARENA · v2.4.0</div>
+<section id="home" class="screen active"><div class="home-build-version">DIGITAL ARENA · v2.5.0</div>
   <div class="eyebrow">WORLD MARTIAL ARTS CHAMPIONSHIP 2026</div>
   <h1>WMA <span>JUNIOR DRONE MISSION</span></h1>
   <p class="sub">DIGITAL MARTIAL ARTS CHALLENGE · ELEMENTARY DIVISION</p>
@@ -60,7 +67,7 @@
 <section id="record" class="screen"><button class="back" data-go="home">← HOME</button><h2>MY RECORD</h2><div class="panel"><b>PHASE 1-A</b><p>비행엔진 이식 완료. 공식 참가번호와 서버 기록은 다음 단계에서 연결됩니다.</p></div></section>
 <section id="arena" class="screen arena">
   <button class="back arena-exit" data-go="home">← EXIT</button>
-  <div class="arena-brand"><b>WMA 2026</b><span id="modeLabel">CHAMPIONSHIP ARENA</span><em class="build-version">DIGITAL ARENA · v2.4.0</em></div>
+  <div class="arena-brand"><b>WMA 2026</b><span id="modeLabel">CHAMPIONSHIP ARENA</span><em class="build-version">DIGITAL ARENA · v2.5.0</em></div>
   <div class="hud"><b>ALT <span id="alt">0.0</span>m</b><b>SPD <span id="spd">0.0</span></b><b>DIST <span id="dist">0.0</span>m</b><b>SCORE <span id="score">0000</span></b><b>TIME <span id="time">03:00</span></b><b>MISSION <span id="stage">READY</span></b></div>
   <div class="arena-layout"><aside class="mission-board"><div class="panel-title">MISSION CHECKLIST</div><ol id="missionList"><li>TAKE OFF</li><li>CLIMB 5m</li><li>GATE 01</li><li>GATE 02</li><li>ENERGY RING</li><li>GATE 03</li><li>MISSION ZONE</li><li>TURN 180°</li><li>RETURN HOME</li><li>PRECISION LANDING</li></ol></aside><div id="flightArea" class="sky">
     <div class="master-stadium-bg" aria-hidden="true"></div>
@@ -81,7 +88,7 @@
     <div id="gate3" class="gate g3 official-object"><img src="assets/img/arena/wma-gate-master.png" alt="" onerror="this.hidden=true"><span>03</span></div>
     <div id="target" class="target official-object"><img src="assets/img/arena/wma-mission-zone.png" alt="" onerror="this.hidden=true"><span>MISSION</span></div>
     <div id="homePad" class="pad official-object"><img src="assets/img/arena/wma-landing-pad.png" alt="" onerror="this.hidden=true"><b>WMA</b><small>2026</small></div>
-    <div id="groundShadow" class="ground-shadow"></div>
+    <div id="groundShadow" class="ground-shadow"></div>\n    <div id="flightGuidanceLayer" class="flight-guidance-layer" aria-hidden="true"></div>
     <div id="drone" class="drone" aria-label="drone"><span class="drone-arm arm-a"></span><span class="drone-arm arm-b"></span><span class="prop prop-1"></span><span class="prop prop-2"></span><span class="prop prop-3"></span><span class="prop prop-4"></span><span class="drone-body"></span><span class="drone-light"></span><span class="nav-light front-left"></span><span class="nav-light front-right"></span><span class="nav-light rear-left"></span><span class="nav-light rear-right"></span><span class="heading-arrow">▲</span></div>
     <div id="flash" class="flash"></div><div id="warning" class="warning"></div><div id="targetNav" class="target-nav"><b>TARGET</b><span id="targetDistance">--</span><span class="nav-arrow">▲</span></div><div id="countdown" class="countdown-overlay"><b>3</b></div>
   </div><aside class="course-board"><div class="panel-title">OFFICIAL COURSE</div><div class="mini-course"><i class="mini home-dot">H</i><i class="mini m1">1</i><i class="mini m2">2</i><i class="mini mr">R</i><i class="mini m3">3</i><i class="mini mz">M</i><svg viewBox="0 0 100 160" preserveAspectRatio="none"><path d="M50 145 L50 112 L28 86 L50 66 L72 43 L50 18" /><path class="return-route" d="M50 18 C82 50 82 112 50 145" /></svg></div><div class="course-legend"><b>WMA 2026</b><span>FIXED OFFICIAL COURSE</span></div></aside></div>
@@ -89,4 +96,4 @@
   <div class="control-deck"><div class="control-hint">FLIGHT CONTROL</div><div class="controls"><button data-code="KeyA">A</button><button data-code="KeyW">W</button><button data-code="KeyD">D</button><button data-code="ArrowLeft">↶</button><button data-code="KeyS">S</button><button data-code="ArrowDown">↓</button><button data-code="ArrowRight">↷</button><button data-code="ArrowUp">↑</button><button class="space" data-code="Space">SPACE</button><button data-code="KeyR">RESET</button></div></div>
 </section>
 <div id="result" class="modal"><div><p>WMA JUNIOR DRONE MISSION 2026</p><h2>MISSION COMPLETE</h2><strong id="finalScore">000 / 1000</strong><p id="finalMeta"></p><div class="result-breakdown"><span>MISSION SCORE</span><b id="missionScore">000</b><span>LANDING</span><b id="landingScore">000</b><span>TIME BONUS</span><b id="timeBonus">000</b></div><button id="retry" class="gold">RETRY</button><button data-go="home">RETURN HOME</button></div></div>
-</main><script src="assets/js/app.js"></script></body></html>
+</main><script src="assets/js/app.js"></script><script src="assets/js/flight-guidance.js"></script></body></html>
