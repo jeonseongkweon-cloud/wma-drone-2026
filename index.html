@@ -48,13 +48,14 @@
 /* v2.7.1 · IDP OFFICIAL DRONE PARTNER BRAND PATCH — visual layer only */
 .idp-partner{display:flex;align-items:center;justify-content:center;gap:9px;color:#8ecdf1;font-size:9px;font-weight:900;letter-spacing:.12em;line-height:1.2}
 .idp-partner img{display:block;width:54px;height:54px;object-fit:contain;flex:0 0 auto}
+.home-idp{margin:12px auto 0;flex-direction:column;gap:4px;text-align:center}.home-idp img{width:60px;height:60px}.home-idp span{display:flex;flex-direction:column;gap:2px}.home-idp small{margin:0;color:#6fa9c9;font-size:8px;font-weight:800;letter-spacing:.1em}
 .entry-idp{margin:18px auto 0;flex-direction:column;gap:6px;text-align:center}.entry-idp img{width:66px;height:66px}.entry-idp span{display:flex;flex-direction:column;gap:3px}.entry-idp small{margin:0;color:#6fa9c9;font-size:8px;font-weight:800;letter-spacing:.1em}
 .arena-idp{position:absolute;right:12px;bottom:10px;z-index:23;padding:5px 8px;border:1px solid rgba(35,207,255,.25);border-radius:7px;background:rgba(0,13,29,.68);pointer-events:none}
 .arena-idp img{width:38px;height:38px}
 .result-idp{margin:12px auto 14px;padding-top:10px;border-top:1px solid #173552}
 .result-idp img{width:46px;height:46px}
 @media(max-width:1000px){.arena-idp{right:7px;bottom:7px;padding:4px 6px;font-size:7px}.arena-idp img{width:30px;height:30px}}
-@media(max-width:650px){.idp-partner{font-size:7px;gap:6px}.entry-idp img{width:48px;height:48px}.entry-idp small{font-size:6px}.result-idp img{width:38px;height:38px}.arena-idp{right:5px;bottom:5px}.arena-idp img{width:24px;height:24px}}
+@media(max-width:650px){.idp-partner{font-size:7px;gap:6px}.home-idp{margin-top:8px;gap:3px}.home-idp img{width:46px;height:46px}.home-idp small{font-size:6px}.entry-idp img{width:48px;height:48px}.entry-idp small{font-size:6px}.result-idp img{width:38px;height:38px}.arena-idp{right:5px;bottom:5px}.arena-idp img{width:24px;height:24px}}
 </style></head>
 <body><main class="shell">
 <section id="home" class="screen active"><div class="home-build-version">DIGITAL ARENA · v2.7.1</div>
@@ -68,6 +69,7 @@
     <button data-go="record">MY RECORD<small>나의 기록</small></button>
   </div>
   <p class="motto">FOCUS · CONTROL · JUDGMENT · SAFETY · CHALLENGE</p>
+  <div class="idp-partner home-idp"><img src="assets/img/partners/idp-official.png" alt="IDP"><span>OFFICIAL DRONE PARTNER · IDP<small>INTERNATIONAL DRONE PATROL</small></span></div>
   <footer>ONE WORLD · MANY ARENAS · ONE CHAMPIONSHIP</footer>
 </section>
 <section id="practice" class="screen"><button class="back" data-go="home">← HOME</button><h2>PRACTICE ARENA</h2><p>WMA 공식 코스를 자유롭게 연습합니다. 연습모드에는 비행 보조가 적용됩니다.</p><button class="gold wide" data-go="arena" data-mode="practice">START PRACTICE</button></section>
