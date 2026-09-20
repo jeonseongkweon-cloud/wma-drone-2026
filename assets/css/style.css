@@ -260,3 +260,6 @@
 .master-drone-test > .nav-light,
 .master-drone-test > .heading-arrow{visibility:hidden}
 @media(max-width:650px){.master-drone-test .drone-master-visual{width:116px}}
+
+/* VERSION IDENTIFICATION SYSTEM · TEST BRANCH — entry label only; HOME/ARENA existing language retained */
+.entry-build-version{margin:0 auto 14px;color:#63dfff;font-size:9px;font-weight:800;letter-spacing:.12em;opacity:.82}
