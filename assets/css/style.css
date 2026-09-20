@@ -273,3 +273,15 @@
 /* Passed gates remain clearly visible; completion state is indicated without near-disappearance. */
 .gate.official-object.passed{opacity:.82}
 .gate.official-object.passed>img{opacity:.78;filter:saturate(.72) brightness(.86) drop-shadow(0 5px 6px rgba(0,0,0,.5))}
+
+
+/* v2.7.4 · DRONE CHASE-VIEW VISUAL TUNING — CSS visual only */
+/* Smaller silhouette, nose-down flight attitude and stronger aircraft/drone depth. */
+.master-drone-test .drone-master-visual{
+  width:112px;
+  top:47%;
+  transform:translate(-50%,-50%) rotateY(calc(-1 * var(--heading, 0deg))) perspective(260px) rotateX(18deg) scaleY(.88);
+  transform-origin:50% 58%;
+  filter:drop-shadow(0 9px 5px rgba(0,0,0,.58)) drop-shadow(0 0 4px rgba(80,220,255,.34));
+}
+@media(max-width:650px){.master-drone-test .drone-master-visual{width:100px}}
