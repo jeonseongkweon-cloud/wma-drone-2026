@@ -42,18 +42,18 @@
 .result-breakdown{margin:14px auto 18px;width:min(330px,90%);display:grid;grid-template-columns:1fr auto;gap:7px 16px;text-align:left;font-size:12px;color:#a9c8dc}.result-breakdown b{color:#ffd24a;text-align:right}
 @media(max-width:760px){.match-status,.mission-progress{display:none}}
 </style><style>
-/* v2.6.0 · PHASE 2-A PARTICIPANT ENTRY — wrapper only; flight engine locked */
-.entry-panel{width:min(520px,88vw);margin:28px auto;text-align:left}.entry-panel label{display:block;color:#ffd24a;font-weight:900;letter-spacing:.12em;margin-bottom:10px}.entry-panel input{box-sizing:border-box;width:100%;padding:16px 18px;border:1px solid #2877a8;border-radius:8px;background:#031426;color:#fff;font-size:20px;font-weight:900;letter-spacing:.08em;outline:none}.entry-panel input:focus{border-color:#ffd24a;box-shadow:0 0 18px rgba(255,210,74,.18)}.entry-panel small{display:block;color:#8eb8d3;margin:9px 0 20px}.final-player{color:#7fe8ff;font-weight:900;letter-spacing:.08em}
+/* v2.7.0 · KEIMYUNG AUTO PLAYER + PRACTICE RECORD — flight engine locked */
+.entry-panel{width:min(520px,88vw);margin:28px auto;text-align:left}.entry-panel label{display:block;color:#ffd24a;font-weight:900;letter-spacing:.12em;margin-bottom:10px}.entry-panel input{box-sizing:border-box;width:100%;padding:16px 18px;border:1px solid #2877a8;border-radius:8px;background:#031426;color:#fff;font-size:20px;font-weight:900;letter-spacing:.08em;outline:none}.entry-panel input:focus{border-color:#ffd24a;box-shadow:0 0 18px rgba(255,210,74,.18)}.entry-panel small{display:block;color:#8eb8d3;margin:9px 0 20px}.entry-status{min-height:22px;color:#7fe8ff;font-size:12px;font-weight:800;margin:0 0 14px}.entry-status.bad{color:#ff9b78}.final-player{color:#7fe8ff;font-weight:900;letter-spacing:.08em}
 </style></head>
 <body><main class="shell">
-<section id="home" class="screen active"><div class="home-build-version">DIGITAL ARENA · v2.6.0</div>
+<section id="home" class="screen active"><div class="home-build-version">DIGITAL ARENA · v2.7.0</div>
   <div class="eyebrow">WORLD MARTIAL ARTS CHAMPIONSHIP 2026</div>
   <h1>WMA <span>JUNIOR DRONE MISSION</span></h1>
   <p class="sub">DIGITAL MARTIAL ARTS CHALLENGE · ELEMENTARY DIVISION</p>
   <div class="date">WORLD FINAL · 2026.12.12 SAT</div>
   <div class="actions">
     <button data-go="practice">PRACTICE<small>자유연습</small></button>
-    <button class="gold" data-go="entry">CHAMPIONSHIP<small>공식경기</small></button>
+    <button class="gold" data-go="entry">PLAYER PRACTICE<small>이름으로 입장</small></button>
     <button data-go="record">MY RECORD<small>나의 기록</small></button>
   </div>
   <p class="motto">FOCUS · CONTROL · JUDGMENT · SAFETY · CHALLENGE</p>
@@ -61,11 +61,11 @@
 </section>
 <section id="practice" class="screen"><button class="back" data-go="home">← HOME</button><h2>PRACTICE ARENA</h2><p>WMA 공식 코스를 자유롭게 연습합니다. 연습모드에는 비행 보조가 적용됩니다.</p><button class="gold wide" data-go="arena" data-mode="practice">START PRACTICE</button></section>
 
-<section id="entry" class="screen"><button class="back" data-go="home">← HOME</button><h2>CHAMPIONSHIP ENTRY</h2><p>WMA JUNIOR DRONE MISSION 2026 · OFFICIAL ATTEMPT</p><div class="panel entry-panel"><label for="playerNumber">PARTICIPANT NUMBER</label><input id="playerNumber" maxlength="20" autocomplete="off" placeholder="예: WMA26-001"><small>참가번호를 입력한 뒤 공식경기를 시작하세요.</small><button id="startOfficial" class="gold wide">START OFFICIAL ATTEMPT</button></div></section>
-<section id="record" class="screen"><button class="back" data-go="home">← HOME</button><h2>MY RECORD</h2><div class="panel"><b>PHASE 1-A</b><p>비행엔진 이식 완료. 공식 참가번호와 서버 기록은 다음 단계에서 연결됩니다.</p></div></section>
+<section id="entry" class="screen"><button class="back" data-go="home">← HOME</button><h2>PLAYER PRACTICE</h2><p>계명태권도 · WMA JUNIOR DRONE MISSION 2026</p><div class="panel entry-panel"><label for="playerNumber">내 이름</label><input id="playerNumber" maxlength="30" autocomplete="off" placeholder="예: 김우리"><small>계명태권도에 등록된 자기 이름만 입력하고 Enter를 누르세요.</small><p id="entryStatus" class="entry-status" aria-live="polite"></p><button id="startOfficial" class="gold wide">START PRACTICE</button></div></section>
+<section id="record" class="screen"><button class="back" data-go="home">← HOME</button><h2>MY RECORD</h2><div class="panel"><b>PRACTICE RECORD</b><p>계명태권도 등록선수는 이름으로 입장하면 연습 횟수와 MY BEST 기록을 확인할 수 있습니다.</p></div></section>
 <section id="arena" class="screen arena">
   <button class="back arena-exit" data-go="home">← EXIT</button>
-  <div class="arena-brand"><b>WMA 2026</b><span id="modeLabel">CHAMPIONSHIP ARENA</span><em class="build-version">DIGITAL ARENA · v2.6.0</em></div>
+  <div class="arena-brand"><b>WMA 2026</b><span id="modeLabel">CHAMPIONSHIP ARENA</span><em class="build-version">DIGITAL ARENA · v2.7.0</em></div>
   <div class="hud"><b>ALT <span id="alt">0.0</span>m</b><b>SPD <span id="spd">0.0</span></b><b>DIST <span id="dist">0.0</span>m</b><b>SCORE <span id="score">0000</span></b><b>TIME <span id="time">03:00</span></b><b>MISSION <span id="stage">READY</span></b></div>
   <div class="arena-layout"><aside class="mission-board"><div class="panel-title">MISSION CHECKLIST</div><ol id="missionList"><li>TAKE OFF</li><li>CLIMB 5m</li><li>GATE 01</li><li>GATE 02</li><li>ENERGY RING</li><li>GATE 03</li><li>MISSION ZONE</li><li>TURN 180°</li><li>RETURN HOME</li><li>PRECISION LANDING</li></ol></aside><div id="flightArea" class="sky">
     <div class="master-stadium-bg" aria-hidden="true"></div>
