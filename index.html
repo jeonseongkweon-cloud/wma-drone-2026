@@ -63,7 +63,7 @@
   <h1>WMA <span>JUNIOR DRONE MISSION</span></h1>
   <p class="sub">DIGITAL MARTIAL ARTS CHALLENGE · ELEMENTARY DIVISION</p>
   <div class="date">WORLD FINAL · 2026.12.12 SAT</div>
-  <div class="arena-selector" aria-label="Arena selection"><button type="button" class="arena-choice selected" data-arena-choice="classic"><b>PART 1 · CLASSIC ARENA</b><small>v2.7.5 안전 보존 경기장</small></button><button type="button" class="arena-choice" data-arena-choice="air"><b>PART 2 · AIR ARENA</b><small>v2.8.0 TEST · 공중 경기장</small></button></div>
+  <div class="arena-selector" aria-label="Arena selection"><button type="button" class="arena-choice selected" data-arena-choice="classic"><b>PART 1 · CLASSIC ARENA</b><small>v2.7.5 안전 보존 경기장</small></button><button type="button" class="arena-choice" data-arena-choice="air"><b>PART 2 · AIR ARENA</b><small>v2.8.0 · 중고도 공중 경기장</small></button><button type="button" class="arena-choice" data-arena-choice="high"><b>PART 3 · HIGH ALTITUDE</b><small>v2.9.0 TEST · 초고도 공중 경기장</small></button></div>
   <div class="actions">
     <button data-go="practice">PRACTICE<small>자유연습</small></button>
     <button class="gold" data-go="entry">PLAYER PRACTICE<small>이름으로 입장</small></button>
@@ -114,17 +114,18 @@
  const shell=document.querySelector('.shell'),choices=[...document.querySelectorAll('[data-arena-choice]')],statuses=[...document.querySelectorAll('[data-arena-status]')],arena=document.getElementById('arena');
  if(!shell||!choices.length)return;
  function applyArena(kind){
-  const air=kind==='air';
-  shell.dataset.arena=air?'air':'classic';
+  const high=kind==='high',air=kind==='air'||high,selected=high?'high':air?'air':'classic';
+  shell.dataset.arena=selected;
   document.body.classList.toggle('air-arena-mode',air);
+  document.body.classList.toggle('high-altitude-arena-mode',high);
   document.body.classList.toggle('classic-arena-mode',!air);
-  choices.forEach(btn=>btn.classList.toggle('selected',btn.dataset.arenaChoice===(air?'air':'classic')));
-  statuses.forEach(el=>el.textContent=air?'PART 2 · AIR ARENA · v2.8.0 TEST':'PART 1 · CLASSIC ARENA · v2.7.5 SAFE');
-  if(arena)arena.dataset.arena=air?'air':'classic';
-  try{sessionStorage.setItem('wmaArenaChoice',air?'air':'classic')}catch(e){}
+  choices.forEach(btn=>btn.classList.toggle('selected',btn.dataset.arenaChoice===selected));
+  statuses.forEach(el=>el.textContent=high?'PART 3 · HIGH ALTITUDE · v2.9.0 TEST':air?'PART 2 · AIR ARENA · v2.8.0':'PART 1 · CLASSIC ARENA · v2.7.5 SAFE');
+  if(arena)arena.dataset.arena=selected;
+  try{sessionStorage.setItem('wmaArenaChoice',selected)}catch(e){}
  }
  choices.forEach(btn=>btn.addEventListener('click',()=>applyArena(btn.dataset.arenaChoice)));
  let saved='classic';try{saved=sessionStorage.getItem('wmaArenaChoice')||'classic'}catch(e){}
- applyArena(saved==='air'?'air':'classic');
+ applyArena(saved==='high'?'high':saved==='air'?'air':'classic');
 })();
 </script></body></html>
