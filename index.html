@@ -42,36 +42,34 @@
 .result-breakdown{margin:14px auto 18px;width:min(330px,90%);display:grid;grid-template-columns:1fr auto;gap:7px 16px;text-align:left;font-size:12px;color:#a9c8dc}.result-breakdown b{color:#ffd24a;text-align:right}
 @media(max-width:760px){.match-status,.mission-progress{display:none}}
 </style><style>
-/* v2.5.0 · WMA FLIGHT PATH GUIDANCE — visual layer only */
-.flight-guidance-layer{position:absolute;inset:0;z-index:6;overflow:hidden;pointer-events:none;opacity:0;transition:opacity .18s ease}.flight-guidance-layer.show{opacity:1}
-.flight-guidance-marker{position:absolute;width:22px;height:22px;display:grid;place-items:center;color:#48e9ff;font:900 25px/1 Arial,sans-serif;text-shadow:0 0 5px #18d9ff,0 0 12px #007cff;filter:drop-shadow(0 0 5px rgba(25,218,255,.7));will-change:transform,opacity}
-.flight-guidance-layer.near .flight-guidance-marker{color:#8eefff;text-shadow:0 0 5px #20dfff,0 0 11px #e5b93d}.flight-guidance-layer.close .flight-guidance-marker{color:#ffd45a;text-shadow:0 0 6px #ffd45a,0 0 14px #ffae00;filter:drop-shadow(0 0 7px rgba(255,197,54,.8))}
-@media(max-width:760px){.flight-guidance-marker{font-size:19px;width:18px;height:18px}}
-@media(prefers-reduced-motion:reduce){.flight-guidance-marker{transition:none}}
+/* v2.6.0 · PHASE 2-A PARTICIPANT ENTRY — wrapper only; flight engine locked */
+.entry-panel{width:min(520px,88vw);margin:28px auto;text-align:left}.entry-panel label{display:block;color:#ffd24a;font-weight:900;letter-spacing:.12em;margin-bottom:10px}.entry-panel input{box-sizing:border-box;width:100%;padding:16px 18px;border:1px solid #2877a8;border-radius:8px;background:#031426;color:#fff;font-size:20px;font-weight:900;letter-spacing:.08em;outline:none}.entry-panel input:focus{border-color:#ffd24a;box-shadow:0 0 18px rgba(255,210,74,.18)}.entry-panel small{display:block;color:#8eb8d3;margin:9px 0 20px}.final-player{color:#7fe8ff;font-weight:900;letter-spacing:.08em}
 </style></head>
 <body><main class="shell">
-<section id="home" class="screen active"><div class="home-build-version">DIGITAL ARENA · v2.5.0</div>
+<section id="home" class="screen active"><div class="home-build-version">DIGITAL ARENA · v2.6.0</div>
   <div class="eyebrow">WORLD MARTIAL ARTS CHAMPIONSHIP 2026</div>
   <h1>WMA <span>JUNIOR DRONE MISSION</span></h1>
   <p class="sub">DIGITAL MARTIAL ARTS CHALLENGE · ELEMENTARY DIVISION</p>
   <div class="date">WORLD FINAL · 2026.12.12 SAT</div>
   <div class="actions">
     <button data-go="practice">PRACTICE<small>자유연습</small></button>
-    <button class="gold" data-go="arena" data-mode="championship">CHAMPIONSHIP<small>경기 체험</small></button>
+    <button class="gold" data-go="entry">CHAMPIONSHIP<small>공식경기</small></button>
     <button data-go="record">MY RECORD<small>나의 기록</small></button>
   </div>
   <p class="motto">FOCUS · CONTROL · JUDGMENT · SAFETY · CHALLENGE</p>
   <footer>ONE WORLD · MANY ARENAS · ONE CHAMPIONSHIP</footer>
 </section>
 <section id="practice" class="screen"><button class="back" data-go="home">← HOME</button><h2>PRACTICE ARENA</h2><p>WMA 공식 코스를 자유롭게 연습합니다. 연습모드에는 비행 보조가 적용됩니다.</p><button class="gold wide" data-go="arena" data-mode="practice">START PRACTICE</button></section>
+
+<section id="entry" class="screen"><button class="back" data-go="home">← HOME</button><h2>CHAMPIONSHIP ENTRY</h2><p>WMA JUNIOR DRONE MISSION 2026 · OFFICIAL ATTEMPT</p><div class="panel entry-panel"><label for="playerNumber">PARTICIPANT NUMBER</label><input id="playerNumber" maxlength="20" autocomplete="off" placeholder="예: WMA26-001"><small>참가번호를 입력한 뒤 공식경기를 시작하세요.</small><button id="startOfficial" class="gold wide">START OFFICIAL ATTEMPT</button></div></section>
 <section id="record" class="screen"><button class="back" data-go="home">← HOME</button><h2>MY RECORD</h2><div class="panel"><b>PHASE 1-A</b><p>비행엔진 이식 완료. 공식 참가번호와 서버 기록은 다음 단계에서 연결됩니다.</p></div></section>
 <section id="arena" class="screen arena">
   <button class="back arena-exit" data-go="home">← EXIT</button>
-  <div class="arena-brand"><b>WMA 2026</b><span id="modeLabel">CHAMPIONSHIP ARENA</span><em class="build-version">DIGITAL ARENA · v2.5.0</em></div>
+  <div class="arena-brand"><b>WMA 2026</b><span id="modeLabel">CHAMPIONSHIP ARENA</span><em class="build-version">DIGITAL ARENA · v2.6.0</em></div>
   <div class="hud"><b>ALT <span id="alt">0.0</span>m</b><b>SPD <span id="spd">0.0</span></b><b>DIST <span id="dist">0.0</span>m</b><b>SCORE <span id="score">0000</span></b><b>TIME <span id="time">03:00</span></b><b>MISSION <span id="stage">READY</span></b></div>
   <div class="arena-layout"><aside class="mission-board"><div class="panel-title">MISSION CHECKLIST</div><ol id="missionList"><li>TAKE OFF</li><li>CLIMB 5m</li><li>GATE 01</li><li>GATE 02</li><li>ENERGY RING</li><li>GATE 03</li><li>MISSION ZONE</li><li>TURN 180°</li><li>RETURN HOME</li><li>PRECISION LANDING</li></ol></aside><div id="flightArea" class="sky">
     <div class="master-stadium-bg" aria-hidden="true"></div>
-    <div class="match-status" id="matchStatus"><span class="match-chip" id="modeChip">CHAMPIONSHIP</span><span class="match-chip">WMA 2026 OFFICIAL COURSE</span></div><div class="mission-progress"><i id="missionProgress"></i></div><div class="stadium-decor" aria-hidden="true">
+    <div class="match-status" id="matchStatus"><span class="match-chip" id="modeChip">CHAMPIONSHIP</span><span class="match-chip" id="playerChip">PLAYER ----</span><span class="match-chip" id="attemptChip">ATTEMPT 01</span><span class="match-chip">WMA 2026 OFFICIAL COURSE</span></div><div class="mission-progress"><i id="missionProgress"></i></div><div class="stadium-decor" aria-hidden="true">
       <div class="decor-tower dt-l1">DRONE SPORTS<br>FOR A<br>BETTER WORLD<strong>WMA</strong><small>2026</small></div>
       <div class="decor-tower dt-l2">SKILLS<br>SAFETY<br>FRIENDSHIP<strong>W</strong></div>
       <div class="decor-tower dt-r2">AI × DRONE<br>EDUCATION<br>FUTURE<strong>W</strong></div>
@@ -89,12 +87,11 @@
     <div id="target" class="target official-object"><img src="assets/img/arena/wma-mission-zone.png" alt="" onerror="this.hidden=true"><span>MISSION</span></div>
     <div id="homePad" class="pad official-object"><img src="assets/img/arena/wma-landing-pad.png" alt="" onerror="this.hidden=true"><b>WMA</b><small>2026</small></div>
     <div id="groundShadow" class="ground-shadow"></div>
-    <div id="flightGuidanceLayer" class="flight-guidance-layer" aria-hidden="true"></div>
     <div id="drone" class="drone" aria-label="drone"><span class="drone-arm arm-a"></span><span class="drone-arm arm-b"></span><span class="prop prop-1"></span><span class="prop prop-2"></span><span class="prop prop-3"></span><span class="prop prop-4"></span><span class="drone-body"></span><span class="drone-light"></span><span class="nav-light front-left"></span><span class="nav-light front-right"></span><span class="nav-light rear-left"></span><span class="nav-light rear-right"></span><span class="heading-arrow">▲</span></div>
     <div id="flash" class="flash"></div><div id="warning" class="warning"></div><div id="targetNav" class="target-nav"><b>TARGET</b><span id="targetDistance">--</span><span class="nav-arrow">▲</span></div><div id="countdown" class="countdown-overlay"><b>3</b></div>
   </div><aside class="course-board"><div class="panel-title">OFFICIAL COURSE</div><div class="mini-course"><i class="mini home-dot">H</i><i class="mini m1">1</i><i class="mini m2">2</i><i class="mini mr">R</i><i class="mini m3">3</i><i class="mini mz">M</i><svg viewBox="0 0 100 160" preserveAspectRatio="none"><path d="M50 145 L50 112 L28 86 L50 66 L72 43 L50 18" /><path class="return-route" d="M50 18 C82 50 82 112 50 145" /></svg></div><div class="course-legend"><b>WMA 2026</b><span>FIXED OFFICIAL COURSE</span></div></aside></div>
   <div class="mission"><strong id="mission">MISSION 01 · TAKE OFF</strong><span id="guide">SPACE 이륙 · W/S 전후 · A/D 좌우 · ←/→ 회전 · ↑/↓ 고도 · R 재시작</span></div>
   <div class="control-deck"><div class="control-hint">FLIGHT CONTROL</div><div class="controls"><button data-code="KeyA">A</button><button data-code="KeyW">W</button><button data-code="KeyD">D</button><button data-code="ArrowLeft">↶</button><button data-code="KeyS">S</button><button data-code="ArrowDown">↓</button><button data-code="ArrowRight">↷</button><button data-code="ArrowUp">↑</button><button class="space" data-code="Space">SPACE</button><button data-code="KeyR">RESET</button></div></div>
 </section>
-<div id="result" class="modal"><div><p>WMA JUNIOR DRONE MISSION 2026</p><h2>MISSION COMPLETE</h2><strong id="finalScore">000 / 1000</strong><p id="finalMeta"></p><div class="result-breakdown"><span>MISSION SCORE</span><b id="missionScore">000</b><span>LANDING</span><b id="landingScore">000</b><span>TIME BONUS</span><b id="timeBonus">000</b></div><button id="retry" class="gold">RETRY</button><button data-go="home">RETURN HOME</button></div></div>
-</main><script src="assets/js/app.js"></script><script src="assets/js/flight-guidance.js"></script></body></html>
+<div id="result" class="modal"><div><p>WMA JUNIOR DRONE MISSION 2026</p><h2>MISSION COMPLETE</h2><strong id="finalScore">000 / 1000</strong><p id="finalMeta"></p><p id="finalPlayer" class="final-player"></p><div class="result-breakdown"><span>MISSION SCORE</span><b id="missionScore">000</b><span>LANDING</span><b id="landingScore">000</b><span>TIME BONUS</span><b id="timeBonus">000</b></div><button id="retry" class="gold">RETRY</button><button data-go="home">RETURN HOME</button></div></div>
+</main><script src="assets/js/app.js"></script></body></html>
