@@ -605,3 +605,53 @@
  .high-altitude-arena-mode .pad.official-object{bottom:-14px;width:158px;height:158px}
  .high-altitude-arena-mode #drone:not(.flying){transform:translate(-50%,calc(-50% + 25px)) perspective(420px) scale(1.08) rotateY(var(--heading,0deg))!important}
 }
+
+
+/* v2.9.4 TEST · PART 3 VISIBLE HIGH-ALTITUDE VENUE
+   Visual-only correction from deployed v2.9.3 screenshot.
+   Keep flight engine, logical course geometry, ALT/DIST and mission judging untouched. */
+.high-altitude-arena-mode .master-stadium-bg{
+  inset:-6% -7% -10%;
+  background-position:center 70%;
+  background-size:116% auto;
+  transform:perspective(1080px) rotateX(13deg) translateY(28%) scale(.91);
+  transform-origin:50% 90%;
+  filter:brightness(.72) saturate(.92) contrast(1.06);
+  opacity:.94;
+}
+/* Reveal enough of the venue in the lower field to read as a distant stadium below,
+   rather than empty dark air. */
+.high-altitude-arena-mode .stadium-decor,
+.high-altitude-arena-mode .stadium-crowd,
+.high-altitude-arena-mode .stands,
+.high-altitude-arena-mode .vertical-banner,
+.high-altitude-arena-mode .arena-banner,
+.high-altitude-arena-mode .track-barrier,
+.high-altitude-arena-mode .floor-glow,
+.high-altitude-arena-mode .runway,
+.high-altitude-arena-mode .runway-side,
+.high-altitude-arena-mode .stadium-world,
+.high-altitude-arena-mode .stadium-lights{opacity:.62}
+.high-altitude-arena-mode .sky:after{
+  left:5%;right:5%;bottom:-2%;height:44%;
+  background:linear-gradient(180deg,transparent,rgba(3,27,51,.10) 30%,rgba(0,10,22,.30) 100%);
+  clip-path:polygon(2% 100%,32% 0,68% 0,98% 100%);
+  filter:blur(4px);
+}
+/* HOME stays visually attached to the distant floor. */
+.high-altitude-arena-mode .pad.official-object{
+  bottom:-34px;
+  width:172px;height:172px;
+  transform:translateX(-50%) perspective(520px) rotateX(82deg) scaleX(1.12) scaleY(.46);
+  transform-origin:50% 76%;
+}
+.high-altitude-arena-mode .pad.official-object:after{bottom:-8px;height:18px}
+/* Preserve the v2.9.3 READY seating correction only. */
+.high-altitude-arena-mode #drone:not(.flying){
+  transform:translate(-50%,calc(-50% + 28px)) perspective(420px) scale(1.06) rotateY(var(--heading,0deg))!important;
+}
+@media(max-width:650px){
+ .high-altitude-arena-mode .master-stadium-bg{background-position:center 73%;background-size:auto 110%;transform:perspective(820px) rotateX(12deg) translateY(27%) scale(.92)}
+ .high-altitude-arena-mode .pad.official-object{bottom:-27px;width:148px;height:148px}
+ .high-altitude-arena-mode #drone:not(.flying){transform:translate(-50%,calc(-50% + 23px)) perspective(420px) scale(1.06) rotateY(var(--heading,0deg))!important}
+}
