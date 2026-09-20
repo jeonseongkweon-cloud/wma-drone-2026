@@ -421,3 +421,70 @@
 /* AIR: explicit marker for future PART 2-only tuning. */
 .air-arena-mode #arena{--arena-part:2}
 .classic-arena-mode #arena{--arena-part:1}
+
+
+/* v2.8.0 TEST · HIGH ALTITUDE AIR ARENA PHASE 3
+   Visual camera/depth only. Flight engine, mission coordinates and DIST remain locked. */
+.air-arena-mode .sky{
+  perspective:980px;
+  background:
+    linear-gradient(180deg,rgba(2,13,29,.08) 0%,rgba(2,15,31,.18) 44%,rgba(0,5,14,.76) 100%),
+    #020914!important;
+}
+.air-arena-mode .master-stadium-bg{
+  inset:-30% -10% -8%;
+  background-position:center 68%;
+  background-size:128% auto;
+  transform:perspective(980px) rotateX(16deg) translateY(34%) scale(.82);
+  transform-origin:50% 88%;
+  filter:brightness(.48) saturate(.72) contrast(1.08) blur(.15px);
+  opacity:.88;
+}
+/* Atmospheric depth: the venue floor visually falls far below the airborne course. */
+.air-arena-mode .sky:before{
+  content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:
+    linear-gradient(180deg,rgba(13,56,101,.08) 0%,rgba(4,24,49,.02) 38%,rgba(1,8,18,.42) 72%,rgba(0,3,9,.72) 100%),
+    radial-gradient(ellipse at 50% 78%,rgba(39,148,224,.10),transparent 48%);
+}
+.air-arena-mode .sky:after{
+  content:"";position:absolute;left:12%;right:12%;bottom:5%;height:34%;z-index:1;pointer-events:none;
+  background:linear-gradient(180deg,transparent,rgba(3,20,38,.28) 52%,rgba(0,5,13,.62));
+  clip-path:polygon(9% 100%,38% 0,62% 0,91% 100%);
+  filter:blur(8px);
+}
+/* Keep gameplay objects above atmospheric depth layers. */
+.air-arena-mode .official-object,.air-arena-mode #drone{z-index:8}
+
+/* Precision landing platform: visibly horizontal, readable, illuminated, never a vertical coin. */
+.air-arena-mode .pad.official-object{
+  left:50%;bottom:2%;width:190px;height:190px;
+  transform:translateX(-50%) perspective(420px) rotateX(72deg) scaleX(1.08) scaleY(.72);
+  transform-origin:50% 62%;z-index:9;
+}
+.air-arena-mode .pad.official-object>img{
+  opacity:1;filter:brightness(1.05) saturate(1.12) drop-shadow(0 0 12px rgba(55,225,255,.95)) drop-shadow(0 0 22px rgba(255,194,47,.38));
+}
+.air-arena-mode .pad.official-object:before{
+  inset:5%;border:4px solid rgba(67,230,255,.96);
+  box-shadow:0 0 12px #38e5ff,0 0 28px rgba(35,167,255,.72),inset 0 0 15px rgba(255,203,62,.52);
+}
+.air-arena-mode .pad.official-object:after{
+  left:13%;right:13%;bottom:-34px;height:48px;
+  background:radial-gradient(ellipse,rgba(59,224,255,.78),rgba(24,119,255,.27) 42%,transparent 72%);
+  filter:blur(7px);
+}
+/* Air checkpoints stay suspended above the distant venue. */
+.air-arena-mode .gate.official-object,.air-arena-mode .ring.official-object,.air-arena-mode .target.official-object{
+  filter:drop-shadow(0 18px 13px rgba(25,181,255,.28));
+}
+.air-arena-mode .target.official-object{
+  transform:translate(-50%,-50%) perspective(360px) rotateX(58deg) scale(.72);
+}
+/* Stronger down-thrust makes the drone read as flying high above the venue. */
+.air-arena-mode .master-drone-test .master-thrust{height:92px;filter:blur(2.2px) drop-shadow(0 0 6px rgba(56,222,255,.72))}
+.air-arena-mode .master-drone-test.flying:after{height:118px;opacity:.68}
+@media(max-width:650px){
+ .air-arena-mode .master-stadium-bg{background-size:auto 112%;transform:perspective(760px) rotateX(14deg) translateY(31%) scale(.84)}
+ .air-arena-mode .pad.official-object{width:154px;height:154px;bottom:3%}
+}
