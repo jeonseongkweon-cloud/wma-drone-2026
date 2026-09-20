@@ -263,3 +263,13 @@
 
 /* VERSION IDENTIFICATION SYSTEM · v2.7.2 — entry label only; HOME/ARENA existing language retained */
 .entry-build-version{margin:0 auto 14px;color:#63dfff;font-size:9px;font-weight:800;letter-spacing:.12em;opacity:.82}
+
+
+/* v2.7.3 · LIVE TEST PINPOINT VISUAL FIX — visual only; flight / mission / DIST logic locked */
+/* Keep the REAR CENTER master facing the chase camera while #drone retains its logical YAW transform. */
+.master-drone-test .drone-master-visual{
+  transform:translate(-50%,-50%) rotateY(calc(-1 * var(--heading, 0deg)));
+}
+/* Passed gates remain clearly visible; completion state is indicated without near-disappearance. */
+.gate.official-object.passed{opacity:.82}
+.gate.official-object.passed>img{opacity:.78;filter:saturate(.72) brightness(.86) drop-shadow(0 5px 6px rgba(0,0,0,.5))}
