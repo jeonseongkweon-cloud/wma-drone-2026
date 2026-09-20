@@ -528,3 +528,24 @@
  .high-altitude-arena-mode .master-stadium-bg{background-position:center 84%;transform:perspective(820px) rotateX(15deg) translateY(44%) scale(.80)}
  .high-altitude-arena-mode .pad.official-object{bottom:-48px;width:150px;height:150px}
 }
+
+
+/* v2.9.2 TEST · PART 3 CLEAR FLIGHT CORRIDOR
+   Move/hide non-flight text so TURN 180° and the drone corridor remain unobstructed.
+   Visual-only; flight engine and mission coordinates untouched. */
+.high-altitude-arena-mode .match-status{
+  top:4px!important;
+  transform:translateX(-50%) scale(.82);
+  transform-origin:50% 0;
+  opacity:.42;
+}
+.high-altitude-arena-mode .match-status .match-chip{font-size:7px;padding:3px 7px}
+.high-altitude-arena-mode .mission-float,
+.high-altitude-arena-mode .mission-label,
+.high-altitude-arena-mode .distance-label{
+  z-index:16;
+  transform:translateY(-44px);
+}
+/* During PART 3 the fixed top HUD/checklist already supplies mode/course context;
+   keep the central flight corridor clean. */
+.high-altitude-arena-mode #arena .match-status{visibility:hidden}
