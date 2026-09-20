@@ -235,3 +235,31 @@
 .drone.turn-ready .heading-arrow{color:#ffd24a;text-shadow:0 0 9px #ffb900}
 .drone.turn-complete .front-left,.drone.turn-complete .front-right{box-shadow:0 0 10px #00efff,0 0 20px #00c8ff}
 .mini-course svg .return-route{fill:none;stroke:#24d9ff;stroke-width:1.5;stroke-dasharray:4 4;opacity:.45}
+
+
+/* STEP 2 · REAR CENTER SINGLE PNG SAFE TEST — visual layer only; #drone 96×58 hitbox locked */
+.master-drone-test .drone-master-visual{
+  position:absolute;
+  left:50%;
+  top:50%;
+  width:132px;
+  height:auto;
+  max-width:none;
+  transform:translate(-50%,-50%);
+  object-fit:contain;
+  pointer-events:none;
+  user-select:none;
+  z-index:3;
+  filter:drop-shadow(0 13px 7px #000b) drop-shadow(0 0 5px #7cdfff55);
+}
+/* Keep the original CSS drone as rollback/fallback, but hide its visual pieces during this test. */
+.master-drone-test > .drone-arm,
+.master-drone-test > .prop,
+.master-drone-test > .drone-body,
+.master-drone-test > .drone-light,
+.master-drone-test > .nav-light,
+.master-drone-test > .heading-arrow{visibility:hidden}
+@media(max-width:650px){.master-drone-test .drone-master-visual{width:116px}}
+
+/* VERSION IDENTIFICATION SYSTEM · v2.7.2 — entry label only; HOME/ARENA existing language retained */
+.entry-build-version{margin:0 auto 14px;color:#63dfff;font-size:9px;font-weight:800;letter-spacing:.12em;opacity:.82}
