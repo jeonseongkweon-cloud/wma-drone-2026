@@ -492,3 +492,39 @@
 /* PART 3 selector layout only */
 @media(min-width:651px){.arena-selector{grid-template-columns:repeat(3,1fr);max-width:900px}}
 .high-altitude-arena-mode #arena{--arena-part:3}
+
+
+/* v2.9.1 · PART 3 PINPOINT — visible launch drone + lower floor pad + taller airspace
+   Visual layer only. Flight engine / ALT / DIST / mission logic untouched. */
+.high-altitude-arena-mode .sky{
+  overflow:hidden;
+  background:
+    radial-gradient(ellipse at 50% 18%,rgba(16,75,128,.28),transparent 48%),
+    linear-gradient(180deg,#041a32 0%,#031426 42%,#020b17 72%,#01060d 100%)!important;
+}
+/* Push the venue/floor farther down so the upper half reads as open high-altitude airspace. */
+.high-altitude-arena-mode .master-stadium-bg{
+  inset:-20% -10% -20%;
+  background-position:center 82%;
+  background-size:132% auto;
+  transform:perspective(1050px) rotateX(17deg) translateY(47%) scale(.78);
+  transform-origin:50% 96%;
+  filter:brightness(.46) saturate(.72) contrast(1.08);
+}
+/* Keep the landing platform at the visual floor edge, below the launch drone. */
+.high-altitude-arena-mode .pad.official-object{
+  bottom:-58px;
+  width:182px;height:182px;
+  transform:translateX(-50%) perspective(430px) rotateX(76deg) scaleX(1.12) scaleY(.66);
+  transform-origin:50% 70%;
+  z-index:6;
+}
+.high-altitude-arena-mode .pad.official-object:after{bottom:-22px;height:34px}
+/* Drone must remain visible from ALT 0; only stacking is changed, never its flight coordinates. */
+.high-altitude-arena-mode #drone{z-index:12!important}
+.high-altitude-arena-mode .master-drone-test .drone-master-visual{z-index:13}
+.high-altitude-arena-mode .master-drone-test .master-rotor{z-index:14}
+@media(max-width:650px){
+ .high-altitude-arena-mode .master-stadium-bg{background-position:center 84%;transform:perspective(820px) rotateX(15deg) translateY(44%) scale(.80)}
+ .high-altitude-arena-mode .pad.official-object{bottom:-48px;width:150px;height:150px}
+}
