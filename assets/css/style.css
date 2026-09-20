@@ -285,3 +285,31 @@
   filter:drop-shadow(0 9px 5px rgba(0,0,0,.58)) drop-shadow(0 0 4px rgba(80,220,255,.34));
 }
 @media(max-width:650px){.master-drone-test .drone-master-visual{width:100px}}
+
+
+/* v2.7.5 · AIRBORNE DRONE VISUAL — CSS-only overlays; logic/hitbox locked */
+.master-drone-test .drone-master-visual{
+  width:106px;
+  top:43%;
+  transform:translate(-50%,-50%) rotateY(calc(-1 * var(--heading, 0deg))) perspective(230px) rotateX(31deg) scaleY(.82);
+  transform-origin:50% 64%;
+  filter:drop-shadow(0 6px 4px rgba(0,0,0,.42)) drop-shadow(0 0 5px rgba(70,225,255,.42));
+}
+.master-drone-test .master-rotor{
+  visibility:visible;position:absolute;z-index:5;width:31px;height:8px;border-radius:50%;
+  border:1px solid rgba(160,235,255,.7);background:rgba(95,220,255,.14);
+  box-shadow:0 0 7px rgba(70,220,255,.38);pointer-events:none;
+  animation:masterRotorSpin .075s linear infinite;
+}
+.master-drone-test .rotor-fl{left:-10px;top:5px}.master-drone-test .rotor-fr{right:-10px;top:5px}
+.master-drone-test .rotor-rl{left:-7px;bottom:5px}.master-drone-test .rotor-rr{right:-7px;bottom:5px}
+@keyframes masterRotorSpin{0%{transform:scaleX(1) rotate(0deg)}50%{transform:scaleX(.16) rotate(90deg)}100%{transform:scaleX(1) rotate(180deg)}}
+.master-drone-test .master-thrust{
+  visibility:visible;position:absolute;z-index:2;top:44px;width:9px;height:58px;border-radius:50%;
+  pointer-events:none;opacity:0;background:linear-gradient(to bottom,rgba(70,225,255,.78),rgba(20,150,255,.28),transparent);
+  filter:blur(3px);transform-origin:50% 0;
+}
+.master-drone-test.flying .master-thrust{opacity:.72;animation:masterThrustPulse .18s ease-in-out infinite alternate}
+.master-drone-test .thrust-left{left:29px;transform:rotate(7deg)}.master-drone-test .thrust-right{right:29px;transform:rotate(-7deg)}
+@keyframes masterThrustPulse{from{height:46px;opacity:.48}to{height:64px;opacity:.82}}
+@media(max-width:650px){.master-drone-test .drone-master-visual{width:96px}.master-drone-test .master-rotor{width:27px}}
