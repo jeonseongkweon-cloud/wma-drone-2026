@@ -422,6 +422,9 @@
 .air-arena-mode #arena{--arena-part:2}
 .classic-arena-mode #arena{--arena-part:1}
 
+/* LEGACY PART 3 VISUAL EXPERIMENTS (v2.9.0–v2.9.4)
+   Disabled as one archive so v2.9.5 has a single authoritative PART 3 visual block. */
+@media(max-width:0px){
 /* v2.9.0 TEST · PART 3 HIGH ALTITUDE AIR ARENA
    Visual camera/depth only. Flight engine, mission coordinates and DIST remain locked. */
 .high-altitude-arena-mode .sky{
@@ -654,4 +657,92 @@
  .high-altitude-arena-mode .master-stadium-bg{background-position:center 73%;background-size:auto 110%;transform:perspective(820px) rotateX(12deg) translateY(27%) scale(.92)}
  .high-altitude-arena-mode .pad.official-object{bottom:-27px;width:148px;height:148px}
  .high-altitude-arena-mode #drone:not(.flying){transform:translate(-50%,calc(-50% + 23px)) perspective(420px) scale(1.06) rotateY(var(--heading,0deg))!important}
+}
+}
+
+/* v2.9.5 TEST · PART 3 HIGH ALTITUDE MASTER
+   One visual authority for PART 3. Flight/Mission DOM geometry and app.js stay locked. */
+.high-altitude-arena-mode .sky{
+  overflow:hidden;
+  perspective:1100px;
+  background:#031229!important;
+}
+.high-altitude-arena-mode .master-stadium-bg{
+  inset:0;
+  background-image:url("../img/arena/wma-high-altitude-stadium-master.webp");
+  background-position:center center;
+  background-size:cover;
+  transform:none;
+  transform-origin:50% 50%;
+  filter:brightness(.82) saturate(1.02) contrast(1.04);
+  opacity:1;
+}
+/* Subtle atmosphere keeps the middle corridor readable without hiding ceiling or floor. */
+.high-altitude-arena-mode .sky:before{
+  content:""!important;display:block!important;position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(180deg,rgba(0,9,24,.04),rgba(3,24,49,.02) 48%,rgba(0,8,22,.20) 100%);
+}
+.high-altitude-arena-mode .sky:after{
+  content:""!important;display:block!important;position:absolute;left:18%;right:18%;bottom:0;height:30%;z-index:1;pointer-events:none;
+  background:radial-gradient(ellipse at 50% 100%,rgba(53,200,255,.14),transparent 68%);
+  filter:blur(5px);
+}
+/* The generated master already supplies venue architecture; legacy CSS scenery is removed in PART 3 only. */
+.high-altitude-arena-mode .stadium-decor,
+.high-altitude-arena-mode .stadium-crowd,
+.high-altitude-arena-mode .stands,
+.high-altitude-arena-mode .vertical-banner,
+.high-altitude-arena-mode .arena-banner,
+.high-altitude-arena-mode .track-barrier,
+.high-altitude-arena-mode .floor-glow,
+.high-altitude-arena-mode .runway,
+.high-altitude-arena-mode .runway-side,
+.high-altitude-arena-mode .stadium-world,
+.high-altitude-arena-mode .stadium-lights,
+.high-altitude-arena-mode .sun,
+.high-altitude-arena-mode .mountains,
+.high-altitude-arena-mode .course-line{display:none!important}
+
+.high-altitude-arena-mode .official-object,
+.high-altitude-arena-mode #drone{z-index:8}
+.high-altitude-arena-mode #drone{z-index:12!important}
+.high-altitude-arena-mode .gate.official-object,
+.high-altitude-arena-mode .ring.official-object,
+.high-altitude-arena-mode .target.official-object{
+  filter:drop-shadow(0 15px 11px rgba(11,100,180,.32)) drop-shadow(0 0 8px rgba(49,218,255,.30));
+}
+/* HOME is fixed to the distant lower arena floor; it never becomes a floating disc. */
+.high-altitude-arena-mode .pad.official-object{
+  bottom:-34px;width:172px;height:172px;
+  transform:translateX(-50%) perspective(520px) rotateX(82deg) scaleX(1.12) scaleY(.46);
+  transform-origin:50% 76%;z-index:7;
+}
+.high-altitude-arena-mode .pad.official-object>img{
+  opacity:1;
+  filter:brightness(1.05) saturate(1.12) drop-shadow(0 0 9px rgba(55,225,255,.82)) drop-shadow(0 0 14px rgba(255,194,47,.28));
+}
+.high-altitude-arena-mode .pad.official-object:after{bottom:-8px;height:18px;opacity:.66}
+/* READY remains seated on HOME. Inline transforms resume unchanged after launch. */
+.high-altitude-arena-mode #drone:not(.flying){
+  transform:translate(-50%,calc(-50% + 28px)) perspective(420px) scale(1.06) rotateY(var(--heading,0deg))!important;
+}
+.high-altitude-arena-mode #drone:not(.flying) .master-thrust{opacity:0!important}
+.high-altitude-arena-mode #drone:not(.flying):after{content:none!important;display:none!important}
+.high-altitude-arena-mode .master-drone-test .drone-master-visual{width:118px;z-index:13}
+.high-altitude-arena-mode .master-drone-test .master-rotor{z-index:14}
+.high-altitude-arena-mode .master-drone-test .master-thrust{height:92px;filter:blur(2.2px) drop-shadow(0 0 6px rgba(56,222,255,.72))}
+.high-altitude-arena-mode .master-drone-test.flying:after{height:118px;opacity:.68}
+/* TURN 180° / target navigation stays in the top safe zone, away from the flight corridor. */
+.high-altitude-arena-mode #arena .match-status{visibility:hidden}
+.high-altitude-arena-mode #targetNav{top:10px!important;transform:translate(-50%,0) scale(.86);transform-origin:50% 0;z-index:24}
+.high-altitude-arena-mode #warning{top:8px}
+.high-altitude-arena-mode .mission-float,
+.high-altitude-arena-mode .mission-label,
+.high-altitude-arena-mode .distance-label{z-index:16;transform:translateY(-44px)}
+
+@media(max-width:650px){
+  .high-altitude-arena-mode .master-stadium-bg{background-position:center center;background-size:cover}
+  .high-altitude-arena-mode .pad.official-object{bottom:-27px;width:148px;height:148px}
+  .high-altitude-arena-mode #drone:not(.flying){transform:translate(-50%,calc(-50% + 23px)) perspective(420px) scale(1.06) rotateY(var(--heading,0deg))!important}
+  .high-altitude-arena-mode .master-drone-test .drone-master-visual{width:104px}
 }
