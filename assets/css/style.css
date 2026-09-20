@@ -334,3 +334,51 @@
 .master-drone-test.flying:after{content:"";position:absolute;left:50%;top:44px;width:44px;height:92px;transform:translateX(-50%);background:linear-gradient(180deg,rgba(55,218,255,.22),rgba(41,125,255,.12) 45%,transparent 92%);clip-path:polygon(28% 0,42% 0,50% 100%,58% 0,72% 0,64% 100%,36% 100%);filter:blur(4px);opacity:.58;pointer-events:none;z-index:1}
 @keyframes airArenaThrust{from{height:62px;opacity:.62}to{height:86px;opacity:.96}}
 @media(max-width:650px){.master-drone-test .drone-master-visual{width:80px}}
+
+
+/* v2.8.0 TEST · AIR ARENA PHASE 2 — floating HOME + mission platform; logic coordinates untouched */
+/* HOME becomes a suspended launch/landing station instead of a floor object. */
+.pad.official-object{
+  left:50%;bottom:7%;width:148px;height:148px;
+  transform:translateX(-50%) rotateX(58deg) scale(.86);
+  z-index:5;
+}
+.pad.official-object:before{
+  content:"";position:absolute;inset:9%;border-radius:50%;
+  border:3px solid rgba(83,226,255,.9);
+  box-shadow:0 0 14px rgba(57,221,255,.9),0 0 34px rgba(31,151,255,.52),inset 0 0 18px rgba(255,202,62,.28);
+  pointer-events:none;
+}
+.pad.official-object:after{
+  content:"";position:absolute;left:18%;right:18%;bottom:-23px;height:25px;border-radius:50%;
+  background:radial-gradient(ellipse,rgba(53,218,255,.66),rgba(32,126,255,.25) 42%,transparent 72%);
+  filter:blur(5px);z-index:-1;pointer-events:none;
+}
+.pad.official-object>img{filter:drop-shadow(0 0 10px rgba(60,224,255,.78)) drop-shadow(0 8px 8px rgba(0,0,0,.32))}
+
+/* Mission Zone becomes a suspended checkpoint with its own lift glow. */
+.target.official-object{
+  left:50%;top:18%;width:104px;height:104px;
+  transform:translate(-50%,-50%) rotateX(18deg) scale(.66);
+  z-index:5;
+}
+.target.official-object:before{
+  content:"";position:absolute;inset:7%;border-radius:50%;
+  border:2px solid rgba(255,207,72,.82);
+  box-shadow:0 0 12px rgba(255,205,67,.66),0 0 26px rgba(40,208,255,.48);
+  pointer-events:none;
+}
+.target.official-object:after{
+  content:"";position:absolute;left:24%;right:24%;bottom:-20px;height:28px;border-radius:50%;
+  background:radial-gradient(ellipse,rgba(57,218,255,.58),rgba(34,119,255,.20) 45%,transparent 74%);
+  filter:blur(5px);z-index:-1;pointer-events:none;
+}
+.target.official-object>img{filter:drop-shadow(0 0 9px rgba(45,218,255,.72))}
+
+/* Give every floating checkpoint a small under-glow to detach it from the stadium floor. */
+.gate.official-object{filter:drop-shadow(0 14px 10px rgba(29,187,255,.20))}
+.ring.official-object{filter:drop-shadow(0 13px 9px rgba(31,205,255,.22))}
+@media(max-width:650px){
+  .pad.official-object{width:126px;height:126px;bottom:8%}
+  .target.official-object{width:92px;height:92px}
+}
