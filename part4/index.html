@@ -57,12 +57,12 @@
 @media(max-width:1000px){.arena-idp{right:7px;bottom:7px;padding:4px 6px;font-size:7px}.arena-idp img{width:30px;height:30px}}
 @media(max-width:650px){.idp-partner{font-size:7px;gap:6px}.home-idp{margin-top:8px;gap:3px}.home-idp img{width:46px;height:46px}.home-idp small{font-size:6px}.entry-idp img{width:48px;height:48px}.entry-idp small{font-size:6px}.result-idp img{width:38px;height:38px}.arena-idp{right:5px;bottom:5px}.arena-idp img{width:24px;height:24px}}
 </style><style>
-/* PART 4 v0.1.1 MOBILE TEST — thumb-zone layout, shared flight engine untouched */
+/* PART 4 v0.1.2 MOBILE TEST — compact corner thumb controls, shared flight engine untouched */
 .mobile-test-banner{margin:0 auto 8px;color:#ffd24a;font-weight:900;letter-spacing:.12em;font-size:11px}.part4-intro{margin:10px auto;color:#7fe8ff;font-size:11px}.rotate-notice{display:none}.part4-mobile-test .control-deck{z-index:35}.part4-mobile-test .controls button{touch-action:none;-webkit-user-select:none;user-select:none}.part4-mobile-test .control-hint{color:#ffd24a}
 @media(max-width:900px){.part4-mobile-test .screen{padding:3vh 3vw}.part4-mobile-test #arena{padding:52px 6px 116px}.part4-mobile-test .arena-layout{grid-template-columns:1fr}.part4-mobile-test .mission-board,.part4-mobile-test .course-board{display:none}.part4-mobile-test .hud{gap:4px;flex-wrap:wrap}.part4-mobile-test .hud b{font-size:9px;padding:5px 6px}.part4-mobile-test .sky{min-height:58vw;max-height:64vh}.part4-mobile-test .mobile-deck{position:absolute;left:6px;right:6px;bottom:6px;margin:0;padding:5px 6px;background:rgba(1,9,20,.90);border:1px solid rgba(35,207,255,.34);border-radius:12px}.part4-mobile-test .controls{display:grid;grid-template-columns:repeat(5,minmax(48px,1fr));gap:6px;max-width:none}.part4-mobile-test .controls button{min-width:0;min-height:48px;font-size:17px;border-radius:10px}.part4-mobile-test .controls .space{grid-column:span 2}.part4-mobile-test .mission{bottom:104px;font-size:10px}.part4-mobile-test .arena-idp{display:none}}
 @media(orientation:portrait) and (max-width:900px){.part4-mobile-test .rotate-notice{display:block;position:absolute;z-index:80;left:8%;right:8%;top:44%;padding:18px;border:1px solid #ffd24a;border-radius:12px;background:rgba(1,9,20,.96);color:#ffd24a;font-weight:900;text-align:center;pointer-events:none}.part4-mobile-test .sky{opacity:.42}}
 
-/* v0.1.1 mobile thumb controls: keep center flight view clear */
+/* v0.1.2 mobile thumb controls: compact corners, clear center view */
 .mobile-controls-v011{display:none}
 @media (max-width:900px) and (orientation:landscape){
  .part4-mobile-test #arena{padding:46px 6px 8px}
@@ -70,21 +70,21 @@
  .part4-mobile-test .mission{bottom:5px;left:50%;transform:translateX(-50%);width:auto;max-width:46%;padding:4px 10px;background:rgba(1,9,20,.72);border-radius:8px}
  .part4-mobile-test .mobile-deck{display:none!important}
  .mobile-controls-v011{display:block;position:absolute;z-index:60;inset:0;pointer-events:none}
- .thumb-zone{position:absolute;bottom:10px;width:190px;height:150px;pointer-events:none}
- .move-zone{left:12px}.flight-zone{right:12px}
- .thumb-zone button,.center-actions button{position:absolute;pointer-events:auto;touch-action:none;-webkit-user-select:none;user-select:none;border:1px solid rgba(86,193,255,.65);background:rgba(8,31,53,.84);color:#fff;font-weight:900;box-shadow:0 0 12px rgba(0,174,255,.12)}
- .thumb-zone button{width:58px;height:58px;border-radius:50%;font-size:22px}
- .thumb-zone button small{display:block;font-size:8px;color:#9ddfff;line-height:1}
- .thumb-zone .up{left:66px;top:0}.thumb-zone .left{left:3px;top:56px}.thumb-zone .right{right:3px;top:56px}.thumb-zone .down{left:66px;bottom:0}
- .zone-label{position:absolute;left:50%;top:65px;transform:translateX(-50%);font-size:8px;color:#ffd24a;font-weight:900;letter-spacing:.12em}
- .center-actions{position:absolute;left:50%;bottom:9px;transform:translateX(-50%);display:flex;gap:7px;pointer-events:none}
- .center-actions button{position:static;min-width:78px;height:34px;border-radius:8px;font-size:10px}
+ .thumb-zone{position:absolute;bottom:8px;width:126px;height:104px;pointer-events:none}
+ .move-zone{left:8px}.flight-zone{right:8px}
+ .thumb-zone button,.center-actions button{position:absolute;pointer-events:auto;touch-action:none;-webkit-user-select:none;user-select:none;border:1px solid rgba(86,193,255,.65);background:rgba(8,31,53,.58);color:#fff;font-weight:900;box-shadow:0 0 8px rgba(0,174,255,.10)}
+ .thumb-zone button{width:42px;height:42px;border-radius:50%;font-size:17px}
+ .thumb-zone button small{display:block;font-size:7px;color:#9ddfff;line-height:1}
+ .thumb-zone .up{left:42px;top:0}.thumb-zone .left{left:0;top:34px}.thumb-zone .right{right:0;top:34px}.thumb-zone .down{left:42px;bottom:0}
+ .zone-label{position:absolute;left:50%;top:48px;transform:translateX(-50%);font-size:8px;color:#ffd24a;font-weight:900;letter-spacing:.12em}
+ .center-actions{position:absolute;left:50%;bottom:6px;transform:translateX(-50%);display:flex;gap:7px;pointer-events:none}
+ .center-actions button{position:static;min-width:62px;height:28px;border-radius:7px;font-size:9px}
  .center-actions .takeoff{border-color:#ffd24a;color:#ffd24a}
  .part4-mobile-test .hud{position:relative;z-index:30}
 }
 </style></head>
 <body class="part4-mobile-test"><main class="shell" data-arena="classic">
-<section id="home" class="screen active"><div class="mobile-test-banner">PART 4 · MOBILE ARENA · ISOLATED TEST</div><div class="home-build-version">PART 4 · MOBILE ARENA · v0.1.1 TEST</div>
+<section id="home" class="screen active"><div class="mobile-test-banner">PART 4 · MOBILE ARENA · ISOLATED TEST</div><div class="home-build-version">PART 4 · MOBILE ARENA · v0.1.2 TEST</div>
   <div class="eyebrow">WORLD MARTIAL ARTS CHAMPIONSHIP 2026</div>
   <h1>WMA <span>JUNIOR DRONE MISSION</span></h1>
   <p class="sub">DIGITAL MARTIAL ARTS CHALLENGE · ELEMENTARY DIVISION</p>
@@ -101,11 +101,11 @@
 </section>
 <section id="practice" class="screen"><button class="back" data-go="home">← HOME</button><div class="arena-selection-status" data-arena-status>PART 1 · CLASSIC ARENA</div><h2>PRACTICE ARENA</h2><p>WMA 공식 코스를 자유롭게 연습합니다. 연습모드에는 비행 보조가 적용됩니다.</p><button class="gold wide" data-go="arena" data-mode="practice">START PRACTICE</button></section>
 
-<section id="entry" class="screen"><button class="back" data-go="home">← HOME</button><div class="arena-selection-status" data-arena-status>PART 1 · CLASSIC ARENA</div><div class="entry-build-version">PART 4 · MOBILE ARENA · v0.1.1 TEST</div><h2>PLAYER PRACTICE</h2><p>계명태권도 · WMA JUNIOR DRONE MISSION 2026</p><div class="panel entry-panel"><label for="playerNumber">내 이름</label><input id="playerNumber" maxlength="30" autocomplete="off" placeholder="예: 김우리"><small>계명태권도에 등록된 자기 이름만 입력하고 Enter를 누르세요.</small><p id="entryStatus" class="entry-status" aria-live="polite"></p><button id="startOfficial" class="gold wide">START PRACTICE</button><div class="idp-partner entry-idp"><img src="../assets/img/partners/idp-official.png" alt="IDP"><span>OFFICIAL DRONE PARTNER · IDP<small>INTERNATIONAL DRONE PATROL</small></span></div></div></section>
+<section id="entry" class="screen"><button class="back" data-go="home">← HOME</button><div class="arena-selection-status" data-arena-status>PART 1 · CLASSIC ARENA</div><div class="entry-build-version">PART 4 · MOBILE ARENA · v0.1.2 TEST</div><h2>PLAYER PRACTICE</h2><p>계명태권도 · WMA JUNIOR DRONE MISSION 2026</p><div class="panel entry-panel"><label for="playerNumber">내 이름</label><input id="playerNumber" maxlength="30" autocomplete="off" placeholder="예: 김우리"><small>계명태권도에 등록된 자기 이름만 입력하고 Enter를 누르세요.</small><p id="entryStatus" class="entry-status" aria-live="polite"></p><button id="startOfficial" class="gold wide">START PRACTICE</button><div class="idp-partner entry-idp"><img src="../assets/img/partners/idp-official.png" alt="IDP"><span>OFFICIAL DRONE PARTNER · IDP<small>INTERNATIONAL DRONE PATROL</small></span></div></div></section>
 <section id="record" class="screen"><button class="back" data-go="home">← HOME</button><h2>MY RECORD</h2><div class="panel"><b>PRACTICE RECORD</b><p>계명태권도 등록선수는 이름으로 입장하면 연습 횟수와 MY BEST 기록을 확인할 수 있습니다.</p></div></section>
 <section id="arena" class="screen arena">
   <button class="back arena-exit" data-go="home">← EXIT</button>
-  <div class="arena-brand"><b>WMA 2026</b><span id="modeLabel">CHAMPIONSHIP ARENA</span><em class="build-version">PART 4 · MOBILE ARENA · v0.1.1 TEST</em></div>
+  <div class="arena-brand"><b>WMA 2026</b><span id="modeLabel">CHAMPIONSHIP ARENA</span><em class="build-version">PART 4 · MOBILE ARENA · v0.1.2 TEST</em></div>
   <div class="hud"><b>ALT <span id="alt">0.0</span>m</b><b>SPD <span id="spd">0.0</span></b><b>DIST <span id="dist">0.0</span>m</b><b>SCORE <span id="score">0000</span></b><b>TIME <span id="time">03:00</span></b><b>MISSION <span id="stage">READY</span></b></div>
   <div class="arena-layout"><aside class="mission-board"><div class="panel-title">MISSION CHECKLIST</div><ol id="missionList"><li>TAKE OFF</li><li>CLIMB 5m</li><li>GATE 01</li><li>GATE 02</li><li>ENERGY RING</li><li>GATE 03</li><li>MISSION ZONE</li><li>TURN 180°</li><li>RETURN HOME</li><li>PRECISION LANDING</li></ol></aside><div id="flightArea" class="sky">
     <div class="master-stadium-bg" aria-hidden="true"></div>
@@ -154,7 +154,7 @@
   </div>
 </section>
 <div id="result" class="modal"><div><p>WMA JUNIOR DRONE MISSION 2026</p><h2>MISSION COMPLETE</h2><strong id="finalScore">000 / 1000</strong><p id="finalMeta"></p><p id="finalPlayer" class="final-player"></p><div class="result-breakdown"><span>MISSION SCORE</span><b id="missionScore">000</b><span>LANDING</span><b id="landingScore">000</b><span>TIME BONUS</span><b id="timeBonus">000</b></div><div class="idp-partner result-idp"><img src="../assets/img/partners/idp-official.png" alt="IDP"><span>OFFICIAL DRONE PARTNER · IDP</span></div><button id="retry" class="gold">RETRY</button><button data-go="home">RETURN HOME</button></div></div>
-</main><script src="../assets/js/app.js"></script><script>/* PART 4 v0.1.1: force HIGH ALTITUDE visual baseline without changing shared engine */window.addEventListener("load",()=>{const b=document.querySelector("[data-arena-choice=\"high\"]");if(b)b.click();});</script><script>
+</main><script src="../assets/js/app.js"></script><script>/* PART 4 v0.1.2: force HIGH ALTITUDE visual baseline without changing shared engine */window.addEventListener("load",()=>{const b=document.querySelector("[data-arena-choice=\"high\"]");if(b)b.click();});</script><script>
 /* v2.8.0 TEST · DUAL ARENA visual selector — flight engine untouched */
 (()=>{
  const shell=document.querySelector('.shell'),choices=[...document.querySelectorAll('[data-arena-choice]')],statuses=[...document.querySelectorAll('[data-arena-status]')],arena=document.getElementById('arena');
