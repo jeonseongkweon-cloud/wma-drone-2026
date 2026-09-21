@@ -57,7 +57,7 @@
 @media(max-width:1000px){.arena-idp{right:7px;bottom:7px;padding:4px 6px;font-size:7px}.arena-idp img{width:30px;height:30px}}
 @media(max-width:650px){.idp-partner{font-size:7px;gap:6px}.home-idp{margin-top:8px;gap:3px}.home-idp img{width:46px;height:46px}.home-idp small{font-size:6px}.entry-idp img{width:48px;height:48px}.entry-idp small{font-size:6px}.result-idp img{width:38px;height:38px}.arena-idp{right:5px;bottom:5px}.arena-idp img{width:24px;height:24px}}
 </style><style>
-/* PART 4 v0.1.5 MOBILE TEST — bilingual menu, English-only arena, fullscreen fallback */
+/* PART 4 v0.1.6 MOBILE TEST — explicit menu i18n, English arena, resilient fullscreen */
 .mobile-test-banner{margin:0 auto 8px;color:#ffd24a;font-weight:900;letter-spacing:.12em;font-size:11px}.part4-intro{margin:10px auto;color:#7fe8ff;font-size:11px}.rotate-notice{display:none}.part4-mobile-test .control-deck{z-index:35}.part4-mobile-test .controls button{touch-action:none;-webkit-user-select:none;user-select:none}.part4-mobile-test .control-hint{color:#ffd24a}
 @media(max-width:900px){.part4-mobile-test .screen{padding:3vh 3vw}.part4-mobile-test #arena{padding:52px 6px 116px}.part4-mobile-test .arena-layout{grid-template-columns:1fr}.part4-mobile-test .mission-board,.part4-mobile-test .course-board{display:none}.part4-mobile-test .hud{gap:4px;flex-wrap:wrap}.part4-mobile-test .hud b{font-size:9px;padding:5px 6px}.part4-mobile-test .sky{min-height:58vw;max-height:64vh}.part4-mobile-test .mobile-deck{position:absolute;left:6px;right:6px;bottom:6px;margin:0;padding:5px 6px;background:rgba(1,9,20,.90);border:1px solid rgba(35,207,255,.34);border-radius:12px}.part4-mobile-test .controls{display:grid;grid-template-columns:repeat(5,minmax(48px,1fr));gap:6px;max-width:none}.part4-mobile-test .controls button{min-width:0;min-height:48px;font-size:17px;border-radius:10px}.part4-mobile-test .controls .space{grid-column:span 2}.part4-mobile-test .mission{bottom:104px;font-size:10px}.part4-mobile-test .arena-idp{display:none}}
 @media(orientation:portrait) and (max-width:900px){.part4-mobile-test .rotate-notice{display:block;position:absolute;z-index:80;left:8%;right:8%;top:44%;padding:18px;border:1px solid #ffd24a;border-radius:12px;background:rgba(1,9,20,.96);color:#ffd24a;font-weight:900;text-align:center;pointer-events:none}.part4-mobile-test .sky{opacity:.42}}
@@ -70,7 +70,7 @@
  .mobile-fullscreen:active,.mobile-fullscreen.is-on{background:rgba(255,210,74,.92);color:#06101d;box-shadow:0 0 16px rgba(255,210,74,.65)}
 
  .part4-mobile-test #arena{padding:46px 6px 8px}
- .part4-mobile-test .sky{min-height:calc(100vh - 150px);max-height:none}
+ .part4-mobile-test .sky{min-height:calc(100vh - 150px);min-height:calc(100dvh - 150px);max-height:none}
  .part4-mobile-test .mission{bottom:5px;left:50%;transform:translateX(-50%);width:auto;max-width:46%;padding:4px 10px;background:rgba(1,9,20,.72);border-radius:8px}
  .part4-mobile-test .mobile-deck{display:none!important}
  .mobile-controls-v011{display:block;position:absolute;z-index:60;inset:0;pointer-events:none}
@@ -89,33 +89,33 @@
 
  .part4-mobile-test .hud{position:relative;z-index:30}
 }
-.part4-lang-switch{position:fixed;z-index:999;right:10px;top:8px;display:flex;gap:3px;padding:3px;border:1px solid rgba(35,207,255,.35);border-radius:9px;background:rgba(1,9,20,.9)}.part4-lang-switch button{border:0;border-radius:6px;padding:7px 10px;background:transparent;color:#8ecdf1;font-size:10px;font-weight:900}.part4-lang-switch button.active{background:#ffd24a;color:#07111e}@media(max-width:900px) and (orientation:landscape){.part4-lang-switch{top:5px;right:6px}.part4-lang-switch button{padding:5px 8px;font-size:8px}}
+.part4-lang-switch{position:fixed;z-index:999;right:10px;top:8px;display:inline-flex;width:max-content;max-width:calc(100vw - 20px);gap:2px;padding:2px;border:1px solid rgba(35,207,255,.35);border-radius:8px;background:rgba(1,9,20,.9)}.part4-lang-switch button{flex:0 0 auto;border:0;border-radius:5px;padding:6px 9px;background:transparent;color:#8ecdf1;font-size:9px;font-weight:900}.part4-lang-switch button.active{background:#ffd24a;color:#07111e}@media(max-width:900px) and (orientation:landscape){.part4-lang-switch{top:5px;right:6px}.part4-lang-switch button{padding:5px 8px;font-size:8px}}
 .part4-mobile-test #arena.active~*{} .part4-mobile-test.arena-active .part4-lang-switch{display:none!important}
-.part4-mobile-test.pseudo-fullscreen{overflow:hidden}.part4-mobile-test.pseudo-fullscreen .shell{position:fixed!important;inset:0!important;z-index:900!important;width:100vw!important;height:100vh!important;max-width:none!important;margin:0!important}.part4-mobile-test.pseudo-fullscreen #arena{height:100vh!important;max-height:none!important}
+.part4-mobile-test.pseudo-fullscreen{overflow:hidden!important;overscroll-behavior:none}.part4-mobile-test.pseudo-fullscreen .shell{position:fixed!important;inset:0!important;z-index:900!important;width:100vw!important;height:100vh!important;height:100dvh!important;max-width:none!important;margin:0!important}.part4-mobile-test.pseudo-fullscreen #arena{height:100vh!important;height:100dvh!important;max-height:none!important}.part4-mobile-test.pseudo-fullscreen .part4-lang-switch{display:none!important}
 </style></head>
 <body class="part4-mobile-test"><div class="part4-lang-switch" role="group" aria-label="언어 선택"><button type="button" data-lang="ko" class="active">한국어</button><button type="button" data-lang="en">English</button></div><main class="shell" data-arena="classic">
-<section id="home" class="screen active"><div class="mobile-test-banner">PART 4 · MOBILE ARENA · ISOLATED TEST</div><div class="home-build-version">PART 4 · MOBILE ARENA · v0.1.5 TEST</div>
+<section id="home" class="screen active"><div class="mobile-test-banner">PART 4 · MOBILE ARENA · ISOLATED TEST</div><div class="home-build-version">PART 4 · MOBILE ARENA · v0.1.6 TEST</div>
   <div class="eyebrow">WORLD MARTIAL ARTS CHAMPIONSHIP 2026</div>
   <h1>WMA <span>JUNIOR DRONE MISSION</span></h1>
   <p class="sub">DIGITAL MARTIAL ARTS CHALLENGE · ELEMENTARY DIVISION</p>
   <div class="date">WORLD FINAL · 2026.12.12 SAT</div>
-<div class="part4-intro">스마트폰 가로모드 권장 · 기존 PART 1~3과 분리된 모바일 시험공간</div><div class="arena-selector" aria-label="Arena selection"><button type="button" class="arena-choice selected" data-arena-choice="classic"><b>PART 1 · CLASSIC ARENA</b><small>v2.7.5 안전 보존 경기장</small></button><button type="button" class="arena-choice" data-arena-choice="air"><b>PART 2 · AIR ARENA</b><small>v2.8.0 · 중고도 공중 경기장</small></button><button type="button" class="arena-choice" data-arena-choice="high"><b>PART 3 · HIGH ALTITUDE</b><small>v2.9.5 TEST · 초고도 공중 경기장</small></button></div>
+<div class="part4-intro" data-i18n="home.intro">스마트폰 가로모드 권장 · 기존 PART 1~3과 분리된 모바일 시험공간</div><div class="arena-selector" aria-label="Arena selection"><button type="button" class="arena-choice selected" data-arena-choice="classic"><b data-i18n="arena.classic">PART 1 · 기본 경기장</b><small data-i18n="arena.classicDetail">v2.7.5 안전 보존 경기장</small></button><button type="button" class="arena-choice" data-arena-choice="air"><b data-i18n="arena.air">PART 2 · 공중 경기장</b><small data-i18n="arena.airDetail">v2.8.0 · 중고도 공중 경기장</small></button><button type="button" class="arena-choice" data-arena-choice="high"><b data-i18n="arena.high">PART 3 · 고공 경기장</b><small data-i18n="arena.highDetail">v2.9.5 TEST · 초고도 공중 경기장</small></button></div>
   <div class="actions">
-    <button data-go="practice">PRACTICE<small>자유연습</small></button>
-    <button class="gold" data-go="entry">PLAYER PRACTICE<small>이름으로 입장</small></button>
-    <button data-go="record">MY RECORD<small>나의 기록</small></button>
+    <button data-go="practice"><span data-i18n="home.practice">연습하기</span><small data-i18n="home.practiceHelp">자유연습</small></button>
+    <button class="gold" data-go="entry"><span data-i18n="home.playerPractice">선수 연습</span><small data-i18n="home.playerHelp">이름으로 입장</small></button>
+    <button data-go="record"><span data-i18n="home.record">나의 기록</span><small data-i18n="home.recordHelp">연습 기록 확인</small></button>
   </div>
   <p class="motto">FOCUS · CONTROL · JUDGMENT · SAFETY · CHALLENGE</p>
   <div class="idp-partner home-idp"><img src="../assets/img/partners/idp-official.png" alt="IDP"><span>OFFICIAL DRONE PARTNER · IDP<small>INTERNATIONAL DRONE PATROL</small></span></div>
   <footer>ONE WORLD · MANY ARENAS · ONE CHAMPIONSHIP</footer>
 </section>
-<section id="practice" class="screen"><button class="back" data-go="home">← HOME</button><div class="arena-selection-status" data-arena-status>PART 1 · CLASSIC ARENA</div><h2>PRACTICE ARENA</h2><p>WMA 공식 코스를 자유롭게 연습합니다. 연습모드에는 비행 보조가 적용됩니다.</p><button class="gold wide" data-go="arena" data-mode="practice">START PRACTICE</button></section>
+<section id="practice" class="screen"><button class="back" data-go="home" data-i18n="nav.home">← 홈</button><div class="arena-selection-status" data-arena-status>PART 1 · CLASSIC ARENA</div><h2 data-i18n="practice.title">연습 경기장</h2><p data-i18n="practice.description">WMA 공식 코스를 자유롭게 연습합니다. 연습모드에는 비행 보조가 적용됩니다.</p><button class="gold wide" data-go="arena" data-mode="practice" data-i18n="practice.start">연습 시작</button></section>
 
-<section id="entry" class="screen"><button class="back" data-go="home">← HOME</button><div class="arena-selection-status" data-arena-status>PART 1 · CLASSIC ARENA</div><div class="entry-build-version">PART 4 · MOBILE ARENA · v0.1.5 TEST</div><h2>PLAYER PRACTICE</h2><p>계명태권도 · WMA JUNIOR DRONE MISSION 2026</p><div class="panel entry-panel"><label for="playerNumber">내 이름</label><input id="playerNumber" maxlength="30" autocomplete="off" placeholder="예: 김우리"><small>계명태권도에 등록된 자기 이름만 입력하고 Enter를 누르세요.</small><p id="entryStatus" class="entry-status" aria-live="polite"></p><button id="startOfficial" class="gold wide">START PRACTICE</button><div class="idp-partner entry-idp"><img src="../assets/img/partners/idp-official.png" alt="IDP"><span>OFFICIAL DRONE PARTNER · IDP<small>INTERNATIONAL DRONE PATROL</small></span></div></div></section>
-<section id="record" class="screen"><button class="back" data-go="home">← HOME</button><h2>MY RECORD</h2><div class="panel"><b>PRACTICE RECORD</b><p>계명태권도 등록선수는 이름으로 입장하면 연습 횟수와 MY BEST 기록을 확인할 수 있습니다.</p></div></section>
+<section id="entry" class="screen"><button class="back" data-go="home" data-i18n="nav.home">← 홈</button><div class="arena-selection-status" data-arena-status>PART 1 · CLASSIC ARENA</div><div class="entry-build-version">PART 4 · MOBILE ARENA · v0.1.6 TEST</div><h2 data-i18n="entry.title">선수 연습</h2><p>계명태권도 · WMA JUNIOR DRONE MISSION 2026</p><div class="panel entry-panel"><label for="playerNumber" data-i18n="entry.name">내 이름</label><input id="playerNumber" maxlength="30" autocomplete="off" placeholder="예: 김우리" data-i18n-placeholder="entry.placeholder"><small data-i18n="entry.help">계명태권도에 등록된 자기 이름만 입력하고 Enter를 누르세요.</small><p id="entryStatus" class="entry-status" aria-live="polite"></p><button id="startOfficial" class="gold wide" data-i18n="practice.start">연습 시작</button><div class="idp-partner entry-idp"><img src="../assets/img/partners/idp-official.png" alt="IDP"><span>OFFICIAL DRONE PARTNER · IDP<small>INTERNATIONAL DRONE PATROL</small></span></div></div></section>
+<section id="record" class="screen"><button class="back" data-go="home" data-i18n="nav.home">← 홈</button><h2 data-i18n="record.title">나의 기록</h2><div class="panel"><b data-i18n="record.practice">연습 기록</b><p data-i18n="record.description">계명태권도 등록선수는 이름으로 입장하면 연습 횟수와 MY BEST 기록을 확인할 수 있습니다.</p></div></section>
 <section id="arena" class="screen arena">
   <button class="back arena-exit" data-go="home">← EXIT</button>
-  <div class="arena-brand"><b>WMA 2026</b><span id="modeLabel">CHAMPIONSHIP ARENA</span><em class="build-version">PART 4 · MOBILE ARENA · v0.1.5 TEST</em></div>
+  <div class="arena-brand"><b>WMA 2026</b><span id="modeLabel">CHAMPIONSHIP ARENA</span><em class="build-version">PART 4 · MOBILE ARENA · v0.1.6 TEST</em></div>
   <div class="hud"><b>ALT <span id="alt">0.0</span>m</b><b>SPD <span id="spd">0.0</span></b><b>DIST <span id="dist">0.0</span>m</b><b>SCORE <span id="score">0000</span></b><b>TIME <span id="time">03:00</span></b><b>MISSION <span id="stage">READY</span></b></div>
   <div class="arena-layout"><aside class="mission-board"><div class="panel-title">MISSION CHECKLIST</div><ol id="missionList"><li>TAKE OFF</li><li>CLIMB 5m</li><li>GATE 01</li><li>GATE 02</li><li>ENERGY RING</li><li>GATE 03</li><li>MISSION ZONE</li><li>TURN 180°</li><li>RETURN HOME</li><li>PRECISION LANDING</li></ol></aside><div id="flightArea" class="sky">
     <div class="master-stadium-bg" aria-hidden="true"></div>
@@ -142,7 +142,7 @@
   </div><aside class="course-board"><div class="panel-title">OFFICIAL COURSE</div><div class="mini-course"><i class="mini home-dot">H</i><i class="mini m1">1</i><i class="mini m2">2</i><i class="mini mr">R</i><i class="mini m3">3</i><i class="mini mz">M</i><svg viewBox="0 0 100 160" preserveAspectRatio="none"><path d="M50 145 L50 112 L28 86 L50 66 L72 43 L50 18" /><path class="return-route" d="M50 18 C82 50 82 112 50 145" /></svg></div><div class="course-legend"><b>WMA 2026</b><span>FIXED OFFICIAL COURSE</span></div></aside></div>
   <div class="mission"><strong id="mission">MISSION 01 · TAKE OFF</strong><span id="guide">SPACE 이륙 · W/S 전후 · A/D 좌우 · ←/→ 회전 · ↑/↓ 고도 · R 재시작</span></div>
   <div class="rotate-notice">↻ 휴대폰을 가로로 돌려주세요 · ROTATE TO LANDSCAPE</div>
-  <button id="mobileFullscreen" class="mobile-fullscreen" type="button">⛶ FULL SCREEN</button><div class="mobile-controls-v011" aria-label="Mobile flight controls">
+  <button id="mobileFullscreen" class="mobile-fullscreen" type="button" aria-pressed="false">⛶ 전체화면</button><div class="mobile-controls-v011" aria-label="Mobile flight controls">
     <div class="thumb-zone move-zone">
       <span class="zone-label">MOVE</span>
       <button class="up" data-code="KeyW" aria-label="Forward">▲<small>전진</small></button>
@@ -164,7 +164,7 @@
   </div>
 </section>
 <div id="result" class="modal"><div><p>WMA JUNIOR DRONE MISSION 2026</p><h2>MISSION COMPLETE</h2><strong id="finalScore">000 / 1000</strong><p id="finalMeta"></p><p id="finalPlayer" class="final-player"></p><div class="result-breakdown"><span>MISSION SCORE</span><b id="missionScore">000</b><span>LANDING</span><b id="landingScore">000</b><span>TIME BONUS</span><b id="timeBonus">000</b></div><div class="idp-partner result-idp"><img src="../assets/img/partners/idp-official.png" alt="IDP"><span>OFFICIAL DRONE PARTNER · IDP</span></div><button id="retry" class="gold">RETRY</button><button data-go="home">RETURN HOME</button></div></div>
-</main><script src="../assets/js/app.js"></script><script>/* PART 4 v0.1.5: force HIGH ALTITUDE visual baseline without changing shared engine */window.addEventListener("load",()=>{const b=document.querySelector("[data-arena-choice=\"high\"]");if(b)b.click();});</script><script>
+</main><script src="../assets/js/app.js"></script><script>/* PART 4 v0.1.6: force HIGH ALTITUDE visual baseline without changing shared engine */window.addEventListener("load",()=>{const b=document.querySelector("[data-arena-choice=\"high\"]");if(b)b.click();});</script><script>
 /* v2.8.0 TEST · DUAL ARENA visual selector — flight engine untouched */
 (()=>{
  const shell=document.querySelector('.shell'),choices=[...document.querySelectorAll('[data-arena-choice]')],statuses=[...document.querySelectorAll('[data-arena-status]')],arena=document.getElementById('arena');
@@ -185,17 +185,16 @@
  applyArena(saved==='high'?'high':saved==='air'?'air':'classic');
 })();
 </script><script>
-/* PART 4 v0.1.5 — bilingual menus only; arena stays English */
+/* PART 4 v0.1.6 — explicit bilingual menu map; arena stays English */
 (()=>{
- const pairs=[
-  ["PRACTICE ARENA","연습 경기장"],["PRACTICE","연습하기"],["PLAYER PRACTICE","선수 연습"],["MY RECORD","나의 기록"],
-  ["PART 1 · CLASSIC ARENA","PART 1 · 기본 경기장"],["PART 2 · AIR ARENA","PART 2 · 공중 경기장"],["PART 3 · HIGH ALTITUDE","PART 3 · 고공 경기장"],
-  ["← HOME","← 홈"],["START PRACTICE","연습 시작"]
- ];
- const menuRoots=["home","practice","entry","record"].map(id=>document.getElementById(id)).filter(Boolean);
- const originals=new WeakMap();
+ const messages={
+  ko:{"home.intro":"스마트폰 가로모드 권장 · 기존 PART 1~3과 분리된 모바일 시험공간","arena.classic":"PART 1 · 기본 경기장","arena.classicDetail":"v2.7.5 안전 보존 경기장","arena.air":"PART 2 · 공중 경기장","arena.airDetail":"v2.8.0 · 중고도 공중 경기장","arena.high":"PART 3 · 고공 경기장","arena.highDetail":"v2.9.5 TEST · 초고도 공중 경기장","home.practice":"연습하기","home.practiceHelp":"자유연습","home.playerPractice":"선수 연습","home.playerHelp":"이름으로 입장","home.record":"나의 기록","home.recordHelp":"연습 기록 확인","nav.home":"← 홈","practice.title":"연습 경기장","practice.description":"WMA 공식 코스를 자유롭게 연습합니다. 연습모드에는 비행 보조가 적용됩니다.","practice.start":"연습 시작","entry.title":"선수 연습","entry.name":"내 이름","entry.placeholder":"예: 김우리","entry.help":"계명태권도에 등록된 자기 이름만 입력하고 Enter를 누르세요.","record.title":"나의 기록","record.practice":"연습 기록","record.description":"계명태권도 등록선수는 이름으로 입장하면 연습 횟수와 MY BEST 기록을 확인할 수 있습니다."},
+  en:{"home.intro":"Landscape mode recommended · Mobile test area separated from PART 1–3","arena.classic":"PART 1 · CLASSIC ARENA","arena.classicDetail":"v2.7.5 preserved safe arena","arena.air":"PART 2 · AIR ARENA","arena.airDetail":"v2.8.0 · Mid-altitude arena","arena.high":"PART 3 · HIGH ALTITUDE","arena.highDetail":"v2.9.5 TEST · High-altitude arena","home.practice":"PRACTICE","home.practiceHelp":"Free practice","home.playerPractice":"PLAYER PRACTICE","home.playerHelp":"Enter with your name","home.record":"MY RECORD","home.recordHelp":"View practice record","nav.home":"← HOME","practice.title":"PRACTICE ARENA","practice.description":"Practice freely on the official WMA course. Flight assist is enabled in practice mode.","practice.start":"START PRACTICE","entry.title":"PLAYER PRACTICE","entry.name":"MY NAME","entry.placeholder":"Example: Kim Woori","entry.help":"Enter the name registered with Keimyung Taekwondo, then press Enter.","record.title":"MY RECORD","record.practice":"PRACTICE RECORD","record.description":"Registered Keimyung Taekwondo players can enter by name to view practice count and MY BEST."}
+ };
  function translateMenus(lang){
-  menuRoots.forEach(root=>{const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let n;while(n=w.nextNode()){if(!n.nodeValue.trim())continue;if(!originals.has(n))originals.set(n,n.nodeValue);let out=originals.get(n);if(lang==="ko")for(const [en,ko] of pairs)out=out.replaceAll(en,ko);n.nodeValue=out;}});
+  const selected=messages[lang]||messages.ko;
+  document.querySelectorAll("[data-i18n]").forEach(el=>{const value=selected[el.dataset.i18n];if(value!==undefined)el.textContent=value});
+  document.querySelectorAll("[data-i18n-placeholder]").forEach(el=>{const value=selected[el.dataset.i18nPlaceholder];if(value!==undefined)el.placeholder=value});
   document.documentElement.lang=lang;
   document.querySelectorAll(".part4-lang-switch button").forEach(b=>b.classList.toggle("active",b.dataset.lang===lang));
   localStorage.setItem("wma-part4-lang",lang);
@@ -207,21 +206,29 @@
  if(arena){obs.observe(arena,{attributes:true,attributeFilter:["class"]});document.body.classList.toggle("arena-active",arena.classList.contains("active"))}
 })();
 </script><script>
-/* v0.1.5 fullscreen repair: native API first, safe in-page fallback on unsupported mobile browsers */
+/* v0.1.6 fullscreen repair: one handler, native API first, bounded pseudo fallback */
 (()=>{
  const btn=document.getElementById("mobileFullscreen"); if(!btn)return;
- const root=document.documentElement;
- const nativeEnter=()=>root.requestFullscreen?.()||root.webkitRequestFullscreen?.();
- const nativeExit=()=>document.exitFullscreen?.()||document.webkitExitFullscreen?.();
+ const root=document.getElementById("arena")||document.documentElement;
+ const nativeEnter=()=>{const fn=root.requestFullscreen||root.webkitRequestFullscreen;return fn?fn.call(root):null};
+ const nativeExit=()=>{const fn=document.exitFullscreen||document.webkitExitFullscreen;return fn?fn.call(document):null};
  const nativeOn=()=>!!(document.fullscreenElement||document.webkitFullscreenElement);
- const sync=()=>{const on=nativeOn()||document.body.classList.contains("pseudo-fullscreen");btn.classList.toggle("is-on",on);btn.textContent=on?"⛶ EXIT FULL SCREEN":"⛶ FULL SCREEN"};
+ let savedScrollY=0,fallbackTimer=0;
+ const pseudoOn=()=>document.body.classList.contains("pseudo-fullscreen");
+ const setPseudo=on=>{if(on){savedScrollY=window.scrollY;document.body.classList.add("pseudo-fullscreen")}else{document.body.classList.remove("pseudo-fullscreen");window.scrollTo(0,savedScrollY)}};
+ const sync=()=>{const on=nativeOn()||pseudoOn();btn.classList.toggle("is-on",on);btn.setAttribute("aria-pressed",String(on));btn.textContent=on?"⛶ 전체화면 종료":"⛶ 전체화면"};
  btn.addEventListener("click",async e=>{
-  e.preventDefault();e.stopImmediatePropagation();
-  if(document.body.classList.contains("pseudo-fullscreen")){document.body.classList.remove("pseudo-fullscreen");sync();return}
+  e.preventDefault();e.stopPropagation();
+  clearTimeout(fallbackTimer);
+  if(pseudoOn()){setPseudo(false);sync();return}
   if(nativeOn()){try{await nativeExit()}catch(_){}sync();return}
-  try{const p=nativeEnter();if(p&&p.then)await p}catch(_){}
-  setTimeout(()=>{if(!nativeOn())document.body.classList.add("pseudo-fullscreen");sync()},180);
+  try{const p=nativeEnter();if(p&&p.catch)p.catch(()=>{if(!nativeOn()){setPseudo(true);sync()}})}catch(_){setPseudo(true)}
+  fallbackTimer=setTimeout(()=>{if(!nativeOn()){setPseudo(true);sync()}},350);
  });
- document.addEventListener("fullscreenchange",sync);document.addEventListener("webkitfullscreenchange",sync);sync();
+ const onFullscreenChange=()=>{clearTimeout(fallbackTimer);if(nativeOn()&&pseudoOn())setPseudo(false);sync()};
+ document.addEventListener("fullscreenchange",onFullscreenChange);document.addEventListener("webkitfullscreenchange",onFullscreenChange);
+ document.querySelectorAll(".mobile-controls-v011 [data-code]").forEach(control=>{const on=e=>{control.classList.add("is-pressed");if(e.pointerId!==undefined)control.setPointerCapture?.(e.pointerId)};const off=()=>control.classList.remove("is-pressed");control.addEventListener("pointerdown",on);control.addEventListener("pointerup",off);control.addEventListener("pointercancel",off);control.addEventListener("lostpointercapture",off)});
+ const arena=document.getElementById("arena");if(arena)new MutationObserver(()=>{if(!arena.classList.contains("active")&&pseudoOn()){setPseudo(false);sync()}}).observe(arena,{attributes:true,attributeFilter:["class"]});
+ sync();
 })();
 </script></body></html>
