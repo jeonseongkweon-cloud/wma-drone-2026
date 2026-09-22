@@ -827,3 +827,11 @@
     display:none!important;
   }
 }
+
+
+/* v2.9.11 TEST · PART 1 desktop control-deck exact selector fix */
+@media (min-width:651px){
+  body:not(.air-arena-mode):not(.high-altitude-arena-mode) #practice > .control-deck{
+    display:none!important;
+  }
+}
