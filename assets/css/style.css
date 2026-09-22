@@ -787,3 +787,33 @@
 /* Remove the two floor advertising rails only. */
 #practice .decor-rail.dr-left,
 #practice .decor-rail.dr-right{display:none!important}
+
+
+/* v2.9.9 TEST · DRONE BODY PRESENCE BOOST — visual only; no flight/mission/hitbox changes */
+.master-drone-test .drone-master-visual{
+  filter:brightness(1.18) contrast(1.16) saturate(1.28)
+    drop-shadow(0 0 3px rgba(255,255,255,.92))
+    drop-shadow(0 0 8px rgba(58,210,255,.88))
+    drop-shadow(0 0 15px rgba(255,52,52,.55))!important;
+  animation:wmaDroneBodyPulse .72s ease-in-out infinite alternate;
+}
+.master-drone-test.flying .drone-master-visual{
+  filter:brightness(1.28) contrast(1.2) saturate(1.36)
+    drop-shadow(0 0 4px rgba(255,255,255,.98))
+    drop-shadow(0 0 10px rgba(48,216,255,.98))
+    drop-shadow(0 0 19px rgba(255,45,45,.68))!important;
+}
+.master-drone-test:before{
+  content:"";position:absolute;left:50%;top:50%;width:76px;height:30px;
+  transform:translate(-50%,-48%);border-radius:50%;pointer-events:none;z-index:1;
+  background:radial-gradient(ellipse,rgba(255,255,255,.24) 0%,rgba(48,213,255,.18) 35%,rgba(255,48,48,.10) 58%,transparent 76%);
+  filter:blur(5px);opacity:.8;animation:wmaDroneAura .65s ease-in-out infinite alternate;
+}
+@keyframes wmaDroneBodyPulse{
+  from{opacity:.94}
+  to{opacity:1}
+}
+@keyframes wmaDroneAura{
+  from{transform:translate(-50%,-48%) scale(.88);opacity:.48}
+  to{transform:translate(-50%,-48%) scale(1.12);opacity:.9}
+}
