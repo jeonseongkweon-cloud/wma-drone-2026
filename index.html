@@ -75,14 +75,30 @@ body.tablet-control-mode .tablet-controls{position:fixed;left:0;right:0;bottom:8
 .tablet-actions{display:grid;grid-template-columns:72px 72px;gap:7px;pointer-events:auto}
 .tablet-actions button{height:58px;font-size:11px}.tablet-actions .takeoff{grid-column:1/3;border-color:#ffd24a;color:#ffd24a;font-size:13px}
 @media(max-width:700px){body.tablet-control-mode .tablet-controls{padding:0 7px}.tablet-pad{grid-template-columns:repeat(3,46px);grid-template-rows:repeat(3,46px);gap:3px}.tablet-actions{grid-template-columns:58px 58px}.tablet-actions button{height:46px}}
+</style><style>
+/* v2.9.19 · DEVICE ENTRY SELECTOR — home navigation only */
+.device-entry{width:min(760px,92vw);margin:18px auto 8px;padding:14px;border:1px solid #1b557b;border-radius:14px;background:rgba(0,18,38,.72)}
+.device-entry-title{margin:0 0 10px;color:#8eeaff;font-size:12px;font-weight:900;letter-spacing:.12em;text-align:center}
+.device-entry-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
+.device-entry-grid button,.device-entry-grid a{box-sizing:border-box;min-height:70px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;border:1px solid #2877a8;border-radius:11px;background:#031426;color:#fff;text-decoration:none;font:900 14px/1.2 inherit;cursor:pointer}
+.device-entry-grid strong{font-size:16px}.device-entry-grid small{color:#8eb8d3;font-size:10px}.device-entry-grid .device-mobile{border-color:#ffd24a;color:#ffd24a}.device-entry-grid .device-tablet{border-color:#22d5ff;color:#bff7ff}
+@media(max-width:650px){.device-entry{margin-top:12px;padding:10px}.device-entry-grid{grid-template-columns:1fr}.device-entry-grid button,.device-entry-grid a{min-height:58px}.device-entry-grid strong{font-size:15px}}
 </style></head>
 <body><main class="shell" data-arena="classic">
-<section id="home" class="screen active"><div class="home-build-version">DIGITAL ARENA · v2.9.18 TEST</div>
+<section id="home" class="screen active"><div class="home-build-version">DIGITAL ARENA · v2.9.19 TEST</div>
   <div class="eyebrow">WORLD MARTIAL ARTS CHAMPIONSHIP 2026</div>
   <h1>WMA <span>JUNIOR DRONE MISSION</span></h1>
   <p class="sub">DIGITAL MARTIAL ARTS CHALLENGE · ELEMENTARY DIVISION</p>
   <div class="date">WORLD FINAL · 2026.12.12 SAT</div>
-<div class="arena-selector" aria-label="Arena selection"><button type="button" class="arena-choice selected" data-arena-choice="classic"><b>PART 1 · CLASSIC ARENA</b><small>v2.7.5 안전 보존 경기장</small></button><button type="button" class="arena-choice" data-arena-choice="air"><b>PART 2 · AIR ARENA</b><small>v2.8.0 · 중고도 공중 경기장</small></button><button type="button" class="arena-choice" data-arena-choice="high"><b>PART 3 · HIGH ALTITUDE</b><small>v2.9.18 TEST · 초고도 공중 경기장</small></button></div>
+<div class="arena-selector" aria-label="Arena selection"><button type="button" class="arena-choice selected" data-arena-choice="classic"><b>PART 1 · CLASSIC ARENA</b><small>v2.7.5 안전 보존 경기장</small></button><button type="button" class="arena-choice" data-arena-choice="air"><b>PART 2 · AIR ARENA</b><small>v2.8.0 · 중고도 공중 경기장</small></button><button type="button" class="arena-choice" data-arena-choice="high"><b>PART 3 · HIGH ALTITUDE</b><small>v2.9.19 TEST · 초고도 공중 경기장</small></button></div>
+  <div class="device-entry" aria-label="사용 기기 선택">
+    <p class="device-entry-title">사용 기기 선택 · DEVICE MODE</p>
+    <div class="device-entry-grid">
+      <a class="device-mobile" href="part4/"><strong>📱 모바일 경기장</strong><small>스마트폰 · PART 4 MOBILE ARENA</small></a>
+      <button type="button" class="device-tablet" data-go="entry"><strong>▭ 태블릿 경기장</strong><small>갤럭시 탭 · 아이패드 터치 조종</small></button>
+      <button type="button" class="device-pc" data-go="practice"><strong>⌨ PC 경기장</strong><small>키보드 W/S/A/D · 방향키 조종</small></button>
+    </div>
+  </div>
   <div class="actions">
     <button data-go="practice">PRACTICE<small>자유연습</small></button>
     <button class="gold" data-go="entry">PLAYER PRACTICE<small>이름으로 입장</small></button>
@@ -94,11 +110,11 @@ body.tablet-control-mode .tablet-controls{position:fixed;left:0;right:0;bottom:8
 </section>
 <section id="practice" class="screen"><button class="back" data-go="home">← HOME</button><div class="arena-selection-status" data-arena-status>PART 1 · CLASSIC ARENA</div><h2>PRACTICE ARENA</h2><p>WMA 공식 코스를 자유롭게 연습합니다. 연습모드에는 비행 보조가 적용됩니다.</p><button class="gold wide" data-go="arena" data-mode="practice">START PRACTICE</button></section>
 
-<section id="entry" class="screen"><button class="back" data-go="home">← HOME</button><div class="arena-selection-status" data-arena-status>PART 1 · CLASSIC ARENA</div><div class="entry-build-version">DIGITAL ARENA · v2.9.18 TEST</div><h2>PLAYER PRACTICE</h2><p>계명태권도 · WMA JUNIOR DRONE MISSION 2026</p><div class="panel entry-panel"><label for="playerNumber">내 이름</label><input id="playerNumber" maxlength="30" autocomplete="off" placeholder="예: 김우리"><small>계명태권도에 등록된 자기 이름만 입력하고 Enter를 누르세요.</small><p id="entryStatus" class="entry-status" aria-live="polite"></p><button id="startOfficial" class="gold wide">START PRACTICE</button><button id="startTablet" type="button" class="wide tablet-entry-btn">TABLET CONTROL<small>갤럭시 탭 · 아이패드 터치 조종</small></button><div class="idp-partner entry-idp"><img src="assets/img/partners/idp-official.png" alt="IDP"><span>OFFICIAL DRONE PARTNER · IDP<small>INTERNATIONAL DRONE PATROL</small></span></div></div></section>
+<section id="entry" class="screen"><button class="back" data-go="home">← HOME</button><div class="arena-selection-status" data-arena-status>PART 1 · CLASSIC ARENA</div><div class="entry-build-version">DIGITAL ARENA · v2.9.19 TEST</div><h2>PLAYER PRACTICE</h2><p>계명태권도 · WMA JUNIOR DRONE MISSION 2026</p><div class="panel entry-panel"><label for="playerNumber">내 이름</label><input id="playerNumber" maxlength="30" autocomplete="off" placeholder="예: 김우리"><small>계명태권도에 등록된 자기 이름만 입력하고 Enter를 누르세요.</small><p id="entryStatus" class="entry-status" aria-live="polite"></p><button id="startOfficial" class="gold wide">START PRACTICE</button><button id="startTablet" type="button" class="wide tablet-entry-btn">TABLET CONTROL<small>갤럭시 탭 · 아이패드 터치 조종</small></button><div class="idp-partner entry-idp"><img src="assets/img/partners/idp-official.png" alt="IDP"><span>OFFICIAL DRONE PARTNER · IDP<small>INTERNATIONAL DRONE PATROL</small></span></div></div></section>
 <section id="record" class="screen"><button class="back" data-go="home">← HOME</button><h2>MY RECORD</h2><div class="panel"><b>PRACTICE RECORD</b><p>계명태권도 등록선수는 이름으로 입장하면 연습 횟수와 MY BEST 기록을 확인할 수 있습니다.</p></div></section>
 <section id="arena" class="screen arena">
   <button class="back arena-exit" data-go="home">← EXIT</button>
-  <div class="arena-brand"><b>WMA 2026</b><span id="modeLabel">CHAMPIONSHIP ARENA</span><em class="build-version">DIGITAL ARENA · v2.9.18 TEST</em></div>
+  <div class="arena-brand"><b>WMA 2026</b><span id="modeLabel">CHAMPIONSHIP ARENA</span><em class="build-version">DIGITAL ARENA · v2.9.19 TEST</em></div>
   <div class="hud"><b>ALT <span id="alt">0.0</span>m</b><b>SPD <span id="spd">0.0</span></b><b>DIST <span id="dist">0.0</span>m</b><b>SCORE <span id="score">0000</span></b><b>TIME <span id="time">03:00</span></b><b>MISSION <span id="stage">READY</span></b></div>
   <div class="arena-layout"><aside class="mission-board"><div class="panel-title">MISSION CHECKLIST</div><ol id="missionList"><li>TAKE OFF</li><li>CLIMB 5m</li><li>GATE 01</li><li>GATE 02</li><li>ENERGY RING</li><li>GATE 03</li><li>MISSION ZONE</li><li>TURN 180°</li><li>RETURN HOME</li><li>PRECISION LANDING</li></ol></aside><div id="flightArea" class="sky">
     <div class="master-stadium-bg" aria-hidden="true"></div>
@@ -141,7 +157,7 @@ body.tablet-control-mode .tablet-controls{position:fixed;left:0;right:0;bottom:8
   document.body.classList.toggle('high-altitude-arena-mode',high);
   document.body.classList.toggle('classic-arena-mode',!air);
   choices.forEach(btn=>btn.classList.toggle('selected',btn.dataset.arenaChoice===selected));
-  statuses.forEach(el=>el.textContent=high?'PART 3 · HIGH ALTITUDE · v2.9.18 TEST':air?'PART 2 · AIR ARENA · v2.8.0':'PART 1 · CLASSIC ARENA · v2.7.5 SAFE');
+  statuses.forEach(el=>el.textContent=high?'PART 3 · HIGH ALTITUDE · v2.9.19 TEST':air?'PART 2 · AIR ARENA · v2.8.0':'PART 1 · CLASSIC ARENA · v2.7.5 SAFE');
   if(arena)arena.dataset.arena=selected;
   try{sessionStorage.setItem('wmaArenaChoice',selected)}catch(e){}
  }
