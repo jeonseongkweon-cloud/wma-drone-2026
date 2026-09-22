@@ -779,3 +779,35 @@
   .master-drone-test .master-thrust{top:36px;width:11px;height:64px}
   .master-drone-test .thrust-left{left:30px}.master-drone-test .thrust-right{right:30px}
 }
+
+
+/* v2.9.5 · PART 1 DRONE PRESENCE PINPOINT — visual only; engine/mission/hitbox locked */
+.master-drone-test .drone-master-visual{
+  width:130px;
+  top:43%;
+  filter:
+    drop-shadow(0 7px 5px rgba(0,0,0,.52))
+    drop-shadow(0 0 5px rgba(110,235,255,.55))
+    drop-shadow(0 0 11px rgba(55,170,255,.24));
+}
+/* New master PNG already contains strong rotor motion; suppress duplicate CSS rotor discs. */
+.master-drone-test .master-rotor{display:none!important}
+/* Soft airborne aura behind the craft, kept inside the existing visual wrapper. */
+.master-drone-test:before{
+  content:"";
+  position:absolute;
+  left:50%;top:54%;
+  width:112px;height:30px;
+  transform:translate(-50%,-50%);
+  border-radius:50%;
+  background:radial-gradient(ellipse,rgba(115,235,255,.24) 0%,rgba(55,165,255,.11) 42%,rgba(0,0,0,0) 74%);
+  filter:blur(5px);
+  pointer-events:none;
+  z-index:1;
+  animation:wmaDroneAura 1.15s ease-in-out infinite alternate;
+}
+@keyframes wmaDroneAura{from{opacity:.48;transform:translate(-50%,-50%) scale(.92)}to{opacity:.82;transform:translate(-50%,-50%) scale(1.08)}}
+@media(max-width:650px){
+  .master-drone-test .drone-master-visual{width:116px}
+  .master-drone-test:before{width:98px;height:27px}
+}
