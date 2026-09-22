@@ -817,3 +817,13 @@
   from{transform:translate(-50%,-48%) scale(.88);opacity:.48}
   to{transform:translate(-50%,-48%) scale(1.12);opacity:.9}
 }
+
+
+/* v2.9.10 TEST · PART 1 PC KEYBOARD-ONLY CONTROL CLEANUP
+   Visual-only: hide clickable flight-control pad on desktop.
+   Keyboard handlers, flight engine, mission logic and PART 2/3/4 remain untouched. */
+@media (min-width:651px){
+  #practice:not(.air-arena-mode):not(.high-altitude-arena-mode) .flight-controls{
+    display:none!important;
+  }
+}
