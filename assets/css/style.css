@@ -746,3 +746,36 @@
   .high-altitude-arena-mode #drone:not(.flying){transform:translate(-50%,calc(-50% + 23px)) perspective(420px) scale(1.06) rotateY(var(--heading,0deg))!important}
   .high-altitude-arena-mode .master-drone-test .drone-master-visual{width:104px}
 }
+
+
+/* v2.9.5 · DYNAMIC WHITE DOWNLIGHT PINPOINT — visual only; flight/mission/hitbox locked */
+.master-drone-test .master-thrust{
+  visibility:visible;
+  position:absolute;
+  z-index:2;
+  top:37px;
+  width:13px;
+  height:72px;
+  border-radius:45% 45% 58% 58%;
+  pointer-events:none;
+  opacity:0;
+  background:linear-gradient(to bottom,rgba(255,255,255,.96) 0%,rgba(225,245,255,.78) 18%,rgba(180,225,255,.34) 58%,rgba(150,215,255,0) 100%);
+  filter:blur(2.4px) drop-shadow(0 0 6px rgba(225,248,255,.78));
+  transform-origin:50% 0;
+  mix-blend-mode:screen;
+}
+.master-drone-test.flying .master-thrust{
+  opacity:.78;
+  animation:wmaDownlightPulse .34s ease-in-out infinite alternate;
+}
+.master-drone-test .thrust-left{left:29px;transform:rotate(5deg)}
+.master-drone-test .thrust-right{right:29px;transform:rotate(-5deg)}
+@keyframes wmaDownlightPulse{
+  0%{height:58px;opacity:.48;filter:blur(2.8px) drop-shadow(0 0 4px rgba(225,248,255,.58))}
+  55%{height:70px;opacity:.72;filter:blur(2.3px) drop-shadow(0 0 7px rgba(235,250,255,.78))}
+  100%{height:82px;opacity:.88;filter:blur(2px) drop-shadow(0 0 10px rgba(255,255,255,.88))}
+}
+@media(max-width:650px){
+  .master-drone-test .master-thrust{top:36px;width:11px;height:64px}
+  .master-drone-test .thrust-left{left:30px}.master-drone-test .thrust-right{right:30px}
+}
