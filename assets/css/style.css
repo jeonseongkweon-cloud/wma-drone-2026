@@ -835,3 +835,17 @@
     display:none!important;
   }
 }
+
+
+/* v2.9.20 TEST · MOBILE MASTER DRONE IMAGE RECOVERY — image layer only */
+@media(max-width:650px){
+  .master-drone-test .drone-master-visual{
+    display:block!important;
+    visibility:visible!important;
+    opacity:1!important;
+    width:96px!important;
+    height:auto!important;
+    max-width:none!important;
+    z-index:15!important;
+  }
+}
