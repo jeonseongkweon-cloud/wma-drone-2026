@@ -62,14 +62,27 @@
 .high-altitude-arena-mode .player-name-hud{display:block}.player-name-hud small{display:block;color:#72b9dc;font-size:7px;font-weight:900;letter-spacing:.13em;margin-bottom:2px}.player-name-hud b{display:block;color:#e9fbff;font-size:14px;font-weight:900;letter-spacing:.06em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-shadow:0 0 8px rgba(35,207,255,.35)}
 @media(max-width:1000px){.player-name-hud{right:7px;bottom:55px;min-width:120px;max-width:210px;padding:5px 7px}.player-name-hud b{font-size:12px}}
 @media(max-width:650px){.player-name-hud{right:5px;bottom:42px;min-width:100px;max-width:160px;padding:4px 6px}.player-name-hud small{font-size:6px}.player-name-hud b{font-size:10px}}
+</style><style>
+/* v2.9.18 · TABLET CONTROL opt-in — existing PC/mobile UI preserved */
+.tablet-entry-btn{margin-top:10px;border-color:#22d5ff!important;color:#dffbff!important;background:linear-gradient(180deg,#063a55,#031a2b)!important}
+.tablet-entry-btn small{color:#7fe8ff!important}
+.tablet-controls{display:none}
+body.tablet-control-mode .control-deck{display:none!important}
+body.tablet-control-mode .tablet-controls{position:fixed;left:0;right:0;bottom:8px;z-index:80;display:flex;justify-content:space-between;align-items:flex-end;padding:0 18px;pointer-events:none;touch-action:none}
+.tablet-pad{display:grid;grid-template-columns:repeat(3,58px);grid-template-rows:repeat(3,58px);gap:5px;pointer-events:auto}
+.tablet-pad button,.tablet-actions button{border:1px solid #28cfff;border-radius:12px;background:rgba(0,16,35,.88);color:#fff;font-weight:900;font-size:16px;box-shadow:0 0 12px rgba(0,198,255,.22);touch-action:none;user-select:none;-webkit-user-select:none}
+.tablet-pad .blank{visibility:hidden}.tablet-pad .wide{font-size:11px}
+.tablet-actions{display:grid;grid-template-columns:72px 72px;gap:7px;pointer-events:auto}
+.tablet-actions button{height:58px;font-size:11px}.tablet-actions .takeoff{grid-column:1/3;border-color:#ffd24a;color:#ffd24a;font-size:13px}
+@media(max-width:700px){body.tablet-control-mode .tablet-controls{padding:0 7px}.tablet-pad{grid-template-columns:repeat(3,46px);grid-template-rows:repeat(3,46px);gap:3px}.tablet-actions{grid-template-columns:58px 58px}.tablet-actions button{height:46px}}
 </style></head>
 <body><main class="shell" data-arena="classic">
-<section id="home" class="screen active"><div class="home-build-version">DIGITAL ARENA · v2.9.17 TEST</div>
+<section id="home" class="screen active"><div class="home-build-version">DIGITAL ARENA · v2.9.18 TEST</div>
   <div class="eyebrow">WORLD MARTIAL ARTS CHAMPIONSHIP 2026</div>
   <h1>WMA <span>JUNIOR DRONE MISSION</span></h1>
   <p class="sub">DIGITAL MARTIAL ARTS CHALLENGE · ELEMENTARY DIVISION</p>
   <div class="date">WORLD FINAL · 2026.12.12 SAT</div>
-<div class="arena-selector" aria-label="Arena selection"><button type="button" class="arena-choice selected" data-arena-choice="classic"><b>PART 1 · CLASSIC ARENA</b><small>v2.7.5 안전 보존 경기장</small></button><button type="button" class="arena-choice" data-arena-choice="air"><b>PART 2 · AIR ARENA</b><small>v2.8.0 · 중고도 공중 경기장</small></button><button type="button" class="arena-choice" data-arena-choice="high"><b>PART 3 · HIGH ALTITUDE</b><small>v2.9.17 TEST · 초고도 공중 경기장</small></button></div>
+<div class="arena-selector" aria-label="Arena selection"><button type="button" class="arena-choice selected" data-arena-choice="classic"><b>PART 1 · CLASSIC ARENA</b><small>v2.7.5 안전 보존 경기장</small></button><button type="button" class="arena-choice" data-arena-choice="air"><b>PART 2 · AIR ARENA</b><small>v2.8.0 · 중고도 공중 경기장</small></button><button type="button" class="arena-choice" data-arena-choice="high"><b>PART 3 · HIGH ALTITUDE</b><small>v2.9.18 TEST · 초고도 공중 경기장</small></button></div>
   <div class="actions">
     <button data-go="practice">PRACTICE<small>자유연습</small></button>
     <button class="gold" data-go="entry">PLAYER PRACTICE<small>이름으로 입장</small></button>
@@ -81,11 +94,11 @@
 </section>
 <section id="practice" class="screen"><button class="back" data-go="home">← HOME</button><div class="arena-selection-status" data-arena-status>PART 1 · CLASSIC ARENA</div><h2>PRACTICE ARENA</h2><p>WMA 공식 코스를 자유롭게 연습합니다. 연습모드에는 비행 보조가 적용됩니다.</p><button class="gold wide" data-go="arena" data-mode="practice">START PRACTICE</button></section>
 
-<section id="entry" class="screen"><button class="back" data-go="home">← HOME</button><div class="arena-selection-status" data-arena-status>PART 1 · CLASSIC ARENA</div><div class="entry-build-version">DIGITAL ARENA · v2.9.17 TEST</div><h2>PLAYER PRACTICE</h2><p>계명태권도 · WMA JUNIOR DRONE MISSION 2026</p><div class="panel entry-panel"><label for="playerNumber">내 이름</label><input id="playerNumber" maxlength="30" autocomplete="off" placeholder="예: 김우리"><small>계명태권도에 등록된 자기 이름만 입력하고 Enter를 누르세요.</small><p id="entryStatus" class="entry-status" aria-live="polite"></p><button id="startOfficial" class="gold wide">START PRACTICE</button><div class="idp-partner entry-idp"><img src="assets/img/partners/idp-official.png" alt="IDP"><span>OFFICIAL DRONE PARTNER · IDP<small>INTERNATIONAL DRONE PATROL</small></span></div></div></section>
+<section id="entry" class="screen"><button class="back" data-go="home">← HOME</button><div class="arena-selection-status" data-arena-status>PART 1 · CLASSIC ARENA</div><div class="entry-build-version">DIGITAL ARENA · v2.9.18 TEST</div><h2>PLAYER PRACTICE</h2><p>계명태권도 · WMA JUNIOR DRONE MISSION 2026</p><div class="panel entry-panel"><label for="playerNumber">내 이름</label><input id="playerNumber" maxlength="30" autocomplete="off" placeholder="예: 김우리"><small>계명태권도에 등록된 자기 이름만 입력하고 Enter를 누르세요.</small><p id="entryStatus" class="entry-status" aria-live="polite"></p><button id="startOfficial" class="gold wide">START PRACTICE</button><button id="startTablet" type="button" class="wide tablet-entry-btn">TABLET CONTROL<small>갤럭시 탭 · 아이패드 터치 조종</small></button><div class="idp-partner entry-idp"><img src="assets/img/partners/idp-official.png" alt="IDP"><span>OFFICIAL DRONE PARTNER · IDP<small>INTERNATIONAL DRONE PATROL</small></span></div></div></section>
 <section id="record" class="screen"><button class="back" data-go="home">← HOME</button><h2>MY RECORD</h2><div class="panel"><b>PRACTICE RECORD</b><p>계명태권도 등록선수는 이름으로 입장하면 연습 횟수와 MY BEST 기록을 확인할 수 있습니다.</p></div></section>
 <section id="arena" class="screen arena">
   <button class="back arena-exit" data-go="home">← EXIT</button>
-  <div class="arena-brand"><b>WMA 2026</b><span id="modeLabel">CHAMPIONSHIP ARENA</span><em class="build-version">DIGITAL ARENA · v2.9.17 TEST</em></div>
+  <div class="arena-brand"><b>WMA 2026</b><span id="modeLabel">CHAMPIONSHIP ARENA</span><em class="build-version">DIGITAL ARENA · v2.9.18 TEST</em></div>
   <div class="hud"><b>ALT <span id="alt">0.0</span>m</b><b>SPD <span id="spd">0.0</span></b><b>DIST <span id="dist">0.0</span>m</b><b>SCORE <span id="score">0000</span></b><b>TIME <span id="time">03:00</span></b><b>MISSION <span id="stage">READY</span></b></div>
   <div class="arena-layout"><aside class="mission-board"><div class="panel-title">MISSION CHECKLIST</div><ol id="missionList"><li>TAKE OFF</li><li>CLIMB 5m</li><li>GATE 01</li><li>GATE 02</li><li>ENERGY RING</li><li>GATE 03</li><li>MISSION ZONE</li><li>TURN 180°</li><li>RETURN HOME</li><li>PRECISION LANDING</li></ol></aside><div id="flightArea" class="sky">
     <div class="master-stadium-bg" aria-hidden="true"></div>
@@ -111,7 +124,9 @@
     <div class="player-name-hud" id="playerNameHud"><small>PLAYER / 선수명</small><b id="arenaPlayerName">PLAYER</b></div><div class="idp-partner arena-idp"><img src="assets/img/partners/idp-official.png" alt="IDP"><span>OFFICIAL DRONE PARTNER · IDP</span></div><div id="flash" class="flash"></div><div id="warning" class="warning"></div><div id="targetNav" class="target-nav"><b>TARGET</b><span id="targetDistance">--</span><span class="nav-arrow">▲</span></div><div id="countdown" class="countdown-overlay"><b>3</b></div>
   </div><aside class="course-board"><div class="panel-title">OFFICIAL COURSE</div><div class="mini-course"><i class="mini home-dot">H</i><i class="mini m1">1</i><i class="mini m2">2</i><i class="mini mr">R</i><i class="mini m3">3</i><i class="mini mz">M</i><svg viewBox="0 0 100 160" preserveAspectRatio="none"><path d="M50 145 L50 112 L28 86 L50 66 L72 43 L50 18" /><path class="return-route" d="M50 18 C82 50 82 112 50 145" /></svg></div><div class="course-legend"><b>WMA 2026</b><span>FIXED OFFICIAL COURSE</span></div></aside></div>
   <div class="mission"><strong id="mission">MISSION 01 · TAKE OFF</strong><span id="guide">SPACE 이륙 · W/S 전후 · A/D 좌우 · ←/→ 회전 · ↑/↓ 고도 · R 재시작</span></div>
-  <div class="control-deck"><div class="control-hint">FLIGHT CONTROL</div><div class="controls"><button data-code="KeyA">A</button><button data-code="KeyW">W</button><button data-code="KeyD">D</button><button data-code="ArrowLeft">↶</button><button data-code="KeyS">S</button><button data-code="ArrowDown">↓</button><button data-code="ArrowRight">↷</button><button data-code="ArrowUp">↑</button><button class="space" data-code="Space">SPACE</button><button data-code="KeyR">RESET</button></div></div>
+  <div class="control-deck"><div class="control-hint">FLIGHT CONTROL</div><div class="controls"><button data-code="KeyA">A</button><button data-code="KeyW">W</button><button data-code="KeyD">D</button><button data-code="ArrowLeft">↶</button><button data-code="KeyS">S</button><button data-code="ArrowDown">↓</button><button data-code="ArrowRight">↷</button><button data-code="ArrowUp">↑</button><button class="space" data-code="Space">SPACE</button><button data-code="KeyR">RESET</button></div></div><div class="tablet-controls" id="tabletControls" aria-label="태블릿 터치 조종">
+<div class="tablet-pad"><span class="blank"></span><button data-code="KeyW">▲<br><small>전진</small></button><span class="blank"></span><button data-code="KeyA">◀<br><small>좌</small></button><button data-code="KeyS">▼<br><small>후진</small></button><button data-code="KeyD">▶<br><small>우</small></button><span class="blank"></span><span class="blank"></span><span class="blank"></span></div>
+<div class="tablet-actions"><button data-code="ArrowUp">상승 ↑</button><button data-code="ArrowDown">하강 ↓</button><button data-code="ArrowLeft">↶ 회전</button><button data-code="ArrowRight">회전 ↷</button><button class="takeoff" data-code="Space">이륙 / 착륙</button><button data-code="KeyR">RESET</button></div></div>
 </section>
 <div id="result" class="modal"><div><p>WMA JUNIOR DRONE MISSION 2026</p><h2>MISSION COMPLETE</h2><strong id="finalScore">000 / 1000</strong><p id="finalMeta"></p><p id="finalPlayer" class="final-player"></p><div class="result-breakdown"><span>MISSION SCORE</span><b id="missionScore">000</b><span>LANDING</span><b id="landingScore">000</b><span>TIME BONUS</span><b id="timeBonus">000</b></div><div class="idp-partner result-idp"><img src="assets/img/partners/idp-official.png" alt="IDP"><span>OFFICIAL DRONE PARTNER · IDP</span></div><button id="retry" class="gold">RETRY</button><button data-go="home">RETURN HOME</button></div></div>
 </main><script src="assets/js/app.js"></script><script>
@@ -126,7 +141,7 @@
   document.body.classList.toggle('high-altitude-arena-mode',high);
   document.body.classList.toggle('classic-arena-mode',!air);
   choices.forEach(btn=>btn.classList.toggle('selected',btn.dataset.arenaChoice===selected));
-  statuses.forEach(el=>el.textContent=high?'PART 3 · HIGH ALTITUDE · v2.9.17 TEST':air?'PART 2 · AIR ARENA · v2.8.0':'PART 1 · CLASSIC ARENA · v2.7.5 SAFE');
+  statuses.forEach(el=>el.textContent=high?'PART 3 · HIGH ALTITUDE · v2.9.18 TEST':air?'PART 2 · AIR ARENA · v2.8.0':'PART 1 · CLASSIC ARENA · v2.7.5 SAFE');
   if(arena)arena.dataset.arena=selected;
   try{sessionStorage.setItem('wmaArenaChoice',selected)}catch(e){}
  }
