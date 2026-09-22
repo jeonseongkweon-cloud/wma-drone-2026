@@ -779,3 +779,11 @@
   .master-drone-test .master-thrust{top:36px;width:11px;height:64px}
   .master-drone-test .thrust-left{left:30px}.master-drone-test .thrust-right{right:30px}
 }
+
+
+/* v2.9.5 · PART 1 ARENA CLUTTER CLEANUP — visual only */
+/* Remove the four floating mode/course chips that obstruct mission objects. */
+#practice .match-status{display:none!important}
+/* Remove the two floor advertising rails only. */
+#practice .decor-rail.dr-left,
+#practice .decor-rail.dr-right{display:none!important}
