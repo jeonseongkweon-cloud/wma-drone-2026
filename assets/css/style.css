@@ -410,11 +410,11 @@
 .classic-arena-mode .pad.official-object{left:50%;top:auto;bottom:-14px;width:178px;height:178px;transform:translateX(-50%) rotateX(61deg) scale(.94)}
 .classic-arena-mode .pad.official-object:before,.classic-arena-mode .pad.official-object:after{content:none!important;display:none!important}
 .classic-arena-mode .pad.official-object>img{filter:drop-shadow(0 7px 6px rgba(0,0,0,.48)) drop-shadow(0 0 8px rgba(0,191,255,.42))}
-.classic-arena-mode .master-drone-test .drone-master-visual{width:106px;top:43%;transform:translate(-50%,-50%) rotateY(calc(-1 * var(--heading,0deg))) perspective(230px) rotateX(31deg) scaleY(.82)}
+.classic-arena-mode .master-drone-test .drone-master-visual{width:85px;top:43%;transform:translate(-50%,-50%) rotateY(calc(-1 * var(--heading,0deg))) perspective(230px) rotateX(31deg) scaleY(.82)}
 .classic-arena-mode .master-drone-test .master-thrust{top:44px;width:9px;height:58px;filter:blur(3px)}
 .classic-arena-mode .master-drone-test.flying:after{content:none!important;display:none!important}
 @media(max-width:650px){
- .classic-arena-mode .master-drone-test .drone-master-visual{width:96px}
+ .classic-arena-mode .master-drone-test .drone-master-visual{width:77px}
  .classic-arena-mode .pad.official-object{width:164px;height:164px;bottom:-14px}
 }
 
